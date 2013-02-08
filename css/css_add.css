@@ -1,0 +1,154 @@
+#sideLeft a {
+	display:block;
+	padding:10px;
+	text-align: right;
+}
+#preview_page{
+  display:none;
+}
+/* table
+-----------------------------------------------------------------------------*/
+/*td input:not(#army),td input:not(.inp){
+	width:98%;
+}
+td input:not(.tab){
+	margin:3px;
+}*/
+#form1,#form2{
+  margin:0 15% 0;
+}
+#sex{
+	width:98%;
+}
+#n{
+	color:#c60000;
+}
+#institution,#specialty,#institute_post,#PIB,
+.institution,.specialty,.institute_post,.PIB{
+  width:400px;
+  height:20px;
+}
+#year_ending_post,#year_ending,#year_birthday,
+.year_ending_post,.year_ending,.year_birthday{
+  width:90px;
+  height:20px;
+}
+#diploma,#qvalify,#acad_degree,#family_degree,
+.diploma,.qvalify,.acad_degree,.family_degree{
+  width:150px;
+  height:20px;
+}
+#educational_form,.educational_form{
+  width:90px;
+  height:24px;
+}
+
+#education{
+  width:100%;
+}
+#last_name,#first_name,#patronymic,#day_birth,#month_birth,#year_birth,#citizen,
+#INN,#sex,#pasport_series,#pasport_number,#pasport_issued,#date,
+#last_job,#job_degree,#leave,#pension,#family{
+	margin-top:4px;
+}
+#day_birth{
+	width:31px;
+}
+#month_birth{
+	width:71px;
+}
+#year_birth{
+	width:39px;
+}
+#pasport_series{
+	width:41px;
+}
+#pasport_number{
+	width:91px;
+}
+
+#border1 td span{
+	display:block;
+	text-align:right;
+	width:250px;
+}
+.button{
+	display:block;
+	margin:0 auto;
+	padding:5px;
+}
+#border1 .table{
+margin:0 auto 0;
+	background-color:#f6f6f6;
+	padding:0;
+    border-collapse:collapse;
+	
+}
+#border1 .table td{
+	border:1px solid black;
+	padding:0;
+}
+#content_	p {
+	font-size:14px;
+	padding:10px 0 0 0;
+	color:#5f6162;
+}
+#content {
+	padding: 50px 30px 100px 270px;
+	min-height: 300px;
+}
+/* punkt
+-----------------------------------------------------------------------------*/
+#punkt1{
+	display:block;
+}
+#punkt2{
+	display:none;
+}
+#punkt3{
+	display:none;
+}
+#punkt4{
+	display:none;
+}
+#punkt5{
+	display:none;
+}	
+#zagal_vidom{
+		background-color:#4a7bb5;
+}	
+#zagal_vidom:hover{
+		background-color:#4a7bb5;
+}
+#edu{
+		background-color:#73a5e7;
+}	
+#edu:hover{
+	background-color:#4a7bb5;
+}
+#post_edu{
+		background-color:#73a5e7;
+}	
+#post_edu:hover{
+	background-color:#4a7bb5;	
+}
+#work_fam{
+		background-color:#73a5e7;
+}	
+#work_fam:hover{
+		background-color:#4a7bb5;	
+}
+#place{
+		background-color:#73a5e7;
+}	
+#place:hover{
+		background-color:#4a7bb5;	
+}
+
+
+#preview{
+  padding:10px 100px;
+  color: #0e7700;
+    font-family:Verdana;
+  font-weight: bold;
+}
