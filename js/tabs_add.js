@@ -83,6 +83,5 @@ function menu_add(){
       document.getElementById("punkt5").style.display = "none";
       document.getElementById("preview_page").style.display="none";
       document.getElementById("save").disabled = true;
-      mainController.render_model();
     }
 }

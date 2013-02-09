@@ -151,15 +151,17 @@ function EducationController(education_model, post_education_model){
     } else {
       education_table.tBodies[0].innerHTML = html[0];
       education_table2.tBodies[0].innerHTML = html[1];  
+      self_education.init();
     }
   }
 
   this.renderPostEducation = function() {
     var preview = preview_page.style.display === "block";
     if (preview) {
-      post_education_table_preview.tBodies[0].innerHTML = post_education_model.toHtml();
+      //post_education_table_preview.tBodies[0].innerHTML = post_education_model.toHtml();
     } else {
       post_education_table.tBodies[0].innerHTML = post_education_model.toHtml();
+      self_education.init();
     } 
     
   }

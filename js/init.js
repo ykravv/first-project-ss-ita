@@ -12,8 +12,15 @@ init = function() {
   post_edu.addEventListener("click", function(){ mainController.saveTabDataToCard(3) ;}, false);
 	work_fam.addEventListener("click", function(){ mainController.saveTabDataToCard(4) ;}, false);
 	place.addEventListener("click", function(){ mainController.saveTabDataToCard(5) ;}, false);
+  
+  zagal_vidom.addEventListener("click", function(){ mainController.loadTabDataFromCard(1) ;} , false);
+  edu.addEventListener("click", function(){ mainController.loadTabDataFromCard(2) ;}, false);
+  post_edu.addEventListener("click", function(){ mainController.loadTabDataFromCard(3) ;}, false);
+  work_fam.addEventListener("click", function(){ mainController.loadTabDataFromCard(4) ;}, false);
+	place.addEventListener("click", function(){ mainController.loadTabDataFromCard(5) ;}, false);
+  
   preview.addEventListener("click", mainController.render_preview, false);
-  edit.addEventListener("click", mainController.render_model, false);
+  edit.addEventListener("click", function(){ mainController.loadTabDataFromCard(1) ;} , false);
 }
 
 window.onload = function() {

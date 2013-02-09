@@ -60,9 +60,11 @@ function FamilyController(family_model) {
   this.renderFamily = function() {
     var preview = preview_page.style.display === "block";
     if (preview) {
-      family_table_preview.tBodies[0].innerHTML = family_model.toHtml();
+      //family_table_preview.tBodies[0].innerHTML = family_model.toHtml();
     } else {
+      
       family_table.tBodies[0].innerHTML = family_model.toHtml();
+      self_family.init();
     } 
     
   }
