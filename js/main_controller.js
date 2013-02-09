@@ -1,11 +1,16 @@
 function MainController() {
 
   var card = new Card();
-  var controller_education = new Education_controller(card.getValue("education_model"));
-  var controller_family = new Family_controller(card.getValue("family_model"));
+  var controller_education = new EducationController(card.getValue("education_model"), 
+                                                     card.getValue("post_education_model"));
+  var controller_family = new FamilyController(card.getValue("family_model"));
   var previous_tab = 1;
   var self_controller = this;
 
+  this.getFC = function(){
+    return controller_family;
+  }
+  
   this.init = function () {
     controller_education.init();
     controller_family.init();
@@ -17,8 +22,8 @@ function MainController() {
                           "checkboxes":{ "1":[army],
                                          "3":[aspirant, aduktur, doctor] },
 
-                          "models":{ "2":{ "model":"education_model", "set":1  },
-                                     "3":{ "model":"post_education_model", "set":2 },
+                          "models":{ "2":{ "model":"education_model", "set": controller_education.getEducationModel  },
+                                     "3":{ "model":"post_education_model", "set": controller_education.getPostEducationModel },
                                      "4":{ "model":"family_model", "set":controller_family.getFamilyModel }
                           }
     }
@@ -34,15 +39,15 @@ function MainController() {
         switch (controls) {
           case "inputs" :
             console.log(hash[controls][previous_tab][element].id,
-              hash[controls][previous_tab][element].value);
+                        hash[controls][previous_tab][element].value);
             break;
           case "checkboxes" :
             console.log(hash[controls][previous_tab][element].id,
-              hash[controls][previous_tab][element].checked);
+                        hash[controls][previous_tab][element].checked);
             break;
           case "models" :
             console.log(hash[controls][previous_tab]["model"],
-              hash[controls][previous_tab]["set"]());
+                        hash[controls][previous_tab]["set"]());
             break;
         }
 
@@ -52,6 +57,11 @@ function MainController() {
     previous_tab = current_tab;
   }
 
+
+
+
+
+/* В УТИЛЬ */
   this.render_model = function () {
     var inputs_key = ["r_last_name", "r_first_name", "r_patronymic", "day_birth", "month_birth", "r_year_birth",
       "citizen", "r_INN", "r_sex", "r_pasport_series", "r_pasport_number", "pasport_issued", "date",
@@ -64,14 +74,9 @@ function MainController() {
 
 
     var curr;
-    var controller_education = new Controller_education(card.getValue("education_model") || [
-      [],
-      []
-    ]);
-    var controller_family = new Controller_family(card.getValue("family_model") || []);
-    controller_education.render_education();
-    controller_education.render_post_education();
-    controller_family.render_family();
+  
+   
+    
 
     for (var i = 0; i < inputs.length; i++) {
       curr = card.getValue(inputs_key[i]);
@@ -99,14 +104,6 @@ function MainController() {
       p_education, p_last_job, p_job_degree, p_leave, p_pension, p_family,
       p_partmen, p_pasport_partmen];
 
-    var controller_education = new Education_controller(card.getValue("education_model") || [
-      [],
-      []
-    ]);
-    var controller_family = new Family_controller(card.getValue("family_model") || []);
-    controller_education.render_education();
-    controller_education.render_post_education();
-    controller_family.render_family();
 
     for (var i = 0; i < inputs.length; i++) {
       curr = card.getValue(inputs_key[i]);

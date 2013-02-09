@@ -3,16 +3,18 @@ function Education(model) {
   /* Передаваемый параметр model - модель таблицы в общей модели карточки
   * Это массив хешей, каждый хеш - строка таблицы.  */
   
+  /* Добавление нового элемента модели */
   this.addEducation = function(education) {
     model.push(education);
   }
     
+  /* Возвращает модель в виде объекта */  
   this.getModel = function() {
     return model;
   }
   
+  /* Возвращает модель в виде html-таблицы */
   this.toHtml = function(){
-    /* Формирование таблицы html из модели */
     var html = "";
     
     model.forEach(function(elem, key) {
@@ -26,6 +28,9 @@ function Education(model) {
     return html;
   } 
   
+  /* Расширеный метод для преобразования модели в html-вид 
+  * необходим для того, чтобы разбить модель "Образование" на 
+  * физически две подтаблицы для корректного отображения на Виде */
   
   this.extendedToHtml = function(){
     

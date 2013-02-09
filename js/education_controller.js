@@ -1,28 +1,31 @@
 function EducationController(education_model, post_education_model){
+  education_model = education_model || [];
+  post_education_model = post_education_model || [];
   var self_education = this;
   var education_model = new Education(education_model);
-  var post_model = new Education(post_education_model);
+  var post_education_model = new Education(post_education_model);
   
   this.init = function(){
     
     button_education.disabled = true; 
     button_post_education.disabled = true;
 
-    button_education.addEventListener("click", self_education.add_one_education, false);
-    button_post_education.addEventListener("click", self_education.add_one_post_education, false);
+    button_education.addEventListener("click", self_education.addOneEducation, false);
+    button_post_education.addEventListener("click", self_education.addOnePostEducation, false);
     
     controls_ed = document.getElementsByClassName("controls_education");
     for (var i = 0; i < controls_ed.length; i++){
-       controls_ed[i].onchange = function() { self_education.check_values("table_education"); }
+       controls_ed[i].onchange = function() { self_education.checkValues("table_education"); }
 	  }
 
     controls_post = document.getElementsByClassName("controls_post");
     for (var i = 0; i < controls_post.length; i++){
-       controls_post[i].onchange = function() { self_education.check_values("table_post"); }
+       controls_post[i].onchange = function() { self_education.checkValues("table_post"); }
     }
   }
   
-  this.add_one_education = function(){
+  /* Добавление новой строки в таблицу и модель Образование */
+  this.addOneEducation = function(){
     var tbl1 = education_table;
     var tbl2 = education_table2;
     var newrow_ed = tbl1.insertRow(tbl1.rows.length - 1);
@@ -36,7 +39,7 @@ function EducationController(education_model, post_education_model){
     var education_part1 = ["institute", "diplom", "year"];
     var education_part2 = ["special", "qualify", "education_form"];
     
-    function in_array(val, arr) {
+    function inArray(val, arr) {
       for(var i = 0, l = arr.length; i < l; i++)  {
         if(arr[i] == val) {
             return true;
@@ -45,45 +48,54 @@ function EducationController(education_model, post_education_model){
       return false;
     }
     
-    ed_model.add_education(one_education);
+    education_model.addEducation(one_education);
     
     for (key in one_education) {
-      if (in_array(key, education_part1)) {
+      if (inArray(key, education_part1)) {
         newrow_ed.insertCell(-1).innerHTML = one_education[key];       
       }
       
-      if (in_array(key, education_part2)) {
+      if (inArray(key, education_part2)) {
         newrow_post.insertCell(-1).innerHTML = one_education[key];       
       }
     }
    
-    self_educationucation.clear_fields("table_education");
+    self_education.clearFields("table_education");
   }
 
-
-  this.add_one_post_education = function(){
+  /* Добавление новой строки в таблицу и модель Последипломная подготовка */
+  this.addOnePostEducation = function(){
     var tbl1 = post_education_table;
     var newrow = tbl1.insertRow(tbl1.rows.length - 1);
     var one_education = {"institute_post" : institute_post.value,
                          "year_post" : year_ending_post.value,
                          "degree" : acad_degree.value};
     
-    post_model.add_education(one_education);
+    post_education_model.addEducation(one_education);
     
     for (key in one_education) {
       newrow.insertCell(-1).innerHTML = one_education[key];       
     }
-    self_education.clear_fields("table_post");
+    self_education.clearFields("table_post");
   }
 
+  /* Получение моделей в виде объектов */
+  this.getEducationModel = function(){
+    return education_model.getModel();
+  }
   
+  this.getPostEducationModel = function() {
+    return post_education_model.getModel();
+  }
+  /* */
   
-  this.check_values = function(tabl){
-    switch (tabl) {
+  /* Проверка наличия всех заполненных инпутов перед добавлением в таблицу */ 
+  this.checkValues = function(table){
+    switch (table) {
       case "table_education": {
         if (institution.value && diploma.value && year_ending.value && 
             specialty.value && qvalify.value && educational_form.value ) {
-          button_education.disabled = false;    
+            button_education.disabled = false;    
         } else {
           button_education.disabled = true;    
         }
@@ -103,10 +115,10 @@ function EducationController(education_model, post_education_model){
   }
   
 
-
-  this.clear_fields = function(tabl) {
+  /* Очистка инпутов */
+  this.clearFields = function(table) {
     
-    switch (tabl) {
+    switch (table) {
       case "table_education": {
         inputs_ed = document.getElementsByClassName("controls_education");
         for (var i = 0; i < inputs_ed.length; i++){
@@ -128,10 +140,10 @@ function EducationController(education_model, post_education_model){
     }
   } 
 
-    
-  this.render_education = function() {
+  /* Генерация таблиц из имеющихся моделей */  
+  this.renderEducation = function() {
     var preview = preview_page.style.display === "block";
-    var html = ed_model.extended_to_html();
+    var html = education_model.extendedToHtml();
 
     if (preview) {
       education_table_preview.tBodies[0].innerHTML = html[0];
@@ -142,13 +154,14 @@ function EducationController(education_model, post_education_model){
     }
   }
 
-  this.render_post_education = function() {
+  this.renderPostEducation = function() {
     var preview = preview_page.style.display === "block";
     if (preview) {
-      post_education_table_preview.tBodies[0].innerHTML = post_model.to_html();
+      post_education_table_preview.tBodies[0].innerHTML = post_education_model.toHtml();
     } else {
-      post_education_table.tBodies[0].innerHTML = post_model.to_html();
+      post_education_table.tBodies[0].innerHTML = post_education_model.toHtml();
     } 
     
   }
+  /* */
 }
