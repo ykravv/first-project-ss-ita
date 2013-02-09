@@ -3,11 +3,15 @@ function Education(model) {
   /* Передаваемый параметр model - модель таблицы в общей модели карточки
   * Это массив хешей, каждый хеш - строка таблицы.  */
   
-  this.add_education = function(education) {
+  this.addEducation = function(education) {
     model.push(education);
   }
     
-  this.to_html = function(){
+  this.getModel = function() {
+    return model;
+  }
+  
+  this.toHtml = function(){
     /* Формирование таблицы html из модели */
     var html = "";
     
@@ -23,7 +27,7 @@ function Education(model) {
   } 
   
   
-  this.extended_to_html = function(){
+  this.extendedToHtml = function(){
     
     var html = ["", ""];
     var count = 0;

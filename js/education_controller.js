@@ -1,24 +1,24 @@
-function Education_controller(education_model){
-  var self_ed = this;
-  var ed_model = new Education(education_model[0]);
-  var post_model = new Education(education_model[1]);
+function EducationController(education_model, post_education_model){
+  var self_education = this;
+  var education_model = new Education(education_model);
+  var post_model = new Education(post_education_model);
   
   this.init = function(){
     
     button_education.disabled = true; 
     button_post_education.disabled = true;
 
-    button_education.addEventListener("click", self_ed.add_one_education, false);
-    button_post_education.addEventListener("click", self_ed.add_one_post_education, false);
+    button_education.addEventListener("click", self_education.add_one_education, false);
+    button_post_education.addEventListener("click", self_education.add_one_post_education, false);
     
     controls_ed = document.getElementsByClassName("controls_education");
     for (var i = 0; i < controls_ed.length; i++){
-       controls_ed[i].onchange = function() { self_ed.check_values("table_education"); }
+       controls_ed[i].onchange = function() { self_education.check_values("table_education"); }
 	  }
 
     controls_post = document.getElementsByClassName("controls_post");
     for (var i = 0; i < controls_post.length; i++){
-       controls_post[i].onchange = function() { self_ed.check_values("table_post"); }
+       controls_post[i].onchange = function() { self_education.check_values("table_post"); }
     }
   }
   
@@ -57,7 +57,7 @@ function Education_controller(education_model){
       }
     }
    
-    self_ed.clear_fields("table_education");
+    self_educationucation.clear_fields("table_education");
   }
 
 
@@ -73,7 +73,7 @@ function Education_controller(education_model){
     for (key in one_education) {
       newrow.insertCell(-1).innerHTML = one_education[key];       
     }
-    self_ed.clear_fields("table_post");
+    self_education.clear_fields("table_post");
   }
 
   

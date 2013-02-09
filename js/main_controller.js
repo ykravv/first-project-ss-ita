@@ -1,8 +1,8 @@
 function MainController() {
 
   var card = new Card();
-  var controller_education = new Education_controller(card.getValue("education_model") || [[],[]]);
-  var controller_family = new Family_controller(card.getValue("family_model") || []);
+  var controller_education = new Education_controller(card.getValue("education_model"));
+  var controller_family = new Family_controller(card.getValue("family_model"));
   var previous_tab = 1;
   var self_controller = this;
 
@@ -27,7 +27,7 @@ function MainController() {
 
   this.saveTabDataToCard = function (current_tab) {
 
-    //	var hash = $.parseJSON(input_hash.value);
+    //  var hash = $.parseJSON(input_hash.value);
     var hash = self_controller.hash;
     for (controls in hash) {
       for (element in hash[controls][previous_tab]) {

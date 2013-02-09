@@ -1,4 +1,5 @@
-function Family_controller(family_model){
+function FamilyController(family_model) {
+  family_model = family_model || [];
   var self_family = this;
   var family_model_object = new Family(family_model);
   
