@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<title>Add</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="css/css_add.css" type="text/css" media="screen, projection" />
+  <link rel="stylesheet" href="css/preview.css" type="text/css" media="screen, projection" />
+	<!--[if lte IE 6]><link rel="stylesheet" href="style_ie.css" type="text/css" media="screen, projection" /><![endif]-->
+  <script src="js/education.js"></script>
+  <script src="js/education_controller.js"></script>
+  <script src="js/family.js"></script>
+  <script src="js/family_controller.js"></script>
+  <script src="js/card.js"></script>
+  <script src="js/main_controller.js"></script>
+  
+  
+  <script src="js/menu_add_js.js"></script>
+	<script src="js/init.js"></script> 
+</head>
+
+<body>
+<div id="border1">
+<div id="wrapper">
+
+	<header id="header">
+
+	</header><!-- #header-->
+
+	<section id="middle">
+
+		<div id="container">
+		<input type = "hidden" id = "controls" value = "{"inp":{"1":[last_name,name,patronymic,day_birth,month_birth,year_birth,
+																citizen,INN,sex,pasport_series,pasport_number,pasport_issued,date];
+																"2":[education,institution,diploma,year_ending,specialty,qvalify,educational_form];
+																"3":[institute_post,year_ending_post,acad_degree];
+																"4":[last_job,job_degree,leave,pension,family,family_degree,PIB,year_birthday];
+																"5":[partmen,pasport_partmen];};
+																"check":{"1":[army];"3":[aspirant,aduktur,doctor];}
+																"pic":{"1":[button_photo];}
+																}">
+			<div id="content">
+				<div id="menu">
+					<ul>
+					<li><a id="current">Додати карту</a>
+					<li><a href="search.html">Пошук</a>
+					</ul>
+				</div>
+				
+				
+				<div id="punkt1">
+				<table id="form1">
+					<tr>
+						<td><span>Прізвище</span></td>
+						<td><input type="text" id="last_name"></td>
+					</tr>
+					<tr>
+						<td><span>Ім'я</span></td>
+						<td><input type="text" id="first_name"></td>
+					</tr>
+					<tr>
+						<td><span>Побатькові</span></td>
+						<td><input type="text" id="patronymic"></td>
+					</tr>
+					<tr>
+						<td><span>Дата народження</span></td>
+						<td><input type="text" id="day_birth">
+							<input type="text" id="month_birth">
+							<input type="text" id="year_birth">
+						</td>
+					</tr>
+					<tr>
+						<td><span>Громадянство</span></td>
+						<td><input type="text" id="citizen"></td>
+					</tr>
+					<tr>
+						<td><span>ІНН</span></td>
+						<td><input type="text" id="INN"></td>
+					</tr>
+					<tr>
+						<td><span>Стать</span></td>
+						<td>
+							<select id="sex">
+								<option></option>
+								<option>Жіноча</option>
+								<option>Чоловіча</option>
+							<select>
+						</td>
+					</tr>
+					<tr>
+						<td><span>Паспорт: серія</span></td>
+						<td><input type="text" id="pasport_series">
+						№<input type="text" id="pasport_number"></td>
+					</tr>
+					<tr>
+						<td><span>виданий</span></td>
+						<td><input type="text" id="pasport_issued"></td>
+					</tr>
+					<tr>
+						<td><span>Дата</span></td>
+						<td><input type="text" id="date"></td>
+					</tr>
+					<tr>
+						<td><span>Військовозобов'язаний</span></td><td><input type="checkbox" id="army"></td>
+					</tr>				
+				</table>
+				</br>
+				<input type="button" value="Обрати фото" id="button_photo" class="button"></br></br>
+				</div>
+				
+				
+				<div id="punkt2">
+				<span>Освіта (базова загальна середня, повна загальна середня, професійно-технічна, неповна вища, базова вища, повна вища)</span>
+				<input type="text" id="education" /></br></br>
+				<div id="education_container">
+					<table class="table" id="education_table">
+          <thead>
+						<tr>
+							<th class="institution">Назва освітнього закладу</th><th class="diploma">Диплом (свідоцтво) Серія,номер</th><th class="year_ending">Рік закінчення</th>
+						</tr>
+          </thead>
+					<tbody>
+					</tbody>
+          <tbody>
+          <tr>
+							<td><input class="controls_education" type="text" id="institution"></td> 
+							<td><input class="controls_education" type="text" id="diploma"></td>
+							<td><input class="controls_education" type="text" id="year_ending"></td>
+						</tr>
+          </tbody>
+					</table>
+					<table class="table" id="education_table2">
+						<thead>
+            <tr>
+			  				<th class="specialty">Спеціальність</th><th class="qvalify">Кваліфікація</th><th class="educational_form">Форма навчання</th>
+						</tr>
+            </thead>
+    				<tbody>
+  					</tbody>
+            <tbody>
+						<tr>
+							<td><input class="controls_education" type="text" id="specialty"></td>
+							<td><input class="controls_education" type="text" id="qvalify"></td>
+							<td>
+								<select class="controls_education" id="educational_form">
+									<option></option>
+									<option>Денна</option>
+									<option>Заочна</option>
+									<option>Вечірня</option>
+								<select>
+							</td>
+						</tr>
+            </tbody>
+					</table>
+				</div>
+				</br>
+				<input type="button" value="Додати запис" id="button_education" class="button"></br></br>
+				</div>
+				
+				
+				<div id="punkt3">
+				<span>Післядипломна професійна підготовка: навчання в</span>
+				<span>аспірантурі </span><input type="checkbox" id="aspirant">
+				<span>, ад'юнктурі </span><input type="checkbox" id="aduktur">
+				<span>, докторантурі </span><input type="checkbox" id="doctor">
+				</br></br>
+				<div id="post_education_container">
+					<table class="table" id="post_education_table">
+						<thead>
+            <tr>
+							<th class="institute_post">Назва освітнього закладу</th><th class="year_ending_post">Рік закінчення</th><th class="acad_degree">Наукова ступінь</th>
+						</tr>
+            </thead>
+    				<tbody>
+    				</tbody>
+            <tbody>
+						<tr>
+							<td><input class="controls_post" type="text" id="institute_post"></td>
+							<td><input class="controls_post" type="text" id="year_ending_post"></td>
+							<td><input class="controls_post" type="text" id="acad_degree"></td>
+						</tr>
+            </tbody>
+					</table>
+				</div>
+				</br>
+				<input type="button" value="Додати запис" id="button_post_education"  class="button"></br></br>
+				</div>
+				
+				
+				<div id="punkt4">
+				<table id="form2">
+					<tr>
+						<td><span>Останнє місце роботи</span></td>
+						<td><input type="text" id="last_job"></td></td>
+					</tr>
+					<tr>
+						<td><span>Посада (професія)</span></td>
+						<td><input type="text" id="job_degree"></td></td>
+					</tr>				
+					<tr>
+						<td><span>Дата та причини звільнення</span></td>
+						<td><input type="text" id="leave"></td></td>
+					</tr>
+					<tr>
+						<td><span>Відомості про отримання пенсії</span></td>
+						<td><input type="text" id="pension"></td></td>
+					</tr>			
+					<tr>
+						<td><span>Родинний стан</span></td>
+						<td><input type="text" id="family"></td></td>
+					</tr>					
+				</table>
+				</br>
+				<div id="family_container">
+					<table class="table" id="family_table">
+            <thead>
+            <tr>
+							<th class="family_degree">Ступінь родинного звязку</th><th class="PIB">П.І.Б.</th><th class="year_birthday">Рік народження</th>
+						</tr>
+            </thead>
+  				<tbody>
+					</tbody>
+          <tbody>
+						<tr>
+							<td><input class="controls_family" type="text" id="family_degree"></td>
+							<td><input class="controls_family" type="text" id="PIB"></td>
+							<td><input class="controls_family" type="text" id="year_birthday"></td>
+						</tr>
+            </tbody>
+					</table>
+				</div>
+				</br>
+				<input type="button" value="Додати запис" id="button_family"  class="button"></br></br>
+				</div>
+				
+				
+				
+				<div id="punkt5">
+				<table>
+					<tr>
+						<td><span>Місце фактичного проживання (область, місто, район, вулиця, №будинку, квартири індекс)</span></td>
+						<td><textarea rows="4" cols="55" id="partmen"></textarea></td>
+					</tr>	
+					<tr>
+						<td><span>Місце проживання за реєстрацією</span></td>
+						<td><textarea rows="4" cols="55" id="pasport_partmen"></textarea></td>
+					</tr>
+				</table>
+				</br>
+				<input type="button" id="preview" value="Переглянути заповнену картку"  class="button"></br></br>
+				</div>
+			        
+        
+			</div><!-- #content-->
+		</div><!-- #container-->
+
+		<aside id="sideLeft">
+			<a id="zagal_vidom">Загальні відомості</a></br>
+			<a id="edu">Освіта</a></br>
+			<a id="post_edu">Післядипломна освіта</a></br>
+			<a id="work_fam">Робота і родина</a></br>
+			<a id="place">Місце проживання</a>
+		</aside><!-- #sideLeft -->
+
+	</section><!-- #middle-->
+
+</div><!-- #wrapper -->
+      
+        
+        
+<footer id="footer">
+	<p id="foot">© 2013 FirstProject, Sparta team </p>
+</footer><!-- #footer -->
+</div><!-- #border1 -->
+        
+        
+        
+        <div id="preview_page">
+          <div id="table_wraper">
+<table id="outer">
+  <tr>
+    <td class="first">&nbsp;</td>
+    <td><h3>Міністерство не дуже важкої промисловості</h3></td>
+    <td class="third">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td><h2>Типова форма</h2></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>Затверджено наказом Держкомстату та Міністерства оборони України 25.12.2009 
+      р.</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><table id="inner1" class="input">
+      <thead><tr>
+        <td> Дата заповнення</td>
+        <td> Табельний номер</td>
+        <td> Індивідуальний ідентифікаційний номер</td>
+        <td> Стать (чоловіча, жіноча)</td></tr>
+        </thead>
+      <tbody></tbody>
+      </table>
+      <div id="p_photo" class="output">місце для<br>
+      фотокартки </div></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><h2>Особова картка працівника</h2></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><h4>Загальні відомості</h4></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>1. 
+      Прізвище<span id="p_last_name" class="output"></span>
+         Ім’я<span id="p_first_name" class="output"></span>
+        
+      По батькові<span id="p_patronymic" class="output"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>2. Дата народження &quot;<span id="p_day_birth" class="output"></span>&quot;
+    <span  id="p_month_birth" class="output"></span><span  id="p_year_birth" class="output"></span>р. 3. Громадянство<span id="p_citizen" class="output"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>4. Освіта (базова загальна середня, повна загальна середня, професійно-технічна, 
+    неповна вища, базова вища, повна вища)<span id="p_education" class="output"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td><table id="education_table_preview" class="input">
+    <thead>
+      <tr>
+        <td>Назва освітнього закладу</td>
+        <td>Диплом (свідоцтво), серія, 
+          номер</td>
+        <td>Рік закінчення</td>
+      </tr>
+</thead>
+      <tbody></tbody>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td><table id="education_table2_preview" class=input>
+      <thead>
+        <tr> 
+          <td> Спеціальність (професія) за дипломом 
+            (свідоцтвом)</td>
+          <td> Кваліфікація за дипломом (свідоцтвом)</td>
+          <td>Форма навчання(денна, вечірня, 
+            заочна)</td>
+        </tr>
+      </thead>
+        <tbody></tbody>
+    </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>5. Післядипломна професійна підготовка: навчання в 
+           <label>
+          <input type="checkbox" name="prof_edu" value="checkbox" id="p_aspirant">
+          аспірантурі</label>
+      
+        <label>
+          <input type="checkbox" name="prof_edu" value="checkbox" id="p_aduktur">
+          ад’юнктурі </label>
+       
+        <label>
+          <input type="checkbox" name="prof_edu" value="checkbox" id="p_doctor">
+          докторантурі</label>
+      (необхідне відмітити)</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td><table id="post_education_table_preview" class="input">
+        <thead>
+        <tr> 
+          <td>Назва освітнього, наукового закладу</td>
+          <td>Рік закінчення</td>
+          <td>Науковий ступінь, учене звання</td>
+        </tr>
+        </thead>
+<tbody></tbody>
+      </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>6. Останнє місце роботи<span id="p_last_job" class="output"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>7. Посада (професія)<span  id="p_job_degree" class="output"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>8. Дата та причина звільнення (скорочення штатів; за власним бажанням, 
+      за прогул та інші порушення, невідповідність займаній посаді тощо)<br>
+      <span id="p_leave" class="output"></span>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>9. Відомості про отримання пенсії<span id="p_pension" class="output"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>10. Родинний стан<span id="p_family" class="output"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td><table id="family_table_preview"class="input"><thead>
+        <tr> 
+          <td>Ступінь 
+              родинного зв’язку (склад сім'ї)</td>
+          <td>ПІБ</td>
+          <td>Рік 
+              народження</td>
+        </tr></thead>
+        <tbody></tbody>
+      </table></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>11. Місце фактичного проживання (область, місто, район, вулиця, 
+      № будинку, квартири, номер контактного телефону, поштовий індекс)<span id="p_partmen" class="output"></span>
+     </td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>12. Місце проживання за державною реєстрацією<span id="p_pasport_partmen" class="output"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>Паспорт: серія<span id="p_pasport_series" class="output"></span>№<span id="p_pasport_number" class="output"></span>, ким виданий<span id="p_pasport_issued" class="output"></span>
+, 
+      дата видачі<span id="p_date" class="output"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr> 
+    <td>&nbsp;</td>
+    <td>ІІ. Відомості про війсковий облік <span id="p_army" class="output"></span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>(війсковообов’язний,невійсковообов’язний)</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</div>
+<input type="button" id="edit" value="Редагувати">
+<input type="button" id="save" value="Зберегти">
+        </div>
+</body>
+</html>

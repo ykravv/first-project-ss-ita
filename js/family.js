@@ -1,10 +1,14 @@
 function Family(model) {
     
-  this.add_relative = function(relative) {
+  this.addRelative = function(relative) {
     model.push(relative);
   }
+  
+  this.getModel = function() {
+    return model;
+  }
     
-  this.to_html = function(){
+  this.toHtml = function(){
     var html = "";
     
     model.forEach(function(elem, key) {
