@@ -73,10 +73,10 @@ function MainController() {
       for (element in hash[controls][current_tab]) {
         switch (controls) {
           case "inputs" :
-            hash[controls][current_tab][element].value = card.getValue(hash[controls][previous_tab][element].id) || "";
+            hash[controls][current_tab][element].value = card.getValue(hash[controls][current_tab][element].id) || "";
             break;
           case "checkboxes" :
-            hash[controls][current_tab][element].checked = card.getValue(hash[controls][previous_tab][element].id) || "";
+            hash[controls][current_tab][element].checked = card.getValue(hash[controls][current_tab][element].id) || "";
             break;
           case "models" :
             //card.getValue(hash[controls][current_tab]["model"]); // TODP
