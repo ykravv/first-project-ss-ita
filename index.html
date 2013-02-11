@@ -18,7 +18,7 @@
   <script src="js/main_controller.js"></script>
   
   
-  <script src="js/menu_add.js"></script>
+  <script src="js/tabs_add.js"></script>
 	<script src="js/init.js"></script> 
 </head>
 
@@ -33,17 +33,7 @@
 	<section id="middle">
 
 		<div id="container">
-		<input type = "hidden" id = "controls" value = "{"inp":{"1":[last_name,name,patronymic,day_birth,month_birth,year_birth,
-																citizen,INN,sex,pasport_series,pasport_number,pasport_issued,date];
-																"2":[education,institution,diploma,year_ending,specialty,qvalify,educational_form];
-																"3":[institute_post,year_ending_post,acad_degree];
-																"4":[last_job,job_degree,leave,pension,family,family_degree,PIB,year_birthday];
-																"5":[partmen,pasport_partmen];};
-																"check":{"1":[army];"3":[aspirant,aduktur,doctor];}
-																"pic":{"1":[button_photo];}
-																}">
-			<div id="content">
-        <input type = "hidden" id = "controls" value = '{"inputs":{"1":["last_name",
+		<input type = "hidden" id = "controls" value = '{"inputs":{"1":["last_name",
                                   "first_name",
                                   "patronymic",
                                   "day_birth",
@@ -78,6 +68,7 @@
                                         "set" : "controller_family.getFamilyModel",
                                         "get" : "controller_family.renderFamily" }
         }}' />
+			<div id="content">
 				<div id="menu">
 					<ul>
 					<li><a id="current" href="index.html">Додати карту</a>

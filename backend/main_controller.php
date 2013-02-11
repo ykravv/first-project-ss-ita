@@ -9,7 +9,7 @@ class MainController
   private $card;
 
   public function __construct($action, $json){
-    
+    $this->createCard($action, json_decode($json));
   }
 
   public function createCard($json)

@@ -19,7 +19,7 @@ init = function() {
   work_fam.addEventListener("click", function(){ mainController.loadTabDataFromCard(4) ;}, false);
 	place.addEventListener("click", function(){ mainController.loadTabDataFromCard(5) ;}, false);
   
-  preview.addEventListener("click", mainController.render_preview, false);
+  button_preview.addEventListener("click", mainController.render_preview, false);
   edit.addEventListener("click", function(){ mainController.loadTabDataFromCard(1) ;} , false);
 }
 
