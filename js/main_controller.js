@@ -19,7 +19,7 @@ function MainController() {
 
   this.saveTabDataToCard = function (current_tab) {
 
-    var hash = controls.value;
+    var hash = controls_hash.value;
     hash = JSON.parse(hash);
 		//card.clearErrorLog();
     for (controls in hash) {
@@ -34,7 +34,7 @@ function MainController() {
                         hash[controls][previous_tab][element].checked);
             break;
           case "models" :
-            card.setValue(hash[controls][previous_tab]["model"],
+            card.setValue(hash[controls][previous_tab]["models"],
                         hash[controls][previous_tab]["set"]());
             break;
         }
@@ -50,7 +50,7 @@ function MainController() {
 
 
   this.loadTabDataFromCard = function (current_tab) {
-    var hash = controls.value;
+    var hash = controls_hash.value;
     hash = JSON.parse(hash);
     for (controls in hash) {
       for (element in hash[controls][current_tab]) {
@@ -63,6 +63,7 @@ function MainController() {
             break;
           case "models" :
             //card.getValue(hash[controls][current_tab]["model"]); // TODP
+            
             hash[controls][current_tab]["get"]();
             break;
         }

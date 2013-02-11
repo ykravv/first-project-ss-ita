@@ -43,7 +43,7 @@ function menu_add(){
       document.getElementById("punkt6").style.display = "none";
       document.getElementById("preview_page").style.display="none";
       document.getElementById("save").disabled = true;
-      myCont.render_model();
+      mainController.renderModel();
     }
     
    
