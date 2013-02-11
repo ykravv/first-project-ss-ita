@@ -5,6 +5,7 @@
 #preview_page table{
 	table-layout:fixed;
 	border-collapse:collapse;
+  width:100%;
 }
 #preview_page table#outer{
 	width:100%;
@@ -15,7 +16,7 @@
     table-layout:auto;
 }
 #preview_page table.input{
-	width:100%;
+	width:80%;
 	}
 #preview_page td.first,td.third{
 	width:5%;

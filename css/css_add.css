@@ -6,6 +6,15 @@
 #preview_page{
   display:none;
 }
+.activ{
+  background-color:#c0c0c0;
+  text-decoration:underline;
+}
+.not_activ{
+  background-color:#d6d6d6;
+  text-decoration:none;
+}
+
 /* table
 -----------------------------------------------------------------------------*/
 /*td input:not(#army),td input:not(.inp){
@@ -14,15 +23,26 @@
 td input:not(.tab){
 	margin:3px;
 }*/
-#form1,#form2{
-  margin:0 15% 0;
+table{
+margin-left:5%;
 }
+td{
+  color:#647169;
+  vertical-align:top;
+}
+
 #sex{
-	width:98%;
+	width:290px;
 }
 #n{
-	color:#c60000;
+	color:#647169;
+  margin:0;
+  padding:0;
+  text-align:left;
+  width:10px;
+  display: block;
 }
+
 #institution,#specialty,#institute_post,#PIB,
 .institution,.specialty,.institute_post,.PIB{
   width:400px;
@@ -30,7 +50,7 @@ td input:not(.tab){
 }
 #year_ending_post,#year_ending,#year_birthday,
 .year_ending_post,.year_ending,.year_birthday{
-  width:90px;
+  width:140px;
   height:20px;
 }
 #diploma,#qvalify,#acad_degree,#family_degree,
@@ -39,38 +59,61 @@ td input:not(.tab){
   height:20px;
 }
 #educational_form,.educational_form{
-  width:90px;
-  height:24px;
+  width:140px;
+  height:29px;
 }
 
-#education{
-  width:100%;
+#last_name,#first_name,#patronymic,#day_birth,#month_birth,#year_birth,
+#INN,#sex,#pasport_series,#pasport_number,#education{
+  background-color:#feed8d;
 }
+
 #last_name,#first_name,#patronymic,#day_birth,#month_birth,#year_birth,#citizen,
 #INN,#sex,#pasport_series,#pasport_number,#pasport_issued,#date,
 #last_job,#job_degree,#leave,#pension,#family{
 	margin-top:4px;
 }
+#last_name,#first_name,#patronymic,#citizen{
+  width:285px;
+}
 #day_birth{
-	width:31px;
+	width:60px;
 }
 #month_birth{
-	width:71px;
+	width:120px;
+  margin-left:10px;
 }
 #year_birth{
-	width:39px;
+	width:90px;
+  margin-left:10px;
 }
 #pasport_series{
-	width:41px;
+	width:50px;
 }
 #pasport_number{
-	width:91px;
+	width:120px;
 }
 
 #border1 td span{
 	display:block;
 	text-align:right;
+	width:300px;
+  padding:10px;
+}
+td p{
+  display:block;
+  text-align:left;
+  margin-left:25%;
 	width:250px;
+}
+input,textarea,select{
+  font-size:18px;
+  font-family: Verdana,  Tahoma, sans-serif;
+  color:#181817;
+  padding-top:5px;
+}
+input[type="checkbox"]{
+margin-top:15px;
 }
 .button{
 	display:block;
@@ -95,7 +138,15 @@ margin:0 auto 0;
 }
 #content {
 	padding: 50px 30px 100px 270px;
-	min-height: 300px;
+	min-height: 800px;
+}
+#punkt3  span,#punkt4 span{
+    margin-left:10%;
+}
+
+td p{
+    color:#647169;
+  font-family:Verdana;
 }
 /* punkt
 -----------------------------------------------------------------------------*/
@@ -114,41 +165,21 @@ margin:0 auto 0;
 #punkt5{
 	display:none;
 }	
-#zagal_vidom{
-		background-color:#4a7bb5;
+#punkt6{
+	display:none;
 }	
-#zagal_vidom:hover{
-		background-color:#4a7bb5;
-}
-#edu{
-		background-color:#73a5e7;
-}	
-#edu:hover{
-	background-color:#4a7bb5;
-}
-#post_edu{
-		background-color:#73a5e7;
-}	
-#post_edu:hover{
-	background-color:#4a7bb5;	
-}
-#work_fam{
-		background-color:#73a5e7;
-}	
-#work_fam:hover{
-		background-color:#4a7bb5;	
-}
-#place{
-		background-color:#73a5e7;
-}	
-#place:hover{
-		background-color:#4a7bb5;	
-}
 
 
-#preview{
-  padding:10px 100px;
-  color: #0e7700;
-    font-family:Verdana;
-  font-weight: bold;
+#button_preview{
+  padding:10px 50px;
+  margin:30px 0 30px 33px;
+}
+#button_save{
+  padding:10px 50px;
+  margin:30px 0 30px 15%;
+  
+}
+#button_exit{
+    padding:10px 50px;
+    margin:30px 0 30px 33px;
 }
