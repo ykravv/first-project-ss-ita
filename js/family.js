@@ -23,8 +23,8 @@ function Family(model) {
       html += '</tr>';
       
     });
-    html += '<tr><td><input class="controls_family" type="text" id="family_degree"></td>' ;
-		html +=	'<td><input class="controls_family" type="text" id="PIB"></td>';
+    html += '<tr><td><input class="controls_family" type="text" id="family_status"></td>' ;
+		html +=	'<td><input class="controls_family" type="text" id="full_name"></td>';
 		html +=	'<td><input class="controls_family" type="text" id="year_birthday"></td></tr>';
     return html;
   } 

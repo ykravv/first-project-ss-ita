@@ -12,8 +12,19 @@ class MainController
     $this->createCard($action, json_decode($json));
   }
 
-  public function createCard($json)
+  public function createCard($action, $json)
   {
+    switch ($action) {
+      case 'save':
+        
+        break;
+      
+      case 'search':
+        # code...
+        break;
+    }
+
+
     $this->card = new Card(json_decode($json));
   }
 

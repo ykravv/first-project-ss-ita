@@ -19,8 +19,8 @@ function FamilyController(family_model) {
   this.addRelative = function(){
     
     var newrow = family_table.insertRow(family_table.rows.length - 1);
-    var one_relative = {"family_degree" : family_degree.value,
-                         "PIB" : PIB.value,
+    var one_relative = {"family_status" : family_status.value,
+                         "full_name" : full_name.value,
                          "year_birthday" : year_birthday.value};
     
     family_model.addRelative(one_relative);
@@ -38,7 +38,7 @@ function FamilyController(family_model) {
   
   /* Проверка наличия всех заполненных инпутов перед добавлением в таблицу */ 
   this.checkValues = function(){
-    if ( family_degree.value && PIB.value && year_birthday.value ) {
+    if ( family_status.value && full_name.value && year_birthday.value ) {
       button_family.disabled = false;    
     } else {
       button_family.disabled = true;    

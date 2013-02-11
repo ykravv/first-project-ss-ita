@@ -42,10 +42,10 @@
                                   "citizen",
                                   "INN",
                                   "sex",
-                                  "pasport_series",
-                                  "pasport_number",
-                                  "pasport_issued",
-                                  "date"],
+                                  "passport_series",
+                                  "passport_number",
+                                  "passport_issued",
+                                  "passport_date"],
                              "2":["education"],
                              "4":["last_job",
                                   "job_degree",
@@ -53,7 +53,7 @@
                                   "pension",
                                   "family"],
                              "5":["partmen",
-                                  "pasport_partmen"] },
+                                  "passport_partmen"] },
                    "checkboxes":{"1":["army"],
                                  "3":["aspirant",
                                       "aduktur",
@@ -77,7 +77,7 @@
 				</div>
 				
 				
-				<div id="punkt1">
+				<div id="tab1">
 				<table id="form1">
 					<tr>
 						<td><span>Прізвище</span></td>
@@ -115,7 +115,7 @@
 					
 					<tr>
 						<td><span>Дата</span></td>
-						<td><textarea id="date" rows="3" cols="40"></textarea></td>
+						<td><textarea id="passport_date" rows="3" cols="40"></textarea></td>
 					</tr>
 					<tr>
 						<td><span>Військовозобов'язаний</span></td><td><input type="checkbox" id="army"></td>
@@ -125,16 +125,16 @@
 				<input type="button" value="Обрати фото" id="button_photo" class="button"></br></br>
         </div>
 				
-        <div id="punkt2">
+        <div id="tab2">
           <table id="form3">
             <tr>
 						<td><span>Паспорт: серія</span></td>
-						<td><input type="text" id="pasport_series">
-						№<input type="text" id="pasport_number"></td>
+						<td><input type="text" id="passport_series">
+						№<input type="text" id="passport_number"></td>
 					</tr>
 					<tr>
 						<td><span>Виданий</span></td>
-						<td><textarea id="pasport_issued" rows="3" cols="40"></textarea></td>
+						<td><textarea id="passport_issued" rows="3" cols="40"></textarea></td>
 					</tr>
           <tr>
 						<td><span>ІНН</span></td>
@@ -143,7 +143,7 @@
           </table>
         </div>
 				
-				<div id="punkt3">
+				<div id="tab3">
         <span>Освіта</span>
         <select id="education">
           <option></option>
@@ -201,7 +201,7 @@
         </div>
 				
 				
-				<div id="punkt4">
+				<div id="tab4">
 				<span>Післядипломна професійна підготовка: навчання в</span>
 				<table>
           <tr><td>
@@ -234,7 +234,7 @@
         </div>
 				
 				
-				<div id="punkt5">
+				<div id="tab5">
 				<table id="form2">
 					<tr>
 						<td><span>Останнє місце роботи</span></td>
@@ -262,15 +262,15 @@
 					<table class="table" id="family_table">
             <thead>
             <tr>
-							<th class="family_degree">Ступінь родинного звязку</th><th class="PIB">П.І.Б.</th><th class="year_birthday">Рік народження</th>
+							<th class="family_status">Ступінь родинного звязку</th><th class="full_name">П.І.Б.</th><th class="year_birthday">Рік народження</th>
 						</tr>
             </thead>
   				<tbody>
 					</tbody>
           <tbody>
 						<tr>
-							<td><input class="controls_family" type="text" id="family_degree"></td>
-							<td><input class="controls_family" type="text" id="PIB"></td>
+							<td><input class="controls_family" type="text" id="family_status"></td>
+							<td><input class="controls_family" type="text" id="full_name"></td>
 							<td><input class="controls_family" type="text" id="year_birthday"></td>
 						</tr>
             </tbody>
@@ -282,7 +282,7 @@
 				
 				
 				
-				<div id="punkt6">
+				<div id="tab6">
 				<table>
 					<tr>
 						<td><span>Місце фактичного проживання (область, місто, район, вулиця, №будинку, квартири індекс)</span></td>
@@ -290,7 +290,7 @@
 					</tr>	
 					<tr>
 						<td><span>Місце проживання за реєстрацією</span></td>
-						<td><textarea rows="4" cols="45" id="pasport_partmen"></textarea></td>
+						<td><textarea rows="4" cols="45" id="passport_partmen"></textarea></td>
 					</tr>
 				</table>
 				</div>
@@ -302,12 +302,12 @@
 		</div><!-- #container-->
 
 		<aside id="sideLeft">
-			<a id="zagal_vidom" class="activ">Загальні відомості</a></br>
+			<a id="general_information" class="activ">Загальні відомості</a></br>
       <a id="passport_data" class="not_activ">Паспортні дані</a></br>
-			<a id="edu" class="not_activ">Освіта</a></br>
-			<a id="post_edu" class="not_activ">Післядипломна освіта</a></br>
-			<a id="work_fam" class="not_activ">Робота і родина</a></br>
-			<a id="place" class="not_activ">Місце проживання</a>
+			<a id="education_info" class="not_activ">Освіта</a></br>
+			<a id="post_education_info" class="not_activ">Післядипломна освіта</a></br>
+			<a id="work_and_family" class="not_activ">Робота і родина</a></br>
+			<a id="home_place" class="not_activ">Місце проживання</a>
 		</aside><!-- #sideLeft -->
     
 	</section><!-- #middle-->

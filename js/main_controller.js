@@ -78,9 +78,10 @@ function MainController() {
 
 
 
-/* В УТИЛЬ */
+/* to verify and bug fixing */
   this.render_preview = function () {
-      var hash = self_controller.hash;
+      var hash = controls_hash.value;
+      hash = JSON.parse(hash);
       for (controls in hash) {
         for (element in hash[controls]) {
           for (page in hash[controls][element]) {

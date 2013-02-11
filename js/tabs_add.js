@@ -1,8 +1,8 @@
 function menu_add(){
   document.onclick = function(e) {
   var e, is_need=0;
-  var array_menu = new Array("zagal_vidom","passport_data","edu","post_edu","work_fam","place");
-  var array_blocks = new Array("punkt1","punkt2","punkt3","punkt4","punkt5","punkt6");
+  var array_menu = new Array("general_information","passport_data","education_info","post_education_info","work_and_family","home_place");
+  var array_blocks = new Array("tab1","tab2","tab3","tab4","tab5","tab6");
   
     e = e || window.event;
     var el = e.target || e.srcElement;
@@ -37,10 +37,10 @@ function menu_add(){
     }
     document.getElementById("edit").onclick = function (){
       document.getElementById("border1").style.display="block";
-      document.getElementById("punkt1").style.display = "block";
-      document.getElementById("zagal_vidom").className = "activ";
-      document.getElementById("place").className = "not_activ";
-      document.getElementById("punkt6").style.display = "none";
+      document.getElementById("tab1").style.display = "block";
+      document.getElementById("general_information").className = "activ";
+      document.getElementById("home_place").className = "not_activ";
+      document.getElementById("tab6").style.display = "none";
       document.getElementById("preview_page").style.display="none";
       document.getElementById("save").disabled = true;
       mainController.renderModel();

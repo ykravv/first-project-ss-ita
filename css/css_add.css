@@ -43,8 +43,8 @@ td{
   display: block;
 }
 
-#institution,#specialty,#institute_post,#PIB,
-.institution,.specialty,.institute_post,.PIB{
+#institution,#specialty,#institute_post,#full_name,
+.institution,.specialty,.institute_post,.full_name{
   width:400px;
   height:20px;
 }
@@ -53,8 +53,8 @@ td{
   width:140px;
   height:20px;
 }
-#diploma,#qvalify,#acad_degree,#family_degree,
-.diploma,.qvalify,.acad_degree,.family_degree{
+#diploma,#qvalify,#acad_degree,#family_status,
+.diploma,.qvalify,.acad_degree,.family_status{
   width:150px;
   height:20px;
 }
@@ -64,12 +64,12 @@ td{
 }
 
 #last_name,#first_name,#patronymic,#day_birth,#month_birth,#year_birth,
-#INN,#sex,#pasport_series,#pasport_number,#education{
+#INN,#sex,#passport_series,#passport_number,#education{
   background-color:#feed8d;
 }
 
 #last_name,#first_name,#patronymic,#day_birth,#month_birth,#year_birth,#citizen,
-#INN,#sex,#pasport_series,#pasport_number,#pasport_issued,#date,
+#INN,#sex,#passport_series,#passport_number,#passport_issued,#passport_date,
 #last_job,#job_degree,#leave,#pension,#family{
 	margin-top:4px;
 }
@@ -87,10 +87,10 @@ td{
 	width:90px;
   margin-left:10px;
 }
-#pasport_series{
+#passport_series{
 	width:50px;
 }
-#pasport_number{
+#passport_number{
 	width:120px;
 }
 
@@ -140,7 +140,7 @@ margin:0 auto 0;
 	padding: 50px 30px 100px 270px;
 	min-height: 800px;
 }
-#punkt3  span,#punkt4 span{
+#tab3  span,#tab4 span{
     margin-left:10%;
 }
 
@@ -150,22 +150,22 @@ td p{
 }
 /* punkt
 -----------------------------------------------------------------------------*/
-#punkt1{
+#tab1{
 	display:block;
 }
-#punkt2{
+#tab2{
 	display:none;
 }
-#punkt3{
+#tab3{
 	display:none;
 }
-#punkt4{
+#tab4{
 	display:none;
 }
-#punkt5{
+#tab5{
 	display:none;
 }	
-#punkt6{
+#tab6{
 	display:none;
 }	
 
