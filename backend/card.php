@@ -5,50 +5,46 @@
 */
 class Card 
 {	
-	private params;
+	private $card;
+  private $education;
+  private $post_education;
+  private $family;
+  private $validateErrors;
 
-	function __construct($card = '')
+	function __construct($card)
 	{
-    if ($card) {
-      $this->params = array(card["last_name"],
-                            card["first_name"],
-                            card["patronymic"],
-                            card["day_birth"],
-                            card["month_birth"],
-                            card["year_birth"],
-                            card["citizen"],
-                            card["INN"],
-                            card["sex"],
-                            card["passport_series"],
-                            card["passport_number"],
-                            card["passport_issued"],
-                            card["passport_date"], 
-                            card["education"], 
-                            card["last_job"], 
-                            card["job_degree"],
-                            card["leave"],
-                            card["pension"],
-                            card["family"], 
-                            card["partmen"],
-                            card["passport_partmen"], 
-                            card["army"],
-                            card["aspirant"],
-                            card["aduktur"],
-                            card["doctor"],
-                            );
-	  }   
+    $this->card = $card;
+    $this->education = $card->education;
+    $this->post_education = $card->post_education;
+    $this->family = $card->family;	   
   }
 
 
 	/**
 	* Функция сохранения карточки в базу данных
 	*/
-	function save(){
+	public function save(){
 
 	}
 
+  /**
+  * Функция валидации данных
+  */
+  public function isValid(){
+    $patterns = array('/^[А-Я]{1}[а-я]{1,10}$/',);
+  }
 
-  function read(){
+  /**
+  * Функция возврата списка ошибок.
+  */
+  public function getValidateError(){
+
+  }
+
+  /**
+  * Option for future relise
+  */ 
+  public function read(){
 
   }
 

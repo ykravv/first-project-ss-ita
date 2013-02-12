@@ -28,7 +28,7 @@ function Card() {
 //Validation Method
 function validation(key, value, errors) {
 	var req_key = /^r_\w+$/i, 						
-		reg_full_name = /^[A-Z]{1}[a-z]{1,10}$/,	
+		reg_full_name = /^[А-Я]{1}[а-я]{1,10}$/,	
 		reg_year = /^[0-9]{1,4}$/, 					
 		reg_pas_ser = /^[А-Я]{2}$/,
 		reg_pas_num = /^\d{6}$/,

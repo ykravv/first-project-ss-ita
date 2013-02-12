@@ -12,20 +12,28 @@ class MainController
     $this->createCard($action, json_decode($json));
   }
 
-  public function createCard($action, $json)
+  public function createCard($action, $model_card)
   {
     switch ($action) {
       case 'save':
-        
+        $this->card = new Card($model_card);
+        if ($this->card->isValid) {
+          $this->saveCardToDB();
+        } else {
+          # вернуть сообщение об ошибке и послать обратно 
+          # присладнный json для отображения данных в форме 
+          this->getValidateError(); # TODO: Доделать выдачу
+        }
         break;
       
       case 'search':
-        # code...
+        $this->card = new Card($model_card); # model_card - объект содержащий параметры поиска
+        $result = $this->readCardFromDB(); # результат запроса, должен быть отправлен на клиент
         break;
     }
 
 
-    $this->card = new Card(json_decode($json));
+    
   }
 
   public function saveCardToDB() {

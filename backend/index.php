@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=utf-8');
-require_once("main_controller.php");
+#require_once("main_controller.php");
 
 # FOR TESTING 
 $json_string='{"last_name" : "Кравченко",
@@ -32,9 +32,15 @@ $json_string='{"last_name" : "Кравченко",
 							} ';
 # End
 
-$controller = new MainController();
+#$controller = new MainController();
 
-$controller->createCard($json_string);
+#$controller->createCard($json_string);
+
+
+$pattern = '/^[А-Я]{1}[а-я]{1,10}$/';
+
+
+
 
 
 ?>

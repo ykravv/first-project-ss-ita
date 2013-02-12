@@ -34,8 +34,24 @@ function MainController() {
                         hash[controls][previous_tab][element].checked);
             break;
           case "models" :
-            card.setValue(hash[controls][previous_tab]["models"],
-                        hash[controls][previous_tab]["set"]());
+            switch (hash[controls][previous_tab]["models"]) {
+              case "education_table" : {
+                card.setValue("education_table",
+                              controller_education.getEducationModel());
+                break;
+              } 
+              case "post_education_table" : {
+                card.setValue("post_education_table",
+                              controller_education.getPostEducationModel());
+                break;
+              }
+              case "family_table" : {
+                card.setValue("family_table",
+                              controller_family.getFamilyModel());
+                break;
+              }
+            }
+
             break;
         }
 
@@ -62,9 +78,22 @@ function MainController() {
             hash[controls][current_tab][element].checked = card.getValue(hash[controls][current_tab][element].id) || "";
             break;
           case "models" :
-            //card.getValue(hash[controls][current_tab]["model"]); // TODP
-            
-            hash[controls][current_tab]["get"]();
+            switch (hash[controls][current_tab]["models"]) {
+              case "education_table" : {
+                controller_education.renderEducation(card.getValue("education_table"));
+                break;
+              } 
+              case "post_education_table" : {
+                controller_education.renderEducation(card.getValue("post_education_table"));
+                break;
+              }
+              case "family_table" : {
+                controller_family.renderFamily(card.getValue("family_table"));
+                break;
+              }
+            }
+
+
             break;
         }
 

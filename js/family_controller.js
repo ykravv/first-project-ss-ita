@@ -57,12 +57,11 @@ function FamilyController(family_model) {
 
     
   /* Генерация таблицы из имеющейся модели */
-  this.renderFamily = function() {
+  this.renderFamily = function(model) {
     var preview = preview_page.style.display === "block";
     if (preview) {
       //family_table_preview.tBodies[0].innerHTML = family_model.toHtml();
     } else {
-      
       family_table.tBodies[0].innerHTML = family_model.toHtml();
       self_family.init();
     } 
