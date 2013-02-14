@@ -24,13 +24,6 @@ function Education(model) {
       }
       html += "</tr>";
     });
-    
-  						 
-		html += '<tr><td><input class="controls_post" type="text" id="institute_post"></td>';
-    html +=  '<td><input class="controls_post" type="text" id="year_ending_post"></td>';
-		html +=	'<td><input class="controls_post" type="text" id="acad_degree"></td></tr>';
-   					
-							
     return html;
   } 
   
@@ -54,20 +47,12 @@ function Education(model) {
         }
         count++;
       }
-      
+      count = 0;
       html[0] += "</tr>";
       html[1] += "</tr>";
     });
     
-    html[0] = html[0] + '<tr><td><input class="controls_education" type="text" id="institution"></td>' +
-  						'<td><input class="controls_education" type="text" id="diploma"></td>' +
-							'<td><input class="controls_education" type="text" id="year_ending"></td></tr>';
-					
-		html[1] = html[1] +	'<tr><td><input class="controls_education" type="text" id="specialty"></td>' + 
-							'<td><input class="controls_education" type="text" id="qvalify"></td>' +
-							'<td><select class="controls_education" id="educational_form">' +
-							'<option></option><option>Денна</option><option>Заочна</option>' +
-							'<option>Вечірня</option><select></td></tr>';
+    
     
     return html;
   } 

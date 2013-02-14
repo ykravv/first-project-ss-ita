@@ -23,7 +23,14 @@ function Card() {
 	this.getValue = function(key) {
 		return data[key];
 	};
+
+
+    this.getCard = function() {
+    return data;
 }
+}
+
+
 
 //Validation Method
 function validation(key, value, errors) {

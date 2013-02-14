@@ -50,15 +50,17 @@ function EducationController(education_model, post_education_model){
     
     education_model.addEducation(one_education);
     
-    for (key in one_education) {
-      if (inArray(key, education_part1)) {
-        newrow_ed.insertCell(-1).innerHTML = one_education[key];       
-      }
+    self_education.renderEducation();
+
+    // for (key in one_education) {
+    //   if (inArray(key, education_part1)) {
+    //     newrow_ed.insertCell(-1).innerHTML = one_education[key];       
+    //   }
       
-      if (inArray(key, education_part2)) {
-        newrow_post.insertCell(-1).innerHTML = one_education[key];       
-      }
-    }
+    //   if (inArray(key, education_part2)) {
+    //     newrow_post.insertCell(-1).innerHTML = one_education[key];       
+    //   }
+    // }
    
     self_education.clearFields("table_education");
   }
@@ -73,9 +75,8 @@ function EducationController(education_model, post_education_model){
     
     post_education_model.addEducation(one_education);
     
-    for (key in one_education) {
-      newrow.insertCell(-1).innerHTML = one_education[key];       
-    }
+
+    self_education.renderPostEducation();
     self_education.clearFields("table_post");
   }
 
@@ -149,7 +150,7 @@ function EducationController(education_model, post_education_model){
       education_table_preview.tBodies[0].innerHTML = html[0];
       education_table2_preview.tBodies[0].innerHTML = html[1];  
     } else {
-      education_table.tBodies[0].innerHTML = html[0];
+      education_table.tBodies[0].innerHTML = html[0]; 
       education_table2.tBodies[0].innerHTML = html[1];  
       self_education.init();
     }
@@ -158,7 +159,7 @@ function EducationController(education_model, post_education_model){
   this.renderPostEducation = function() {
     var preview = preview_page.style.display === "block";
     if (preview) {
-      //post_education_table_preview.tBodies[0].innerHTML = post_education_model.toHtml();
+       post_education_table_preview.tBodies[0].innerHTML = post_education_model.toHtml();
     } else {
       post_education_table.tBodies[0].innerHTML = post_education_model.toHtml();
       self_education.init();

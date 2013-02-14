@@ -33,6 +33,7 @@
 	<section id="middle">
 
 		<div id="container">
+      
 		<input type = "hidden" id = "controls_hash" value = '{"inputs":{"1":["last_name",
                                   "first_name",
                                   "patronymic",
@@ -40,33 +41,33 @@
                                   "month_birth",
                                   "year_birth",
                                   "citizen",
-                                  "INN",
-                                  "sex",
-                                  "passport_series",
+                                  "sex"],
+                             "2":["passport_series",
                                   "passport_number",
                                   "passport_issued",
-                                  "passport_date"],
-                             "2":["education"],
-                             "4":["last_job",
+                                  "passport_date",
+                                  "INN"],
+                             "3":["education"],
+                             "5":["last_job",
                                   "job_degree",
                                   "leave",
                                   "pension",
                                   "family"],
-                             "5":["partmen",
+                             "6":["partmen",
                                   "passport_partmen"] },
                    "checkboxes":{"1":["army"],
-                                 "3":["aspirant",
+                                 "4":["aspirant",
                                       "aduktur",
                                       "doctor"]},
-                   "models" : { "2" : { "model" : "education_model" },
-                                "3" : { "model" : "post_education_model" },
-                                "4" : { "model" : "family_model" }
+                   "models" : { "3" : { "model" : "education_model" },
+                                "4" : { "model" : "post_education_model" },
+                                "5" : { "model" : "family_model" }
         }}' />
 			<div id="content">
 				<div id="menu">
 					<ul>
-					<li><a id="current" href="index.html">Додати карту</a>
-					<li><a href="search.html">Пошук</a>
+					<li /><a id="current" href="index.html">Додати карту</a>
+					<li /><a disabled="disabled">Пошук</a>
 					</ul>
 				</div>
 				
@@ -75,25 +76,25 @@
 				<table id="form1">
 					<tr>
 						<td><span>Прізвище</span></td>
-						<td><input type="text" id="last_name"></td>
+						<td><input type="text" id="last_name" /></td>
 					</tr>
 					<tr>
 						<td><span>Ім'я</span></td>
-						<td><input type="text" id="first_name"></td>
+						<td><input type="text" id="first_name" /></td>
 					</tr>
 					<tr>
 						<td><span>Побатькові</span></td>
-						<td><input type="text" id="patronymic"></td>
+						<td><input type="text" id="patronymic" /></td>
 					</tr>
 					<tr>
 						<td><span>Дата народження</span></td>
-						<td>    <select id = "day_birth"></select><select id = "month_birth"></select><select id = "year_birth"></select>
-    
+						<td>    
+              <select id = "day_birth"></select><select id = "month_birth"></select><select id = "year_birth"></select>
 						</td>
 					</tr>
 					<tr>
 						<td><span>Громадянство</span></td>
-						<td><input type="text" id="citizen"></td>
+						<td><input type="text" id="citizen" /></td>
 					</tr>
 					
 					<tr>
@@ -103,36 +104,35 @@
 								<option></option>
 								<option>Жіноча</option>
 								<option>Чоловіча</option>
-							<select>
+							</select>
 						</td>
 					</tr>
-					
 					<tr>
-						<td><span>Дата</span></td>
-						<td><textarea id="passport_date" rows="3" cols="40"></textarea></td>
-					</tr>
-					<tr>
-						<td><span>Військовозобов'язаний</span></td><td><input type="checkbox" id="army"></td>
+						<td><span>Військовозобов'язаний</span></td><td><input type="checkbox" id="army" /></td>
 					</tr>				
 				</table>
-				</br>
-				<input type="button" value="Обрати фото" id="button_photo" class="button"></br></br>
+				<br />
+				<input type="button" value="Обрати фото" id="button_photo" class="button" disabled="disabled"/><br /><br />
         </div>
 				
         <div id="tab2">
           <table id="form3">
             <tr>
 						<td><span>Паспорт: серія</span></td>
-						<td><input type="text" id="passport_series">
-						№<input type="text" id="passport_number"></td>
+						<td><input type="text" id="passport_series" />
+						№<input type="text" id="passport_number" /></td>
 					</tr>
 					<tr>
 						<td><span>Виданий</span></td>
 						<td><textarea id="passport_issued" rows="3" cols="40"></textarea></td>
 					</tr>
           <tr>
+						<td><span>Дата</span></td>
+						<td><input id="passport_date" type="text"></td>
+					</tr>
+          <tr>
 						<td><span>ІНН</span></td>
-						<td><input type="text" id="INN"></td>
+						<td><input type="text" id="INN" /></td>
 					</tr>
           </table>
         </div>
@@ -148,7 +148,7 @@
           <option>базова вища</option>
           <option>повна вища</option>
 				</select>
-        </br></br>
+        <br /><br />
 				<div id="education_container">
 					<table class="table" id="education_table">
           <thead>
@@ -158,13 +158,13 @@
           </thead>
 					<tbody>
 					</tbody>
-          <tbody>
+          <tfoot>
           <tr>
-							<td><input class="controls_education" type="text" id="institution"></td> 
-							<td><input class="controls_education" type="text" id="diploma"></td>
-							<td><input class="controls_education" type="text" id="year_ending"></td>
+							<td><input class="controls_education" type="text" id="institution" /></td> 
+							<td><input class="controls_education" type="text" id="diploma" /></td>
+							<td><input class="controls_education" type="text" id="year_ending" /></td>
 						</tr>
-          </tbody>
+          </tfoot>
 					</table>
 					<table class="table" id="education_table2">
 						<thead>
@@ -174,24 +174,24 @@
             </thead>
     				<tbody>
   					</tbody>
-            <tbody>
+            <tfoot>
 						<tr>
-							<td><input class="controls_education" type="text" id="specialty"></td>
-							<td><input class="controls_education" type="text" id="qvalify"></td>
+							<td><input class="controls_education" type="text" id="specialty" /></td>
+							<td><input class="controls_education" type="text" id="qvalify" /></td>
 							<td>
 								<select class="controls_education" id="educational_form">
 									<option></option>
 									<option>Денна</option>
 									<option>Заочна</option>
 									<option>Вечірня</option>
-								<select>
+								</select>
 							</td>
 						</tr>
-            </tbody>
+            </tfoot>
 					</table>
 				</div>
-				</br>
-				<input type="button" value="Додати запис" id="button_education" class="button">
+				<br />
+				<input type="button" value="Додати запис" id="button_education" class="button" />
         </div>
 				
 				
@@ -199,12 +199,12 @@
 				<span>Післядипломна професійна підготовка: навчання в</span>
 				<table>
           <tr><td>
-            <p><input type="checkbox" id="aspirant"> аспірантурі</br>
-            <input type="checkbox" id="aduktur"> ад'юнктурі</br>
-            <input type="checkbox" id="doctor"> докторантурі</p>
+            <p><input type="checkbox" id="aspirant" /> аспірантурі<br />
+            <input type="checkbox" id="aduktur" /> ад'юнктурі<br />
+            <input type="checkbox" id="doctor" /> докторантурі</p>
           </td></tr>
         </table>
-				</br></br>
+				<br /><br />
 				<div id="post_education_container">
 					<table class="table" id="post_education_table">
 						<thead>
@@ -214,17 +214,17 @@
             </thead>
     				<tbody>
     				</tbody>
-            <tbody>
+            <tfoot>
 						<tr>
-							<td><input class="controls_post" type="text" id="institute_post"></td>
-							<td><input class="controls_post" type="text" id="year_ending_post"></td>
-							<td><input class="controls_post" type="text" id="acad_degree"></td>
+							<td><input class="controls_post" type="text" id="institute_post" /></td>
+							<td><input class="controls_post" type="text" id="year_ending_post" /></td>
+							<td><input class="controls_post" type="text" id="acad_degree" /></td>
 						</tr>
-            </tbody>
+            </tfoot>
 					</table>
 				</div>
-				</br>
-				<input type="button" value="Додати запис" id="button_post_education"  class="button"></br></br>
+				<br />
+				<input type="button" value="Додати запис" id="button_post_education"  class="button" /><br /><br />
         </div>
 				
 				
@@ -248,10 +248,10 @@
 					</tr>			
 					<tr>
 						<td><span>Родинний стан</span></td>
-						<td><input type="text" id="family"></td></td>
+						<td><input type="text" id="family" /></td></td>
 					</tr>					
 				</table>
-				</br>
+				<br />
 				<div id="family_container">
 					<table class="table" id="family_table">
             <thead>
@@ -261,17 +261,17 @@
             </thead>
   				<tbody>
 					</tbody>
-          <tbody>
+          <tfoot>
 						<tr>
-							<td><input class="controls_family" type="text" id="family_status"></td>
-							<td><input class="controls_family" type="text" id="full_name"></td>
-							<td><input class="controls_family" type="text" id="year_birthday"></td>
+							<td><input class="controls_family" type="text" id="family_status" /></td>
+							<td><input class="controls_family" type="text" id="full_name" /></td>
+							<td><input class="controls_family" type="text" id="year_birthday" /></td>
 						</tr>
-            </tbody>
+            </tfoot>
 					</table>
 				</div>
-				</br>
-				<input type="button" value="Додати запис" id="button_family"  class="button"></br></br>
+				<br />
+				<input type="button" value="Додати запис" id="button_family"  class="button" /><br /><br />
         </div>
 				
 				
@@ -289,18 +289,18 @@
 				</table>
 				</div>
 			        
-        <input type="button" value="Зберегти" id="button_save">
-        <input type="button" value="Вихід" id="button_exit">
-        <input type="button" value="Переглянути карту" id="button_preview">
+        <input type="button" value="Зберегти" id="button_save" />
+        <input type="button" value="Вихід" id="button_exit" disabled="disabled"/>
+        <input type="button" value="Переглянути карту" id="button_preview" />
 			</div><!-- #content-->
 		</div><!-- #container-->
 
 		<aside id="sideLeft">
-			<a id="general_information" class="activ">Загальні відомості</a></br>
-      <a id="passport_data" class="not_activ">Паспортні дані</a></br>
-			<a id="education_info" class="not_activ">Освіта</a></br>
-			<a id="post_education_info" class="not_activ">Післядипломна освіта</a></br>
-			<a id="work_and_family" class="not_activ">Робота і родина</a></br>
+			<a id="general_information" class="activ">Загальні відомості</a><br />
+      <a id="passport_data" class="not_activ">Паспортні дані</a><br />
+			<a id="education_info" class="not_activ">Освіта</a><br />
+			<a id="post_education_info" class="not_activ">Післядипломна освіта</a><br />
+			<a id="work_and_family" class="not_activ">Робота і родина</a><br />
 			<a id="home_place" class="not_activ">Місце проживання</a>
 		</aside><!-- #sideLeft -->
     
@@ -355,7 +355,12 @@
         <td> Індивідуальний ідентифікаційний номер</td>
         <td> Стать (чоловіча, жіноча)</td></tr>
         </thead>
-      <tbody></tbody>
+      <tbody>
+        <td><span id="p_date" ></span></td>
+        <td><span id="p_tab_num" ></span></td>
+        <td><span id="p_INN"></span></td>
+        <td><span id="p_sex"></span></td>
+      </tbody>
       </table>
       <div id="p_photo" class="output">місце для<br>
       фотокартки </div></td>
@@ -393,8 +398,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>4. Освіта (базова загальна середня, повна загальна середня, професійно-технічна, 
-    неповна вища, базова вища, повна вища)<span id="p_education" class="output"></span></td>
+    <td>4. Освіта <span id="p_education" class="output"></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr> 
@@ -437,17 +441,17 @@
     <td>&nbsp;</td>
     <td>5. Післядипломна професійна підготовка: навчання в 
            <label>
-          <input type="checkbox" name="prof_edu" value="checkbox" id="p_aspirant">
+          <input type="checkbox" name="prof_edu" value="checkbox" id="p_aspirant" disabled="disabled" />
           аспірантурі</label>
       
         <label>
-          <input type="checkbox" name="prof_edu" value="checkbox" id="p_aduktur">
+          <input type="checkbox" name="prof_edu" value="checkbox" id="p_aduktur" disabled="disabled" />
           ад’юнктурі </label>
        
         <label>
-          <input type="checkbox" name="prof_edu" value="checkbox" id="p_doctor">
+          <input type="checkbox" name="prof_edu" value="checkbox" id="p_doctor" disabled="disabled">
           докторантурі</label>
-      (необхідне відмітити)</td>
+      (відмітити)</td>
     <td>&nbsp;</td>
   </tr>
   <tr> 
@@ -517,7 +521,11 @@
           <td>Рік 
               народження</td>
         </tr></thead>
-        <tbody></tbody>
+        <tbody>
+            <td><span></span></td>
+            <td><span></span></td>
+            <td><span></span></td>
+        </tbody>
       </table></td>
     <td>&nbsp;</td>
   </tr>
@@ -540,24 +548,24 @@
   </tr>
   <tr> 
     <td>&nbsp;</td>
-    <td>12. Місце проживання за державною реєстрацією<span id="p_pasport_partmen" class="output"></span></td>
+    <td>12. Місце проживання за державною реєстрацією<span id="p_passport_partmen" class="output"></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr> 
     <td>&nbsp;</td>
-    <td>Паспорт: серія<span id="p_pasport_series" class="output"></span>№<span id="p_pasport_number" class="output"></span>, ким виданий<span id="p_pasport_issued" class="output"></span>
+    <td>Паспорт: серія<span id="p_passport_series" class="output"></span>№<span id="p_passport_number" class="output"></span>, ким виданий<span id="p_passport_issued" class="output"></span>
 , 
-      дата видачі<span id="p_date" class="output"></span></td>
+      дата видачі<span id="p_passport_date" class="output"></span></td>
     <td>&nbsp;</td>
   </tr>
   <tr> 
     <td>&nbsp;</td>
-    <td>ІІ. Відомості про війсковий облік <span id="p_army" class="output"></span></td>
+    <td>ІІ. <span>Військовозобов'язаний  </span><input disabled="disabled" type="checkbox" id="p_army"></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td>(війсковообов’язний,невійсковообов’язний)</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>

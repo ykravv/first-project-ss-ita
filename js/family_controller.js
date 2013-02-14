@@ -25,9 +25,10 @@ function FamilyController(family_model) {
     
     family_model.addRelative(one_relative);
     
-    for (key in one_relative) {
-      newrow.insertCell(-1).innerHTML = one_relative[key];       
-    }
+    // for (key in one_relative) {
+    //   newrow.insertCell(-1).innerHTML = one_relative[key];       
+    // }
+    self_family.renderFamily();
     self_family.clearFields();
   }
 
@@ -60,7 +61,7 @@ function FamilyController(family_model) {
   this.renderFamily = function(model) {
     var preview = preview_page.style.display === "block";
     if (preview) {
-      //family_table_preview.tBodies[0].innerHTML = family_model.toHtml();
+      family_table_preview.tBodies[0].innerHTML = family_model.toHtml();
     } else {
       family_table.tBodies[0].innerHTML = family_model.toHtml();
       self_family.init();

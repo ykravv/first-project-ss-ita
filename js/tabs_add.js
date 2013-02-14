@@ -40,10 +40,11 @@ function menu_add(){
       document.getElementById("tab1").style.display = "block";
       document.getElementById("general_information").className = "activ";
       document.getElementById("home_place").className = "not_activ";
-      document.getElementById("tab6").style.display = "none";
+      for(var i=2;i<=6;i++)
+        document.getElementById("tab"+i).style.display = "none";
       document.getElementById("preview_page").style.display="none";
       document.getElementById("save").disabled = true;
-      mainController.renderModel();
+      mainController.renderPreview();
     }
     
    
@@ -70,7 +71,7 @@ function menu_add(){
             return result
         }
         injectSelect(document.getElementById("month_birth"), {
-            jan:"Січень", feb:"Лютий", mar:"Березень", apr:"Квітень", 
+            "Січень":"Січень", feb:"Лютий", mar:"Березень", apr:"Квітень", 
             may:"Травень", jun:"Червень", jul:"Липень", avg:"Серпень", 
             sep:"Вересень", okt:"Жовтень", nov:"Листопад", dec:"Грудень"
         }); 
