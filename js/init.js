@@ -26,6 +26,9 @@ init = function() {
   
   button_preview.addEventListener("click", mainController.renderPreview, false);
   edit.addEventListener("click", function(){ mainController.loadTabDataFromCard(1) ;} , false);
+
+  save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
+  button_save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
 }
 
 window.onload = function() {

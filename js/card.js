@@ -1,101 +1,129 @@
-//Model Card
+/**
+* Creates an instance of Card.
+*
+* @constructor
+* @this {Card}
+*
+*/
 function Card() {
-    var data = {},
+	var data = {},
 		errors = {},
+		help = {},
 		error_log = "";
-	
+	/**
+	* Validation of the model.
+	*
+	* @param {string} key 
+	* @param value
+	* @return {boolean} 
+	*/
 	this.isValid = function(key, value) {
-		
-		if (validation(key, value, errors))
+		if (validation(key, value, errors, help))
 			return true;
 		else 
-			error_log += key + "---" + errors[key] + "\n";	
+			error_log += errors[key] + "---" + help[key] +"\n";	
 	};
+	/**
+	* Clearing the error log
+	*
+	* @return empty string
+	*/
 	this.clearErrorLog = function() {
 		return error_log = "";
 	};
+	/**
+	* Get the log with errors
+	*
+	* @return {string} string with errors
+	*/
 	this.getErrorLog = function() {
 		return error_log;	
 	};
+	/**
+	* Entering data for storage
+	*
+	* @param {string} key
+	* @param value
+	*/
 	this.setValue = function(key, value) {
 		data[key] = value;		
 	};
+	/**
+	* Getting values from storage
+	*
+	* @param {string} key
+	* @return value
+	*/
 	this.getValue = function(key) {
 		return data[key];
 	};
-
-
-    this.getCard = function() {
-    return data;
+	/**
+	* Getting all data from storage
+	*
+	* @return {string}
+	*/
+	this.getData = function() {
+		return JSON.stringify(data);
+	};	
 }
+
+/**
+* Method to validate for correct
+*
+* @param key
+* @param value
+* @param {object} errors
+* @param {object} help
+* @return {boolean} or fill object {errors} errors
+*/
+function validation(key, value, errors, help) {
+  var required_keys = [
+		"first_name", 
+		"last_name",
+		"patronymic",
+		"pasport_series",
+		"pasport_number",
+		"INN"
+	];
+	var required_patterns = {
+		"first_name":/^[A-Z]{1}[a-z]{1,10}$/,
+		"last_name":/^[A-Z]{1}[a-z]{1,10}$/,
+		"patronymic":/^[A-Z]{1}[a-z]{1,10}$/,
+		"passport_series":/^[�-�]{2}$/,
+		"passport_number":/^\d{6}$/,
+		"INN":/^\d{10}$/	
+	};
+	var prompt = {
+		"first_name":"The name must begin with a capital letter",
+		"last_name": "Last name must begin with a capital letter.",
+		"patronymic": "Middle name must start with a capital letter.",
+		"passport_series":"In a series of passport should be only two caps",
+		"passport_number":"Passport number consists of 6 digits",
+		"INN":"INN consists of 10 digits"	
+	};
+	
+	if (inArray(key, required_keys)) {
+		if (!value || !required_patterns[key].test(value)) {
+			errors[key] = value;
+			help[key] = prompt[key];;
+		} else
+			return true;
+	} else
+		return true; 
 }
 
-
-
-//Validation Method
-function validation(key, value, errors) {
-	var req_key = /^r_\w+$/i, 						
-		reg_full_name = /^[А-Я]{1}[а-я]{1,10}$/,	
-		reg_year = /^[0-9]{1,4}$/, 					
-		reg_pas_ser = /^[А-Я]{2}$/,
-		reg_pas_num = /^\d{6}$/,
-		reg_inn = /^\d{10}$/;
-		
-	if (req_key.test(key)) {
-		switch (key) {
-			case "r_first_name":
-				if (!value || !reg_full_name.test(value)) 
-					errors[key] = value;
-				else
-					return true;	
-			break; 
-        	case "r_last_name":
-        		if (!value || !reg_full_name.test(value)) 
-        			errors[key] = value;
-        		else
-        			return true;				
-        	break;
-        	case "r_patronymic":
-                if (!value || !reg_full_name.test(value)) 
-        			errors[key] = value;
-        		else
-        			return true;
-            break;
-            case "r_year_birth":
-                if (!value || !reg_year.test(value)) 
-        			errors[key] = value;
-        		else
-        			return true;				
-            break;
-            case "r_sex":
-                if (!value) 
-                    errors[key] = value;
-        		else
-        			return true;
-            break;
-            case "r_pasport_number":
-                if (!value || !reg_pas_num.test(value)) 
-        			errors[key] = value;
-        		else
-        			return true;				
-            break;
-            case "r_pasport_series":
-                if (!value || !reg_pas_ser.test(value)) 
-        			errors[key] = value;
-        		else
-        			return true;				
-            break;
-            case "r_INN":
-                if (!value || !reg_inn.test(value)) 
-        			errors[key] = value;
-        		else
-        			return true;				
-            break;
-        	
-            default:
-        		return true;
-        }	
-	}	
-	else 
-		 return true;
-}
+/**
+* Check the keys in the array
+*
+* @param {string} key
+* @param {array} arr
+* @return {boolean}
+*/
+function inArray(key, arr) {
+	for (var i = 0; i < arr.length; i++) {
+		if (arr[i] == key) {
+			return true;
+		}
+	}
+	return false;
+}	

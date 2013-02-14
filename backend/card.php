@@ -1,36 +1,36 @@
 <?php 
 
+  require_once "front.php";
+  
 /**
 * Server model for saving card
 */
 class Card 
 {	
-	private $card;
-  private $education;
-  private $post_education;
-  private $family;
+  private $hash_array;
+  private $table;
 
-	function __construct($card)
+	function __construct($object,$table)
 	{
-    $this->card = $card;
-    $this->education = $card->education;
-    $this->post_education = $card->post_education;
-    $this->family = $card->family;	 
-
+    $this->hash_array = $object;
+    $this->table = $table;
+    echo "\nTABLE:".$this->table."\n";
+    echo "HASH_OBJECT_TO_SAVE:\n"; var_dump($this->hash_array); 
+    echo "\n";
+  
   }
-
-
 	/**
 	* Функция сохранения карточки в базу данных
 	*/
-	public function save(){
-    
+	public function save()
+  {
+    $fasad_object = new Front($this->hash_array,$this->table);
+    return $fasad_object->create();
 	}
-
   /**
   * Функция валидации данных
   */
-  public function isValid(){
+   public function isValid(){
     $patterns = array('/^[А-Я]{1}[а-я]{1,15}$/',
                       '/^[А-Я]{1}[а-я]{1,15}$/',
                       '/^[А-Я]{1}[а-я]{1,15}$/',
@@ -47,22 +47,22 @@ class Card
                       $this->card->passport_number,
                       $this->card->INN);
 
-    for( $i = 1; $i < length($patterns); $i++){
-      if (!preg_match($patterns[$i], subjects[$i])) {
-        return false; # валидация не прошла
+      for( $i = 1; $i < length($patterns); $i++)
+      {
+         return false; # валидация не прошла
       }
+      return true; # валидация успешна
     }
 
-    return true; # валидация успешна
-  }
+    
+  
 
   /**
   * Функция возврата списка ошибок.
   */
+  public function getValidateError(){
 
-  // public function getValidateError(){
-
-  // }
+  }
 
   /**
   * Option for future relise

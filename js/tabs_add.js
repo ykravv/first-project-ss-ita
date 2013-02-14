@@ -36,14 +36,22 @@ function menu_add(){
       document.getElementById("save").disabled = true;
     }
     document.getElementById("edit").onclick = function (){
-      document.getElementById("border1").style.display="block";
-      document.getElementById("tab1").style.display = "block";
-      document.getElementById("general_information").className = "activ";
-      document.getElementById("home_place").className = "not_activ";
-      for(var i=2;i<=6;i++)
-        document.getElementById("tab"+i).style.display = "none";
+      var array_menu = new Array("general_information","passport_data","education_info","post_education_info","work_and_family","home_place");
       document.getElementById("preview_page").style.display="none";
       document.getElementById("save").disabled = true;
+      
+      document.getElementById("border1").style.display="block";
+      document.getElementById("tab1").style.display = "block";
+      for(var key in array_menu)
+      {
+        if(array_menu[key]==="general_information")
+          document.getElementById(array_menu[key]).className = "activ";
+        else
+           document.getElementById(array_menu[key]).className = "not_activ";
+      }
+      for(var i=2;i<=6;i++)
+        document.getElementById("tab"+i).style.display = "none";
+      
       mainController.renderPreview();
     }
     
@@ -71,9 +79,9 @@ function menu_add(){
             return result
         }
         injectSelect(document.getElementById("month_birth"), {
-            "Січень":"Січень", feb:"Лютий", mar:"Березень", apr:"Квітень", 
-            may:"Травень", jun:"Червень", jul:"Липень", avg:"Серпень", 
-            sep:"Вересень", okt:"Жовтень", nov:"Листопад", dec:"Грудень"
+            "cічень":"Січень", "лютий":"Лютий", "березень":"Березень", "квітень":"Квітень", 
+            "травень":"Травень", "червень":"Червень", "липень":"Липень", "серпень":"Серпень", 
+            "вересень":"Вересень", "жовтень":"Жовтень", "листопад":"Листопад", "грудень":"Грудень"
         }); 
         injectSelect(document.getElementById("year_birth"), makeNumbersObject(1920, 2012)); 
         injectSelect(document.getElementById("day_birth"), makeNumbersObject(1, 31));

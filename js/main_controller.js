@@ -142,4 +142,11 @@ function MainController() {
     controller_family.renderFamily(card.getValue("family_model"));
   }
 
+
+  this.saveCardToDB = function(){
+    
+    var front = new Facade();
+    front.dataToServer(card.getData());
+  }
+
 } 

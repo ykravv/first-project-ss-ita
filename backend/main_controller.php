@@ -16,27 +16,29 @@ class MainController
   public function __construct($action, $json){
     $object = json_decode($json);
 
-    $this->education = new Card($object->education, "education");
-    $this->post_education = new Card($object->post_education, "post_education");
-    $this->family = new Card($object->family, "family");
+    $this->education = new Card($object->education_model, "education");
+    $this->post_education = new Card($object->post_education_model, "post_education");
+    $this->family = new Card($object->family_model, "family");
+    
+    unset($object->education_model);
+    unset($object->post_education_model);
+    unset($object->family_model);
 
-    unset($object->education);
-    unset($object->post_education);
-    unset($object->family);
-
-    $this->card = new Card($object, "card");
-
+    $this->card = new Card($object, "cards");
+    
     switch ($action) {
       case 'save': {
           $this->createCard();
         break;
       }
     }
+
+    echo $this->response;
   }
 
   public function createCard()
   {
-    if ($this->card->isValid) {
+    if (/*$this->card->isValid*/true) {
       $this->response = $this->saveCardToDB();
 
       } else {
@@ -49,18 +51,21 @@ class MainController
 
   public function saveCardToDB() {
     $result_query = $this->card->save();
+    
     if ($result_query["status"] === "ok"){
       $this->education->card_id = $result_query["id"];
       $this->post_education->card_id = $result_query["id"];
       $this->family->card_id = $result_query["id"];
 
-      $this->education->save();
-      $this->post_education->save();
+      /*$this->education->save();
+      $this->post_education->save();*/
+      echo "FAMILY\n";
+      var_dump($this->family);
       $this->family->save();
     } else {
       return "Error inserting data";
     }
-
+    
     return "Ok";
   }
 

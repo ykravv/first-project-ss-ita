@@ -5,7 +5,7 @@
 * @this {Facade} 
 */
 function Facade() {
-	this.dataToserver = function (hash) {
+	this.dataToServer = function (hash) {
 		send(hash);
 	};
 	return this;
@@ -16,37 +16,30 @@ function Facade() {
 * @param {string} 
 */
 function send(hash) {
-	var url = "server.php",				//<-------SERVER URL!
-		request = getXmlHttpRequest();	
+	var uri = "backend/server.php",				//<-------SERVER URI!
+		ajax = new AjaxObject();	
 				
-		request.onreadystatechange = function () {
-			if (request.readyState == 4) 
-				alert(request.responseText);
+		ajax.onreadystatechange = function () {
+			if (ajax.readyState == 4) 
+				console.log(ajax.responseText);
 		};
 		
-		request.open("POST", url, true);
-		request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-		request.send("data=" + hash + "&action=save" );	
+		ajax.open("POST", uri, true);
+		ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+		ajax.send("data=" + hash);	
 }
 /**
 * Get object XmlHttpRequest
 *
 * @return {object}
 */
-function getXmlHttpRequest() {
-	if (window.XMLHttpRequest) {
-		try {
-			return new XMLHttpRequest();
-		} catch (e){}
-	} else  
-		if (window.ActiveXObject) {
-			try {
-				return new ActiveXObject('Msxml2.XMLHTTP');
-			} catch (e){}
-			try {
-				return new ActiveXObject('Microsoft.XMLHTTP');
-			} catch (e){}
-		} 
-	return null;
+function AjaxObject() {
+	var result;
+	
+	if (window.XMLHttpRequest) 
+		result = new XMLHttpRequest();
+	else  
+		result =  new ActiveXObject('Microsoft.XMLHTTP');
+	
+	return result;
 }
-

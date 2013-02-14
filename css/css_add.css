@@ -70,7 +70,7 @@ td{
 
 #last_name,#first_name,#patronymic,#day_birth,#month_birth,#year_birth,#citizen,
 #INN,#sex,#passport_series,#passport_number,#passport_issued,#passport_date,
-#last_job,#job_degree,#leave,#pension,#family{
+#last_job,#job_degree,#leave_reason,#pension,#family{
 	margin-top:4px;
 }
 #last_name,#first_name,#patronymic,#citizen{
