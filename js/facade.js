@@ -21,7 +21,7 @@ function send(hash) {
 				
 		ajax.onreadystatechange = function () {
 			if (ajax.readyState == 4) 
-				console.log(ajax.responseText);
+				alert(ajax.responseText);
 		};
 		
 		ajax.open("POST", uri, true);

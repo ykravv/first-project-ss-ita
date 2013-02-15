@@ -15,7 +15,12 @@
     private $id;
     public function __construct($hash_array, $name_table)
     {
-      $this->host = "localhost";
+      // $this->host = "10.0.0.5";
+      // $this->bdname = "uh182514_first";
+      // $this->user = "uh182514_first";
+      // $this->password = "password";
+
+       $this->host = "localhost";
       $this->bdname = "firstproject";
       $this->user = "root";
       $this->password = "password";

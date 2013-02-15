@@ -156,7 +156,7 @@ function MainController() {
 
 
   this.saveCardToDB = function(){
-    console.log(card.isValid());
+    
     var front = new Facade();
     front.dataToServer(card.getData());
   }
