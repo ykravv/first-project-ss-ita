@@ -53,15 +53,15 @@ class MainController
     $result_query = $this->card->save();
     
     if ($result_query["status"] === "ok"){
+      
+      $this->family->card_id = $result_query["id"];
       $this->education->card_id = $result_query["id"];
       $this->post_education->card_id = $result_query["id"];
-      $this->family->card_id = $result_query["id"];
-
-      /*$this->education->save();
-      $this->post_education->save();*/
-      echo "FAMILY\n";
-      var_dump($this->family);
+      
+      
       $this->family->save();
+      $this->education->save();
+      $this->post_education->save();
     } else {
       return "Error inserting data";
     }

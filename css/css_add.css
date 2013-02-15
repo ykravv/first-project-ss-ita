@@ -183,9 +183,21 @@ td p{
     padding:10px 50px;
     margin:30px 0 30px 33px;
 }
-/*ÃÀÑÈÌ êíîïêè*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 a[disabled],input[disabled],a[disabled]:hover{
 color:#c0c0c0;
 background-color:#f1eded;
 opacity:1;
 } 
+
+#for_errors {
+    display: none;
+    position: absolute;
+    top: 10%;
+    left:50%;
+    z-index: 1000;
+    background-color: #feed8d;
+    border: 1px solid red;
+    width: 400px;
+    height: 200px;
+}

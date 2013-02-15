@@ -7,7 +7,7 @@
 
 	// $action = $_REQUEST['action'];
 	$action = "save";
-	echo "========================\nNEW REQUEST\n";
+	
   $controller = new MainController($action, $json_string);
 
 

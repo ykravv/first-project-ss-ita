@@ -51,16 +51,6 @@ function EducationController(education_model, post_education_model){
     education_model.addEducation(one_education);
     
     self_education.renderEducation();
-
-    // for (key in one_education) {
-    //   if (inArray(key, education_part1)) {
-    //     newrow_ed.insertCell(-1).innerHTML = one_education[key];       
-    //   }
-      
-    //   if (inArray(key, education_part2)) {
-    //     newrow_post.insertCell(-1).innerHTML = one_education[key];       
-    //   }
-    // }
    
     self_education.clearFields("table_education");
   }

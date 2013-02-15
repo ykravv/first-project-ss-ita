@@ -25,9 +25,7 @@ function FamilyController(family_model) {
     
     family_model.addRelative(one_relative);
     
-    // for (key in one_relative) {
-    //   newrow.insertCell(-1).innerHTML = one_relative[key];       
-    // }
+    
     self_family.renderFamily();
     self_family.clearFields();
   }

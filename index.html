@@ -293,8 +293,10 @@
         <input type="button" value="Зберегти" id="button_save" />
         <input type="button" value="Вихід" id="button_exit" disabled="disabled"/>
         <input type="button" value="Переглянути карту" id="button_preview" />
+
 			</div><!-- #content-->
 		</div><!-- #container-->
+        <div><span id="for_errors" ></span></div>
 
 		<aside id="sideLeft">
 			<a id="general_information" class="activ">Загальні відомості</a><br />
@@ -465,7 +467,7 @@
     <td><table id="post_education_table_preview" class="input">
         <thead>
         <tr> 
-          <td>Назва освітнього, наукового закладу</td>
+          <td>Назва освітнього закладу</td>
           <td>Рік закінчення</td>
           <td>Науковий ступінь, учене звання</td>
         </tr>
@@ -493,7 +495,7 @@
     <td>&nbsp;</td>
     <td>8. Дата та причина звільнення (скорочення штатів; за власним бажанням, 
       за прогул та інші порушення, невідповідність займаній посаді тощо)<br>
-      <span id="p_leave" class="output"></span>
+      <span id="p_leave_reason" class="output"></span>
     </td>
     <td>&nbsp;</td>
   </tr>

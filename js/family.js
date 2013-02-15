@@ -1,6 +1,7 @@
 function Family(model) {
   /* Модель таблицы Семья */  
   
+  var model = model;
   /* Добавление новой строки-записи в модель */
   this.addRelative = function(relative) {
     model.push(relative);

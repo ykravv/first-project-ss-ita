@@ -5,7 +5,7 @@ init = function() {
   menu_add();
   
 
-  
+
   general_information.addEventListener("click", function(){ mainController.saveTabDataToCard(1) ;} , false);
   passport_data.addEventListener("click", function(){ mainController.saveTabDataToCard(2) ;} , false);
   education_info.addEventListener("click", function(){ mainController.saveTabDataToCard(3) ;}, false);
@@ -27,6 +27,7 @@ init = function() {
   button_preview.addEventListener("click", mainController.renderPreview, false);
   edit.addEventListener("click", function(){ mainController.loadTabDataFromCard(1) ;} , false);
 
+  //button_save.addEventListener("click", function(){ mainController.saveTabDataToCard(7) ;} , false);
   save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
   button_save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
 }

@@ -35,7 +35,7 @@
     }
 
 
-    public function create()
+    public function create($card_id = '')
     {
       $array;
       try{  
@@ -49,11 +49,11 @@
             }  
             $query = substr($query, 0, strlen($str)-1);
             
-            echo "QUERY: ".$query."\n";
+             
             $this->create = $this->db->prepare($query);
             $this->create->execute();
             $this->id = $this->db->lastInsertId();
-            echo "id".$this->id."\n";
+             
           }
           else
           {
@@ -62,18 +62,17 @@
 
             foreach($this->hash_array as $one)
             {
-              echo "HASh oBJ:\n";
-              var_dump($one);
+               
               $query = "INSERT INTO `".$this->name_table."` SET ";
               
               foreach($one as $key=>$value )
               { 
                 $query = $query.$key."='".$value."'".",";
               }  
-              
+              $query = $query."card_id='".$card_id."'".",";
               $query = substr($query, 0, strlen($str)-1);
-              echo "QUERY2: ".$query."\n";
-              die();
+               
+              
               $this->create = $this->db->prepare($query);
               $this->create->execute();
               
@@ -89,7 +88,7 @@
       //array rezult
      
       $array = array("status" => "ok", "id" => $this->id);
-      var_dump($array);
+       
       return $array;
       
     }

@@ -52,7 +52,6 @@ function menu_add(){
       for(var i=2;i<=6;i++)
         document.getElementById("tab"+i).style.display = "none";
       
-      mainController.renderPreview();
     }
     
    

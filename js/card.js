@@ -23,6 +23,10 @@ function Card() {
 		else 
 			error_log += errors[key] + "---" + help[key] +"\n";	
 	};
+
+  this.getCard = function(){
+  	return data;
+  }
 	/**
 	* Clearing the error log
 	*
@@ -86,20 +90,20 @@ function validation(key, value, errors, help) {
 		"INN"
 	];
 	var required_patterns = {
-		"first_name":/^[A-Z]{1}[a-z]{1,10}$/,
-		"last_name":/^[A-Z]{1}[a-z]{1,10}$/,
-		"patronymic":/^[A-Z]{1}[a-z]{1,10}$/,
-		"passport_series":/^[�-�]{2}$/,
+		"first_name":/^[А-Я]{1}[а-я]{1,10}$/,
+		"last_name":/^[А-Я]{1}[а-я]{1,10}$/,
+		"patronymic":/^[А-Я]{1}[а-я]{1,10}$/,
+		"passport_series":/^[А-Я]{2}$/,
 		"passport_number":/^\d{6}$/,
 		"INN":/^\d{10}$/	
 	};
 	var prompt = {
-		"first_name":"The name must begin with a capital letter",
-		"last_name": "Last name must begin with a capital letter.",
-		"patronymic": "Middle name must start with a capital letter.",
-		"passport_series":"In a series of passport should be only two caps",
-		"passport_number":"Passport number consists of 6 digits",
-		"INN":"INN consists of 10 digits"	
+		"first_name":"Имя должно начинаться с большой буквы. Только кириллица.",
+		"last_name": "Фамилия должна начинаться с большой буквы. Только кириллица.",
+		"patronymic": "Отчество должно начинаться с большой буквы. Только кириллица.",
+		"passport_series":"Серия паспорта - две заглавных кириллических буквы",
+		"passport_number":"Номер паспорта - 6 цифр",
+		"INN":"ИНН должен состоять из 10 цифр"	
 	};
 	
 	if (inArray(key, required_keys)) {

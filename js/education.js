@@ -2,7 +2,7 @@ function Education(model) {
     
   /* Передаваемый параметр model - модель таблицы в общей модели карточки
   * Это массив хешей, каждый хеш - строка таблицы.  */
-  
+  var model = model;
   /* Добавление нового элемента модели */
   this.addEducation = function(education) {
     model.push(education);

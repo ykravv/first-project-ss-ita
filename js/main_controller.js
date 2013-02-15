@@ -26,43 +26,55 @@ function MainController() {
     var hash = controls_hash.value;
     current_tab = current_tab || actually_current_tab;
     hash = JSON.parse(hash);
-		//card.clearErrorLog();
+    for_errors.innerHTML = card.clearErrorLog();
+    for_errors.style.display = "none";
     for (controls in hash) {
       for (element in hash[controls][previous_tab]) {
-        switch (controls) {
-          case "inputs" : {
-            card.setValue(hash[controls][previous_tab][element],
-                          document.getElementById(hash[controls][previous_tab][element]).value);
-            break;
-          }
-          case "checkboxes" : {
-            card.setValue(hash[controls][previous_tab][element],
-                          document.getElementById(hash[controls][previous_tab][element]).checked);
-            break;
-          }
-          case "models" : {
-            switch (hash[controls][previous_tab]["model"]) {
-              case "education_model" : {
-                card.setValue("education_model",
-                              controller_education.getEducationModel());
-                break;
-              } 
-              case "post_education_model" : {
-                card.setValue("post_education_model",
-                              controller_education.getPostEducationModel());
+
+            switch (controls) {
+              case "inputs" : {
+                if (card.isValid(hash[controls][previous_tab][element],
+                      document.getElementById(hash[controls][previous_tab][element]).value)) {
+                    card.setValue(hash[controls][previous_tab][element],
+                              document.getElementById(hash[controls][previous_tab][element]).value);
+                } else {
+                    if ((current_tab == 7) || (current_tab != previous_tab)) {
+                      for_errors.style.display = "block";
+                      for_errors.innerHTML = card.getErrorLog();
+                      for_errors.onclick = function () {for_errors.style.display = "none";}
+                    }
+                }
                 break;
               }
-              case "family_model" : {
-                card.setValue("family_model",
-                              controller_family.getFamilyModel());
+              case "checkboxes" : {
+                card.setValue(hash[controls][previous_tab][element],
+                              document.getElementById(hash[controls][previous_tab][element]).checked);
                 break;
               }
+              case "models" : {
+                switch (hash[controls][previous_tab]["model"]) {
+                  case "education_model" : {
+                    card.setValue("education_model",
+                                  controller_education.getEducationModel());
+                    break;
+                  }
+                  case "post_education_model" : {
+                    card.setValue("post_education_model",
+                                  controller_education.getPostEducationModel());
+                    break;
+                  }
+                  case "family_model" : {
+                    card.setValue("family_model",
+                                  controller_family.getFamilyModel());
+                    break;
+                  }
+                }
+
+                break;
+              }
+
             }
 
-            break;  
-          }
-
-        }
 
       }
     }
@@ -144,7 +156,7 @@ function MainController() {
 
 
   this.saveCardToDB = function(){
-    
+    console.log(card.isValid());
     var front = new Facade();
     front.dataToServer(card.getData());
   }

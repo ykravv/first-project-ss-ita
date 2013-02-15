@@ -9,15 +9,14 @@ class Card
 {	
   private $hash_array;
   private $table;
+  public $card_id;
 
 	function __construct($object,$table)
 	{
     $this->hash_array = $object;
     $this->table = $table;
-    echo "\nTABLE:".$this->table."\n";
-    echo "HASH_OBJECT_TO_SAVE:\n"; var_dump($this->hash_array); 
-    echo "\n";
-  
+    
+    
   }
 	/**
 	* Функция сохранения карточки в базу данных
@@ -25,12 +24,15 @@ class Card
 	public function save()
   {
     $fasad_object = new Front($this->hash_array,$this->table);
-    return $fasad_object->create();
+    return $fasad_object->create($this->card_id);
 	}
   /**
   * Функция валидации данных
   */
-   public function isValid(){
+ /**
+  * Функция валидации данных
+  */
+  public function isValid(){
     $patterns = array('/^[А-Я]{1}[а-я]{1,15}$/',
                       '/^[А-Я]{1}[а-я]{1,15}$/',
                       '/^[А-Я]{1}[а-я]{1,15}$/',
@@ -47,15 +49,15 @@ class Card
                       $this->card->passport_number,
                       $this->card->INN);
 
-      for( $i = 1; $i < length($patterns); $i++)
-      {
-         return false; # валидация не прошла
+    for( $i = 0; $i < length($patterns)-1; $i++){
+      if (!preg_match($patterns[$i], $subjects[$i])) {
+        return false; # валидация не прошла
       }
-      return true; # валидация успешна
     }
 
-    
-  
+    return true; # валидация успешна
+  }
+
 
   /**
   * Функция возврата списка ошибок.
