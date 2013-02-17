@@ -21,7 +21,7 @@ function MainController() {
   }
 
 
-  this.saveTabDataToCard = function (current_tab) {
+  this.setDataToModel = function (current_tab) {
 
     var hash = controls_hash.value;
     current_tab = current_tab || actually_current_tab;
@@ -86,7 +86,7 @@ function MainController() {
 
 
 
-  this.loadTabDataFromCard = function (current_tab) {
+  this.getDataToView = function (current_tab) {
     var hash = controls_hash.value;
     actually_current_tab = current_tab;
     hash = JSON.parse(hash);
