@@ -38,9 +38,8 @@ class MainController
 
   public function createCard()
   {
-    if (/*$this->card->isValid*/true) {
+    if (/*$this->card->isValid()*/true) {
       $this->response = $this->saveCardToDB();
-
       } else {
         # вернуть сообщение об ошибке 
         $this->response = "incorrect data";
@@ -54,10 +53,9 @@ class MainController
     
     if ($result_query["status"] === "ok"){
       
-      $this->family->card_id = $result_query["id"];
-      $this->education->card_id = $result_query["id"];
-      $this->post_education->card_id = $result_query["id"];
-      
+      $this->family->SetCardId($result_query["id"]);
+      $this->education->SetCardId($result_query["id"]);
+      $this->post_education->SetCardId($result_query["id"]);
       
       $this->family->save();
       $this->education->save();
