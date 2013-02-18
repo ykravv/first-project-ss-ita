@@ -14,6 +14,7 @@ class MainController
   private $response;
 
   public function __construct($action, $json){
+
     $object = json_decode($json);
 
     $this->education = new Card($object->education_model, "education");
@@ -45,7 +46,6 @@ class MainController
         $this->response = "incorrect data";
       }
 
-      return $this->response;
   }
 
   public function saveCardToDB() {

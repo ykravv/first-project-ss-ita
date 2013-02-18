@@ -53,7 +53,7 @@ function sendSearchRequest (last_name, callback) {
 			callback(ajax.responseText);
 	};
 
-	uri_extended = uri + "?action=search&last_name=" + last_name;
+	uri_extended = uri + "?action=search&data=" + last_name;
 	ajax.open("GET", uri_extended, true);
 	ajax.send();	
 }

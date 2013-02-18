@@ -154,7 +154,7 @@ function MainController() {
   this.saveCardToDB = function(){
     
     var facade = new Facade();
-    front.saveCard(card.getData());
+    facade.saveCard(card.getData());
   }
 	
   this.startEasySearch = function () {

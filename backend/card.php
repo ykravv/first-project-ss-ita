@@ -1,6 +1,6 @@
 <?php 
 
-  require_once "front.php";
+  require_once "facade.php";
   
 /**
 * Server model for saving card
@@ -33,7 +33,7 @@ class Card
 	public function save()
   { 
     
-    $fasad_object = new Front($this->card,$this->table);
+    $fasad_object = new Facade($this->card,$this->table);
     return $fasad_object->create($this->card_id);
 	}
   /**
