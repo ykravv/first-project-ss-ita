@@ -30,6 +30,7 @@ init = function() {
   //button_save.addEventListener("click", function(){ mainController.saveTabDataToCard(7) ;} , false);
   save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
   button_save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
+  simple_search.addEventListener("click", function () {mainController.startEasySearch()}, false);
 }
 
 window.onload = function() {

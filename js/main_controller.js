@@ -1,6 +1,7 @@
 function MainController() {
 
-  var card = new Card();
+  if (!card)
+    var card = new Card();
 
   var controller_education = new EducationController(card.getValue("education_model"), 
                                                      card.getValue("post_education_model"));
@@ -9,6 +10,8 @@ function MainController() {
   var actually_current_tab;
 
   var self_controller = this;
+
+  var cards_hash; //hash with array of all found cards
   
   this.init = function () {
     controller_education.init();
@@ -156,12 +159,33 @@ function MainController() {
     var facade = new Facade();
     front.saveCard(card.getData());
   }
-	
+
+
+  //get Data from view and start searching
   this.startEasySearch = function () {
-    var fio = #id.value;
+    //get data from input
+    var fio = search_fullname.value;
+    //converting string from input to array
     var arr_fio = fio.split(" ");
+    //create an instance of Facade
     var fasade_obj = new Facade ();
+    //call Facade method with
+    //@param {array}
+    //@param {method of main_controller}
     fasade_obj.sendSearchRequest(arr_fio[0],self_controller.callback);
   }
 
-} 
+
+  this.getCardsFromModel () {
+    autoload("searchResult.js");
+    var searchResult = new SearchResult();
+    this.cards_hash = searchResult.getAllCards();
+  }
+
+}
+
+function autoload(src) {
+  var script = document.createElement("script");
+  script.setAttribute("src",src);
+  document.getElementsByTagName("head")[0].appendChild(script);
+}
