@@ -5,6 +5,10 @@
 * @this {Facade} 
 */
 function Facade() {
+
+	var uri = "backend/router.php";
+
+
 	this.dataToServer = function (hash) {
 		send(hash);
 	};
@@ -16,11 +20,11 @@ function Facade() {
 * @param {string} 
 */
 function send(hash) {
-	var uri = "backend/server.php",				//<-------SERVER URI!
+	
 		ajax = new AjaxObject();	
 				
 		ajax.onreadystatechange = function () {
-			if (ajax.readyState == 4) 
+			if (ajax.readyState === 4 && ajax.status === 200) 
 				alert(ajax.responseText);
 		};
 		
@@ -28,6 +32,28 @@ function send(hash) {
 		ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
 		ajax.send("data=" + hash);	
 }
+
+/**
+* Send ajax-request for Search
+* 
+*/
+function sendSearchRequest (last_name, callback) {
+	var uri_extended;
+
+	ajax = new AjaxObject();	
+			
+	ajax.onreadystatechange = function () {
+		if (ajax.readyState === 4 && ajax.status === 200) 
+			callback(ajax.responseText);
+	};
+	
+	uri_extended = uri + "?action=search&last_name=" + last_name;
+	ajax.open("GET", uri_extended, true);
+	ajax.send();	
+}
+
+
+
 /**
 * Get object XmlHttpRequest
 *

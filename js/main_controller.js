@@ -1,6 +1,7 @@
 function MainController() {
 
   var card = new Card();
+
   var controller_education = new EducationController(card.getValue("education_model"), 
                                                      card.getValue("post_education_model"));
   var controller_family = new FamilyController(card.getValue("family_model"));
