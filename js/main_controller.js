@@ -7,11 +7,14 @@ function MainController() {
   var controller_family = new FamilyController(card.getValue("family_model"));
   var previous_tab = 1;
   var actually_current_tab;
+
+  var self_controller = this;
   
   this.init = function () {
     controller_education.init();
     controller_family.init();
   }
+
 
 
   this.saveTabToCard = function (current_tab) {
@@ -152,6 +155,13 @@ function MainController() {
     
     var facade = new Facade();
     front.saveCard(card.getData());
+  }
+	
+  this.startEasySearch = function () {
+    var fio = #id.value;
+    var arr_fio = fio.split(" ");
+    var fasade_obj = new Facade ();
+    fasade_obj.sendSearchRequest(arr_fio[0],self_controller.callback);
   }
 
 } 
