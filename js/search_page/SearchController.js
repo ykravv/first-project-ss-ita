@@ -4,5 +4,6 @@ function SearchController() {
 	search.setAllCards(/*cards array*/);
 	search.getAllCards ();
 	
+  // This is a test comment!!!
 	
 }
