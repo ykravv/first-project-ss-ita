@@ -1,5 +1,5 @@
 <?
-  class Front {
+  class Facade {
     private $hash_array;
     private $name_table;
     private $create;
@@ -13,14 +13,14 @@
     private $password;
     
     private $id;
-    public function __construct($hash_array, $name_table)
+    public function __construct()
     {
       // $this->host = "10.0.0.5";
       // $this->bdname = "uh182514_first";
       // $this->user = "uh182514_first";
       // $this->password = "password";
 
-       $this->host = "localhost";
+      $this->host = "localhost";
       $this->bdname = "firstproject";
       $this->user = "root";
       $this->password = "password";
@@ -29,8 +29,7 @@
       {
         $this->db = new PDO('mysql:host='.$this->host.';dbname='.$this->bdname,$this->user,$this->password);
         $this->db->exec("SET NAMES utf8");
-        $this->hash_array = $hash_array;
-        $this->name_table = $name_table;
+        
       }
       catch(PDOException $e)
       {
@@ -40,9 +39,12 @@
     }
 
 
-    public function create($card_id = '')
+    public function create($hash_array, $name_table, $card_id = '')
     {
       $array;
+      $this->hash_array = $hash_array;
+      $this->name_table = $name_table;
+      
       try{  
           if($this->name_table=="cards")
           {
@@ -102,6 +104,13 @@
       $this->update = $this->db->prepare("");
       $this->update->execute();
     }
+
+    public function searchCards($search_string)
+    {
+      // TODO: 
+      /* SQL to DB. Return array of rows */
+    }
+
     public function read()
     {
       $this->read = $this->db->prepare("SELECT * FROM `".$this->name_table."`");
