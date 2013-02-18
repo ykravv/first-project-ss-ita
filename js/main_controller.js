@@ -7,14 +7,6 @@ function MainController() {
   var controller_family = new FamilyController(card.getValue("family_model"));
   var previous_tab = 1;
   var actually_current_tab;
-
-  this.getCard = function(){
-    return  card.getCard();
-  }  
-
-  this.getf = function(){
-    return controller_family;
-  }
   
   this.init = function () {
     controller_education.init();
@@ -22,7 +14,7 @@ function MainController() {
   }
 
 
-  this.setDataToModel = function (current_tab) {
+  this.saveTabToCard = function (current_tab) {
 
     var hash = controls_hash.value;
     current_tab = current_tab || actually_current_tab;
@@ -87,7 +79,7 @@ function MainController() {
 
 
 
-  this.getDataToView = function (current_tab) {
+  this.loadTabFromCard = function (current_tab) {
     var hash = controls_hash.value;
     actually_current_tab = current_tab;
     hash = JSON.parse(hash);
@@ -158,8 +150,8 @@ function MainController() {
 
   this.saveCardToDB = function(){
     
-    var front = new Facade();
-    front.dataToServer(card.getData());
+    var facade = new Facade();
+    front.saveCard(card.getData());
   }
 
 } 

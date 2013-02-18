@@ -9,9 +9,15 @@ function Facade() {
 	var uri = "backend/router.php";
 
 
-	this.dataToServer = function (hash) {
+	this.saveCard = function (hash) {
 		send(hash);
 	};
+
+
+	this.sendSearchRequest = function (last_name, callback) {
+		sendSearchRequest(last_name, callback);
+	};
+
 	return this;
 }
 /**
@@ -21,16 +27,16 @@ function Facade() {
 */
 function send(hash) {
 	
-		ajax = new AjaxObject();	
-				
-		ajax.onreadystatechange = function () {
-			if (ajax.readyState === 4 && ajax.status === 200) 
-				alert(ajax.responseText);
-		};
-		
-		ajax.open("POST", uri, true);
-		ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-		ajax.send("data=" + hash);	
+	var ajax = new AjaxObject();	
+			
+	ajax.onreadystatechange = function () {
+		if (ajax.readyState === 4 && ajax.status === 200) 
+			alert(ajax.responseText);
+	};
+	
+	ajax.open("POST", uri, true);
+	ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+	ajax.send("data=" + hash + "&action=save");	
 }
 
 /**
@@ -46,7 +52,7 @@ function sendSearchRequest (last_name, callback) {
 		if (ajax.readyState === 4 && ajax.status === 200) 
 			callback(ajax.responseText);
 	};
-	
+
 	uri_extended = uri + "?action=search&last_name=" + last_name;
 	ajax.open("GET", uri_extended, true);
 	ajax.send();	
