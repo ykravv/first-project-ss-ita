@@ -164,15 +164,15 @@ function MainController() {
   //get Data from view and start searching
   this.startEasySearch = function () {
     //get data from input
-    var fio = search_fullname.value;
+    var fullname = search_fullname.value;
     //converting string from input to array
-    var arr_fio = fio.split(" ");
+    var arr_fullname = fullname.split(" ");
     //create an instance of Facade
     var fasade_obj = new Facade ();
     //call Facade method with
     //@param {array}
     //@param {method of main_controller}
-    fasade_obj.sendSearchRequest(arr_fio[0],self_controller.callback);
+    fasade_obj.sendSearchRequest(arr_fullname[0],self_controller.callback);
   }
 
 
