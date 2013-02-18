@@ -157,7 +157,7 @@ function MainController() {
   this.saveCardToDB = function(){
     
     var facade = new Facade();
-    facade.saveCard(card.getData());
+    front.saveCard(card.getData());
   }
 
 
