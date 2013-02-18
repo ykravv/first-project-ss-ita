@@ -5,5 +5,7 @@ function SearchController() {
 	search.getAllCards ();
 	
   // This is a test comment!!!
-	
+
+
+// :)
 }
