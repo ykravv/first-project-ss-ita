@@ -8,57 +8,45 @@ function Facade() {
 
 	var uri = "backend/router.php";
 
-
-	this.saveCard = function (hash) {
-		send(hash);
-	};
-
-
-	this.sendSearchRequest = function (last_name, callback) {
-		sendSearchRequest(last_name, callback);
-	};
-
-	return this;
-}
 /**
-* Send ajax request with data 
-*
-* @param {string} 
+* Send ajax-request for saving card
+* 
 */
-function send(hash) {
-	
-	var ajax = new AjaxObject();	
+	this.saveCard = function (hash) {
+		var ajax = new AjaxObject();	
 			
-	ajax.onreadystatechange = function () {
-		if (ajax.readyState === 4 && ajax.status === 200) 
-			alert(ajax.responseText);
+		ajax.onreadystatechange = function () {
+			if (ajax.readyState === 4 && ajax.status === 200) 
+				alert(ajax.responseText);
+		};
+		
+		ajax.open("POST", uri, true);
+		ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+		ajax.send("data=" + hash + "&action=save");	
+
 	};
-	
-	ajax.open("POST", uri, true);
-	ajax.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-	ajax.send("data=" + hash + "&action=save");	
-}
 
 /**
 * Send ajax-request for Search
 * 
 */
-function sendSearchRequest (last_name, callback) {
-	var uri_extended;
+	this.sendSearchRequest = function (last_name, callback) {
+		var uri_extended;
 
-	ajax = new AjaxObject();	
-			
-	ajax.onreadystatechange = function () {
-		if (ajax.readyState === 4 && ajax.status === 200) 
-			callback(ajax.responseText);
+		ajax = new AjaxObject();	
+				
+		ajax.onreadystatechange = function () {
+			if (ajax.readyState === 4 && ajax.status === 200) 
+				callback(ajax.responseText);
+		};
+
+		uri_extended = uri + "?action=search&data=" + last_name;
+		ajax.open("GET", uri_extended, true);
+		ajax.send();	
 	};
 
-	uri_extended = uri + "?action=search&data=" + last_name;
-	ajax.open("GET", uri_extended, true);
-	ajax.send();	
+	return this;
 }
-
-
 
 /**
 * Get object XmlHttpRequest
