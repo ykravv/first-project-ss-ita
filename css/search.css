@@ -1,3 +1,6 @@
+#search_tab{
+  display:none;
+}
 #search_tab #sideRight {
 	float: right;
 	width: 350px;
