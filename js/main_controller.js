@@ -1,6 +1,5 @@
 function MainController() {
 
-  if (!card)
     var card = new Card();
 
   var controller_education = new EducationController(card.getValue("education_model"), 
@@ -176,7 +175,7 @@ function MainController() {
   }
 
 
-  this.getCardsFromModel () {
+  this.getCardsFromModel = function() {
     autoload("searchResult.js");
     var searchResult = new SearchResult();
     this.cards_hash = searchResult.getAllCards();
