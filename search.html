@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="utf-8" />
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<title>Add</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<link rel="stylesheet" href="css/main.css" type="text/css"/>
+  <link rel="stylesheet" href="css/search.css" type="text/css"/>
+  <script src="js/search_page/view_search.js"></script>
+	<!--[if lte IE 6]><link rel="stylesheet" href="style_ie.css" type="text/css" media="screen, projection" /><![endif]-->
+</head>
+
+<body>
+<div id="border1">
+<div id="wrapper">
+
+	<header id="header">
+
+	</header><!-- #header-->
+
+	<section id="middle">
+
+		<div id="container">
+      
+			<div id="content">
+				<div id="menu">
+					<ul>
+					<li /><a href="index.html">Додати карту</a>
+					<li /><a id="current">Пошук</a>
+					</ul>
+				</div>
+			
+       <input type="text" id="search_fullname" />
+       <input type="button" id="simple_search" value="Шукати"/>
+
+			</div><!-- #content-->
+		</div><!-- #container-->
+
+		<aside id="sideRight">	       
+       <input type="button" id="extended_search" value="Розширений пошук" class="not_active"/>	
+       <div id="full_search">
+        <table>
+          <tr>
+            <td>Рік народження:</td>
+            <td class="search">
+              <select id="select_age">
+                <option></option>
+                <option>Більше</option>
+                <option>Менше</option>
+                <option>Рівно</option>
+              </select>
+            
+              <input type="text" id="age" />
+            </td>
+          </tr>
+          <tr>
+            <td>Стать:</td>
+            <td class="search">
+              <select id="select_sex">
+                <option></option>
+                <option>Жіночa</option>
+                <option>Чоловічa</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Військова служба:</td>
+            <td class="search">
+              <input type="checkbox" id="search_army" />
+            </td>
+          </tr>
+          <tr>
+            <td>Освіта:</td>
+            <td  class="search">
+              <select id="select_aducationLevel">
+                <option></option>
+                <option>Нижче</option>
+                <option>Вище</option>
+                <option>Рівно</option>
+              </select>
+            
+              <select id="select_aducation">
+                <option></option>
+                <option>Середня</option>
+                <option>Незакінчена вища</option>
+                <option>Вища</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+       </div>
+		</aside><!-- #sideLeft -->
+    
+	</section><!-- #middle-->
+
+</div><!-- #wrapper -->
+      
+        
+        
+<footer id="footer">
+	<p id="foot">© 2013 FirstProject, Sparta team </p>
+</footer><!-- #footer -->
+</div><!-- #border1 -->
+</body>
+</html>

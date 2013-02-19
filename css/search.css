@@ -1,0 +1,102 @@
+#sideRight {
+	float: right;
+	width: 350px;
+	margin-top:40px;
+	position: absolute;
+  top:0;
+  right:0;
+	background: #ffffff;
+	padding:10px 20px;
+  
+}
+#full_search{
+  display:none;
+}
+#search_fullname{
+  width:500px;
+  height:45px;
+  font-size:23px;
+  float:left;
+  position: absolute;
+  top:50px;
+  left:3%;
+}
+#content {
+	width:450px;
+  overflow:hidden;
+}
+#simple_search{
+  font-size:19px;
+	margin:0 0 0 280px;
+	font-family:Verdana;
+  padding:10px 50px;
+  float:left;
+  
+  position: relative;
+ 
+}
+#extended_search{
+  font-size:19px;
+	font-family:Verdana;
+  padding:10px 50px;
+  float:left;
+
+  -moz-border-radius:0 29px 0;
+	-webkit-border-radius:0 29px 0;
+	border-radius:0 29px 0;
+}
+.search{
+  width:250px;
+}
+#select_age{
+  width:140px;
+}
+#age{
+  width:70px;
+  font-size:15px;
+  margin-left:5px;
+  padding:5px;
+}
+#select_sex{
+    width:230px;
+}
+#search_army{
+  margin-top:20px;
+}
+#select_aducationLevel{
+  width:72px;
+}
+#select_aducation{
+  width:153px;
+}
+select{
+	font-size:16px;
+  float:left;
+  margin-left:5px;
+  height:30px;
+}
+td{
+  padding:20px 0px;
+  color:#302c2b;
+  font-family:Verdana;
+  font-size:16px;
+}
+.active{
+  background-color:#c0c0c0;
+  text-decoration:underline;
+}
+.not_active{
+  background-color:#f0f0f0;
+  text-decoration:none;
+}
+
+#content_	p {
+	font-size:14px;
+	padding:10px 0 0 0;
+	color:#4d4840;
+}
+#content {
+	padding: 50px 30px 100px 270px;
+	min-height: 800px;
+}
+
