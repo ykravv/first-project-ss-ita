@@ -4,6 +4,7 @@ require_once 'facade.php';
 /**
 * Search Model
 */
+
 class SearchModel
 {
   
@@ -20,6 +21,4 @@ class SearchModel
     return json_encode($result_search);
   }
 }
-
-
 ?>
