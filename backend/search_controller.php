@@ -14,7 +14,7 @@ class SearchController
 
   private function StartSearch($search_string)
   {
-    $cards = new SearchModel();
+    $cards = new SearchModel(); 
     return $cards->searchCards($search_string);
   }
 
