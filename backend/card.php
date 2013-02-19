@@ -34,7 +34,7 @@ class Card
   { 
     
     $fasad_object = new Facade();
-    return $fasad_object->create($this->card, $this->table, $this->card_id);
+    return $fasad_object->createCard($this->card, $this->table, $this->card_id);
 	}
   /**
   * Функция валидации данных

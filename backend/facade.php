@@ -39,7 +39,7 @@
     }
 
 
-    public function create($hash_array, $name_table, $card_id = '')
+    public function createCard($hash_array, $name_table, $card_id = '')
     {
       $array;
       $this->hash_array = $hash_array;
@@ -64,7 +64,6 @@
           }
           else
           {
-            //TODO: ������� ������ ���� ������!
             $i=0;
 
             foreach($this->hash_array as $one)
@@ -99,31 +98,26 @@
       return $array;
       
     }
-    public function update()
-    {
-      $this->update = $this->db->prepare("");
-      $this->update->execute();
-    }
 
-    public function searchCards($search_string)
+
+    public function SearchCards($search_string)
     {
       // TODO: 
       /* SQL to DB. Return array of rows */
-      // Temp code
+      // Temp code. Поиск карточек по last_name. Возврат массива полученных записей 
+      // через вызов ->fetchAll();
 
-      $this->db->prepare("SELECT * FROM `cards` WHERE last_name");
+      $this->db->prepare("SELECT * FROM `cards` WHERE last_name LIKE ........");
     }
 
-    public function read()
+    public function GetSubTable($table, $card_id)
     {
-      $this->read = $this->db->prepare("SELECT * FROM `".$this->name_table."`");
-    /*  $result= array();
-      $this->read->execute();
-      while($row = $this->read->fetch())
-      {
-        $result .= $row["id"].$row["name"].$row["author"];
-      }
-      return $result;*/
+      // TODO: $table - имя таблицы, 
+      // Card_id - значение для условия ..WHERE card_id = $card_id
+      // Метод для запроса из базы суб-табличек образования, семьи...
+      // Возврат массива полученных записей через вызов ->fetchAll();
     }
+
+    
   }
 ?>
