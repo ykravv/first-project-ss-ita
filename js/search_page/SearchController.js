@@ -10,7 +10,8 @@ function SearchController() {
 		//@param {array}
 		//@param {method of main_controller}
 		fasade_obj.sendSearchRequest(fullname, self_controller.callback);
-	
+	}
+	//
 	this.startExtendSearch = function (/*params*/) {
 	//params :
 	//select_age, age, sex, army, educationLevel, select_education	
