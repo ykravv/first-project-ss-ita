@@ -9,7 +9,7 @@ class SearchModel
   
   public function searchCards($search_string)
   {
-    $facade = new Facade();
+    $facade = new Facade();  
     $result_search = $facade->searchCards($search_string);
     foreach ($result_search as $one) {
       // $education = $facade->getModel($one["id"], "education"); // id, table ??
