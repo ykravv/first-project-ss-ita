@@ -169,10 +169,8 @@ function MainController() {
   //initialization by transmitted model
   //@param {object}
   this.initializationTransModel = function (newCard) {
-    for (i in card) {
-      for (j in newCard) {
-        this.card[i] = newCard[j];
-      }
+    for (key in newCard) {
+      this.card.setValue(key,newCard[key]);
     }
   }
   
