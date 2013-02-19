@@ -160,30 +160,25 @@ function MainController() {
   }
 
 
-  //get Data from view and start searching
-  this.startEasySearch = function () {
-    //get data from input
-    var fullname = search_fullname.value;
-    //converting string from input to array
-    var arr_fullname = fullname.split(" ");
-    //create an instance of Facade
-    var fasade_obj = new Facade ();
-    //call Facade method with
-    //@param {array}
-    //@param {method of main_controller}
-    fasade_obj.sendSearchRequest(arr_fullname[0],self_controller.callback);
-  }
-
-
   this.getCardsFromModel = function() {
     autoload("searchResult.js");
     var searchResult = new SearchResult();
     this.cards_hash = searchResult.getAllCards();
   }
+
+  //initialization by transmitted model
+  //@param {object}
+  this.initializationTransModel = function (newCard) {
+    for (i in card) {
+      for (j in newCard) {
+        this.card[i] = newCard[j];
+      }
+    }
+  }
   
 }
 function autoload(src) {
-  var script = document.createElement("script");
-  script.setAttribute("src",src);
-  document.getElementsByTagName("head")[0].appendChild(script);
+  var scr = document.createElement("script");
+  scr.setAttribute("src",src);
+  document.head.appendChild(scr);
 }

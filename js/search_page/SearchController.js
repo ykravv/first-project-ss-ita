@@ -1,3 +1,4 @@
+autoload("js/search_page/SearchResult.js");
 function SearchController() {
 	var search = new SearchResult();
 	
@@ -15,7 +16,7 @@ function SearchController() {
 	this.startExtendSearch = function (/*params*/) {
 	//params :
 	//select_age, age, sex, army, educationLevel, select_education	
-		var fasade_obj = new Facade(),
-	fasade_obj.sendSearchRequest(/*params*/, self_controller.callback);
+		var fasade_obj = new Facade();
+//	fasade_obj.sendSearchRequest(/*params*/, self_controller.callback);
 	}
 }

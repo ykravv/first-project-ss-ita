@@ -1,10 +1,11 @@
 var mainController = new MainController();
 var searchTabsObject = new searchTabs();
+autoload("js/search_page/SearchController.js");
 init = function() {
   
   mainController.init();
   menu_add();
-  
+  var searchController = new SearchController();
 
 
   general_information.addEventListener("click", function(){ mainController.saveTabToCard(1) ;} , false);
@@ -31,7 +32,7 @@ init = function() {
   //button_save.addEventListener("click", function(){ mainController.saveTabDataToCard(7) ;} , false);
   save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
   button_save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
-  simple_search.addEventListener("click", function () {mainController.startEasySearch()}, false);
+  simple_search.addEventListener("click", function () {searchController.startEasySearch()}, false);
   
   extended_search.addEventListener("click", function () {searchTabsObject.searchFull()}, false);
   add_card.addEventListener("click", function () {searchTabsObject.clickAddCard()}, false);
@@ -40,5 +41,6 @@ init = function() {
 
 window.onload = function() {
 	init();
+
 }
 
