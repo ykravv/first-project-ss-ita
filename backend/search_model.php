@@ -12,12 +12,10 @@ class SearchModel
     $facade = new Facade();  
     $result_search = $facade->SearchCards($search_string);
     foreach ($result_search as $one) {
-      
-
-
-      // $education = $facade->getModel($one["id"], "education"); // id, table ??
-      // $post_education = $facade->getModel($one["id"], "post_education"); 
-      // $family = $facade->getModel($one["id"], "family"); 
+      $card_id = $one["id"];
+      $one["education_model"] = $facade->GetSubTable("education", $card_id);
+      $one["post_education_model"] = $facade->GetSubTable("post_education", $card_id);
+      $one["family_model"] = $facade->GetSubTable("family", $card_id);
     }
     return json_encode($result_search);
   }
