@@ -8,7 +8,7 @@
     private $db;
     
     private $host;
-    private $bdname;
+    private $dbname;
     private $user;
     private $password;
     
@@ -16,32 +16,31 @@
     public function __construct()
     {
       // $this->host = "10.0.0.5";
-      // $this->bdname = "uh182514_first";
+      // $this->dbname = "uh182514_first";
       // $this->user = "uh182514_first";
       // $this->password = "password";
 
       $this->host = "localhost";
-      $this->bdname = "firstproject";
+      $this->dbname = "reader";
       $this->user = "root";
-      $this->password = "password";
+      $this->password = "";
 
       try
       {
-        $this->db = new PDO('mysql:host='.$this->host.';dbname='.$this->bdname,$this->user,$this->password);
+        $this->db = new PDO('mysql:host='.$this->host.';dbname='.$this->dbname,$this->user,$this->password);
         $this->db->exec("SET NAMES utf8");
         
       }
       catch(PDOException $e)
       {
         return false;
-      }    
+      }        
       return true;
     }
 
 
     public function createCard($hash_array, $name_table, $card_id = '')
     {
-      $array;
       $this->hash_array = $hash_array;
       $this->name_table = $name_table;
       
@@ -106,9 +105,15 @@
       /* SQL to DB. Return array of rows */
       // Temp code. Поиск карточек по last_name. Возврат массива полученных записей 
       // через вызов ->fetchAll();
+           
+      $query = "SELECT * FROM `cards` WHERE last_name LIKE '".$search_string."'";
+      
+        $this->read = $this->db->prepare($query);
+        $this->read->execute();
+        return $this->read->fetchAll();
+        
+      }
 
-      $this->db->prepare("SELECT * FROM `cards` WHERE last_name LIKE ........");
-    }
 
     public function GetSubTable($table, $card_id)
     {
@@ -116,6 +121,10 @@
       // Card_id - значение для условия ..WHERE card_id = $card_id
       // Метод для запроса из базы суб-табличек образования, семьи...
       // Возврат массива полученных записей через вызов ->fetchAll();
+      $query = "SELECT * FROM `".$table."` WHERE card_id = '".$card_id."'";
+        $this->read = $this->db->prepare($query);
+        $this->read->execute();
+        return $this->read->fetchAll();
     }
 
     
