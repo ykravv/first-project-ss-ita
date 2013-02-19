@@ -109,6 +109,9 @@
     {
       // TODO: 
       /* SQL to DB. Return array of rows */
+      // Temp code
+
+      $this->db->prepare("SELECT * FROM `cards` WHERE last_name");
     }
 
     public function read()

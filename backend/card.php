@@ -33,8 +33,8 @@ class Card
 	public function save()
   { 
     
-    $fasad_object = new Facade($this->card,$this->table);
-    return $fasad_object->create($this->card_id);
+    $fasad_object = new Facade();
+    return $fasad_object->create($this->card, $this->table, $this->card_id);
 	}
   /**
   * Функция валидации данных
@@ -60,33 +60,17 @@ class Card
                       $this->card->passport_number,
                       $this->card->INN);
 
-    echo $patterns["0"];
-    echo "\n".$subjects["0"];
-    echo preg_match($patterns["4"], "Сидор");die();
+    
 
     for( $i = 0; $i < count($patterns)-1; $i++){
       if (!preg_match($patterns[$i], $subjects[$i])) {
-        return false; # валидация не прошла
+        return false; # invalid
       }
     }
 
-    return true; # валидация успешна
+    return true; # valid
   }
 
-
-  /**
-  * Функция возврата списка ошибок.
-  */
-  public function getValidateError(){
-
-  }
-
-  /**
-  * Option for future relise
-  */ 
-  public function read(){
-
-  }
 
   
 }
