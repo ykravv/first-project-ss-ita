@@ -180,9 +180,8 @@ function MainController() {
     var searchResult = new SearchResult();
     this.cards_hash = searchResult.getAllCards();
   }
-
+  
 }
-
 function autoload(src) {
   var script = document.createElement("script");
   script.setAttribute("src",src);

@@ -1,4 +1,5 @@
 var mainController = new MainController();
+var searchTabsObject = new searchTabs();
 init = function() {
   
   mainController.init();
@@ -31,6 +32,10 @@ init = function() {
   save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
   button_save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
   simple_search.addEventListener("click", function () {mainController.startEasySearch()}, false);
+  
+  extended_search.addEventListener("click", function () {searchTabsObject.searchFull()}, false);
+  add_card.addEventListener("click", function () {searchTabsObject.clickAddCard()}, false);
+  search_card.addEventListener("click", function () {searchTabsObject.clickSearchCard()}, false);
 }
 
 window.onload = function() {

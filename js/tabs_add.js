@@ -1,4 +1,5 @@
 function menu_add(){
+  //add tab
   document.onclick = function(e) {
   var e, is_need=0;
   var array_menu = new Array("general_information","passport_data","education_info","post_education_info","work_and_family","home_place");
@@ -84,6 +85,6 @@ function menu_add(){
         }); 
         injectSelect(document.getElementById("year_birth"), makeNumbersObject(1920, 2012)); 
         injectSelect(document.getElementById("day_birth"), makeNumbersObject(1, 31));
-    
-    
+        
+       
 }

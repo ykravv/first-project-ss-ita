@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="css/main.css" type="text/css"/>
 	<link rel="stylesheet" href="css/css_add.css" type="text/css"/>
   <link rel="stylesheet" href="css/preview.css" type="text/css"/>
+  <link rel="stylesheet" href="css/search.css" type="text/css"/>
 	<!--[if lte IE 6]><link rel="stylesheet" href="style_ie.css" type="text/css" media="screen, projection" /><![endif]-->
   <script src="js/education.js"></script>
   <script src="js/education_controller.js"></script>
@@ -18,7 +19,7 @@
   <script src="js/facade.js"></script>
   <script src="js/main_controller.js"></script>
   
-  
+  <script src="js/searchTabs.js"></script>
   <script src="js/tabs_add.js"></script>
 	<script src="js/init.js"></script> 
 </head>
@@ -31,6 +32,7 @@
 
 	</header><!-- #header-->
 
+  <div id="add_tab">
 	<section id="middle">
 
 		<div id="container">
@@ -67,8 +69,8 @@
 			<div id="content">
 				<div id="menu">
 					<ul>
-					<li /><a id="current" href="index.html">Додати карту</a>
-					<li /><a disabled="disabled">Пошук</a>
+					<li /><a class="current" href="#">Додати карту</a>
+					<li /><a class="not_current"  href="#"  id="search_card">Пошук</a>
 					</ul>
 				</div>
 				
@@ -113,7 +115,7 @@
 					</tr>				
 				</table>
 				<br />
-				<input type="button" value="Обрати фото" id="button_photo" class="button" disabled="disabled"/><br /><br />
+				
         </div>
 				
         <div id="tab2">
@@ -308,7 +310,102 @@
 		</aside><!-- #sideLeft -->
     
 	</section><!-- #middle-->
+  </div><!-- #add_tab-->
+  
+  
+  
+  <div id="search_tab">
+      
+      <section id="middle">
 
+        <div id="container">
+          
+          <div id="content">
+            <div id="menu">
+              <ul>
+              <li /><a class="not_current"  href="#" id="add_card">Додати карту</a>
+              <li /><a class="current"  href="#">Пошук</a>
+              </ul>
+            </div>
+          
+           <input type="text" id="search_fullname" />
+           <input type="button" id="simple_search" value="Шукати"/>
+
+          </div><!-- #content-->
+        </div><!-- #container-->
+
+        <aside id="sideRight">	       
+           <input type="button" id="extended_search" value="Розширений пошук" class="not_active"/>	
+           <div id="full_search">
+            <table>
+              <tr>
+                <td>Рік народження:</td>
+                <td class="search">
+                  <select id="select_age">
+                    <option></option>
+                    <option>Більше</option>
+                    <option>Менше</option>
+                    <option>Рівно</option>
+                  </select>
+                
+                  <input type="text" id="age" />
+                </td>
+              </tr>
+              <tr>
+                <td>Стать:</td>
+                <td class="search">
+                  <select id="select_sex">
+                    <option></option>
+                    <option>Жіночa</option>
+                    <option>Чоловічa</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Військова служба:</td>
+                <td class="search">
+                  <input type="checkbox" id="search_army" />
+                </td>
+              </tr>
+              <tr>
+                <td>Освіта:</td>
+                <td  class="search">
+                  <select id="select_aducationLevel">
+                    <option></option>
+                    <option>Нижче</option>
+                    <option>Вище</option>
+                    <option>Рівно</option>
+                  </select>
+                
+                  <select id="select_aducation">
+                    <option></option>
+                    <option>Середня</option>
+                    <option>Незакінчена вища</option>
+                    <option>Вища</option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+           </div>
+        </aside><!-- #sideLeft -->
+        
+      </section><!-- #middle-->
+
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </div><!-- #wrapper -->
       
         

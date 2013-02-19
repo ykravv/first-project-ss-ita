@@ -148,12 +148,12 @@ ul li a:hover {
   
 }
 
-ul li a#current {
+ul li a.current {
   background-color:#292421; 
   color:#6e98cc;
   opacity:1;
 }
-ul li a#current:hover {
+ul li a.current:hover {
   background-color:#292421; 
   border-bottom:none;
   opacity:0.8;
