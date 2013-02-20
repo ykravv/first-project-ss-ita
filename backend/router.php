@@ -1,7 +1,7 @@
 <?php
 
 	require_once "main_controller.php";
-  require_once "search_controller.php"
+  //require_once "search_controller.php"
 	$data = $_REQUEST['data'];
 
 

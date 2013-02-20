@@ -39,7 +39,7 @@ class MainController
 
   public function createCard()
   {
-    if (/*$this->card->isValid()*/true) {
+    if ($this->card->isValid()) {
       $this->response = $this->saveCardToDB();
       } else {
         # вернуть сообщение об ошибке 

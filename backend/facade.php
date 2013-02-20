@@ -21,7 +21,7 @@
       // $this->password = "password";
 
       $this->host = "localhost";
-      $this->dbname = "reader";
+      $this->dbname = "firstproject";
       $this->user = "root";
       $this->password = "";
 
