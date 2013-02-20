@@ -26,7 +26,7 @@ function SearchController() {
 
 
   this.callback = function(data){
-    console.log(data);
+    console.log(JSON.parse(data));
   }
   //
   this.startExtendSearch = function () {
