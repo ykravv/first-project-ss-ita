@@ -34,7 +34,7 @@ function SearchController() {
 					select_age.value, 			
 					age.value,						
 					select_sex.value, 
-					search_army.value, 
+					search_army.checked, 
 					select_aducation.value, 
 					select_aducationLevel.value
 					];
