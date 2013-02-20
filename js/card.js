@@ -27,6 +27,11 @@ function Card() {
   this.getCard = function(){
   	return data;
   }
+
+
+  this.setCard = function(card) {
+  	data = card;
+  }
 	/**
 	* Clearing the error log
 	*
@@ -69,6 +74,7 @@ function Card() {
 	this.getData = function() {
 		return JSON.stringify(data);
 	};	
+
 }
 
 /**
