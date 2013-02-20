@@ -1,5 +1,5 @@
 <?
-require_once "tempcard.php";
+
 
   class Facade {
     private $hash_array;
