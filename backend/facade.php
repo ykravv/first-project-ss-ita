@@ -23,7 +23,7 @@
       $this->host = "localhost";
       $this->dbname = "firstproject";
       $this->user = "root";
-      $this->password = "";
+      $this->password = "2ndknz4eula$";
 
       try
       {

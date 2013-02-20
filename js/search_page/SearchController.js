@@ -6,24 +6,34 @@ obj.viewListCards(array);*/
 //--endTEST
 
 function SearchController() {
+<<<<<<< HEAD
 	var search = new SearchResult();
 	self_controller = this;
+=======
+>>>>>>> 0e18e256db649affb98c887656837d3a199c7da0
 
-	this.startEasySearch = function () {
-		var fasade_obj = new Facade(),
-			fullname = search_fullname.value;
-		
-		//@param {array}
-		//@param {method of main_controller}
-		fasade_obj.sendSearchRequest(fullname, self_controller.callback);
-	}
-	//
-	this.startExtendSearch = function (/*params*/) {
-	//params :
-	//select_age, age, sex, army, educationLevel, select_education	
-		var fasade_obj = new Facade();
-//	fasade_obj.sendSearchRequest(/*params*/, self_controller.callback);
-	}
+  var search = new SearchResult();
+  var cards_array;
+  self_controller = this;
+
+  this.startEasySearch = function () {
+    var fasade_obj = new Facade(),
+      fullname = search_fullname.value;
+    
+    //@param {array}
+    //@param {method of main_controller}
+    fasade_obj.sendSearchRequest(fullname, self_controller.callback);
+  }
+
+
+  this.callback = function(data){
+    console.log(data);
+  }
+  //
+  this.startExtendSearch = function (select_age, age, sex, army, educationLevel, select_education) {
+    var param_arr = [select_age, age, sex, army, educationLevel, select_education];
+    search.setAllCards(param_arr);
+  }
   
   
   //view list of cards

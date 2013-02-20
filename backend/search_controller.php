@@ -16,13 +16,12 @@ class SearchController
   private function StartSearch($search_string)
   {
     $cards = new SearchModel(); 
-    return $cards->searchCards($search_string);
+    return $cards->SearchCards($search_string);
   }
 
   private function SendResultToClient($data)
   {
     echo $data;
-    return ;
   }
 
 }

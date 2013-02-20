@@ -8,7 +8,7 @@ require_once 'facade.php';
 class SearchModel
 {
   
-  public function searchCards($search_string)
+  public function SearchCards($search_string)
   {
     $facade = new Facade();  
     $result_search = $facade->SearchCards($search_string);
@@ -17,7 +17,9 @@ class SearchModel
       $one["education_model"] = $facade->GetSubTable("education", $card_id);
       $one["post_education_model"] = $facade->GetSubTable("post_education", $card_id);
       $one["family_model"] = $facade->GetSubTable("family", $card_id);
+
     }
+
     return json_encode($result_search);
   }
 }
