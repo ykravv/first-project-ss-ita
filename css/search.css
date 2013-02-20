@@ -62,7 +62,7 @@
   padding:5px;
 }
 #search_tab #select_sex{
-    width:250px;
+    width:165px;
 }
 #search_tab #search_army{
   margin-top:20px;
@@ -70,7 +70,9 @@
 #search_tab #select_aducationLevel{
   width:250px;
 }
-
+#search_tab #select_aducation{
+  width:100px;
+}
 #search_tab select{
 	font-size:16px;
   float:left;
