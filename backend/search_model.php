@@ -8,7 +8,7 @@ require_once 'facade.php';
 class SearchModel
 {
   
-  public function searchCards($search_string)
+  public function SearchCards($search_string)
   {
     $facade = new Facade();  
     $result_search = $facade->SearchCards($search_string);

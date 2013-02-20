@@ -2,7 +2,7 @@ autoload("js/search_page/searchResult.js");
 function SearchController() {
 	var search = new SearchResult();
 	
-	self_controller = this;
+	var self_controller = this;
 
 	this.startEasySearch = function () {
 		var fasade_obj = new Facade(),
@@ -12,6 +12,11 @@ function SearchController() {
 		//@param {method of main_controller}
 		fasade_obj.sendSearchRequest(fullname, self_controller.callback);
 	}
+
+  this.callback = function(data){
+    console.log(data);
+  }
+
 	//
 	this.startExtendSearch = function (/*params*/) {
 	//params :
