@@ -19,12 +19,7 @@ function SearchController() {
    // search.setAllCards(JSON.parse(data)); 
     console.log(JSON.parse(data));
   }
-<<<<<<< HEAD
-  
-  this.startExtendSearch = function (select_age, age, sex, army, educationLevel, select_education) {
-    var param_arr = [select_age, age, sex, army, educationLevel, select_education];
-    //search.setAllCards(param_arr);
-  }
+
   //view for every card with its buttons
   this.appendNewItems = function(i, ul_id){
     var span = document.createElement("span");
@@ -52,8 +47,7 @@ function SearchController() {
     span_id.appendChild(button_edit);
     span_id.appendChild(button_preview);
   }
-=======
-  //
+
   this.startExtendSearch = function () {
     var param_arr = [
 					select_age.value, 			
@@ -66,8 +60,6 @@ function SearchController() {
     
 	search_result = search.setFilterParam(param_arr);
 
-  
->>>>>>> 4862ef88238164566686ebd33170ef9d3226bc86
   
   //view list of cards
   this.viewListCards = function(hash_array)  {
