@@ -16,7 +16,7 @@ function SearchController() {
 
 
   this.callback = function(data){
-    console.log(data);
+    console.log(JSON.parse(data));
   }
   //
   this.startExtendSearch = function (select_age, age, sex, army, educationLevel, select_education) {
