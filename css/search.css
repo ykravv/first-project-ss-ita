@@ -16,7 +16,7 @@
 }
 
 #search_tab  #search_fullname{
-  width:500px;
+  width:370px;
   height:45px;
   font-size:23px;
   float:left;
@@ -30,13 +30,20 @@
 }
 #search_tab #simple_search{
   font-size:19px;
-	margin:0 0 0 280px;
+	margin:0 0 0 150px;
 	font-family:Verdana;
   padding:10px 50px;
   float:left;
   height:50px;
   position: relative;
  
+}
+#search_filter{
+  font-size:19px;
+	font-family:Verdana;
+  padding:5px 25px;
+  float:left;
+  margin-left:90px;
 }
 #search_tab #extended_search{
   font-size:19px;
@@ -56,7 +63,7 @@
   width:165px;
 }
 #search_tab #age{
-  width:70px;
+  width:50px;
   font-size:15px;
   margin-left:5px;
   padding:5px;
