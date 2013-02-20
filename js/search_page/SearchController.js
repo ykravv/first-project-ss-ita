@@ -17,12 +17,13 @@ function SearchController() {
     
     //@param {array}
     //@param {method of main_controller}
-    fasade_obj.sendSearchRequest(fullname, self_controller.callback);
+    fasade_obj.sendSearchRequest(fullname, self_controller.callbackSimpleSearch);
   }
 
 
-  this.callbackSimpleSeach = function(data){
+  this.callbackSimpleSearch = function(data){
    // search.setAllCards(JSON.parse(data)); 
+    console.log(JSON.parse(data));
   }
   //
   this.startExtendSearch = function () {
@@ -73,4 +74,5 @@ function SearchController() {
     this.viewListCards(cards_array);
   }
   
+}
 }
