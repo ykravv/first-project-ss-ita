@@ -11,13 +11,15 @@ function SearchController() {
     
     //@param {array}
     //@param {method of main_controller}
-    fasade_obj.sendSearchRequest(fullname, self_controller.callback);
+    fasade_obj.sendSearchRequest(fullname, self_controller.callbackSimpleSearch);
   }
 
 
-  this.callbackSimpleSeach = function(data){
+  this.callbackSimpleSearch = function(data){
    // search.setAllCards(JSON.parse(data)); 
+    console.log(JSON.parse(data));
   }
+<<<<<<< HEAD
   
   this.startExtendSearch = function (select_age, age, sex, army, educationLevel, select_education) {
     var param_arr = [select_age, age, sex, army, educationLevel, select_education];
@@ -50,6 +52,22 @@ function SearchController() {
     span_id.appendChild(button_edit);
     span_id.appendChild(button_preview);
   }
+=======
+  //
+  this.startExtendSearch = function () {
+    var param_arr = [
+					select_age.value, 			
+					age.value,						
+					select_sex.value, 
+					search_army.checked, 
+					select_aducation.value, 
+					select_aducationLevel.value
+					];
+    
+	search_result = search.setFilterParam(param_arr);
+
+  
+>>>>>>> 4862ef88238164566686ebd33170ef9d3226bc86
   
   //view list of cards
   this.viewListCards = function(hash_array)  {
@@ -93,4 +111,5 @@ function SearchController() {
     this.viewListCards(cards_array);
   }
   
+}
 }
