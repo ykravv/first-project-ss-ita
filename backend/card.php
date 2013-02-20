@@ -43,12 +43,13 @@ class Card
   * Функция валидации данных
   */
   public function isValid(){
+  
 
-    $patterns = array('/^[А-Я]{1}[а-я]{1,15}$/',
-                      '/^[А-Я]{1}[а-я]{1,15}$/',
-                      '/^[А-Я]{1}[а-я]{1,15}$/',
+    $patterns = array('/^[А-Я]{1}[а-я]{1,15}$/u',
+                      '/^[А-Я]{1}[а-я]{1,15}$/u',
+                      '/^[А-Я]{1}[а-я]{1,15}$/u',
                       '/^[0-9]{1,4}$/',
-                      '/^[А-Я]{2}$/',
+                      '/^[А-Я]{2}$/u',
                       '/^\d{6}$/',
                       '/^\d{10}$/');
 
@@ -62,7 +63,7 @@ class Card
 
     
 
-    for( $i = 0; $i < count($patterns)-1; $i++){
+    for( $i = 0; $i < count($patterns); $i++){
       if (!preg_match($patterns[$i], $subjects[$i])) {
         return false; # invalid
       }

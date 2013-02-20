@@ -1,4 +1,4 @@
-autoload("js/search_page/SearchResult.js");
+autoload("js/search_page/searchResult.js");
 function SearchController() {
 	var search = new SearchResult();
 	var cards_array;
