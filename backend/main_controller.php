@@ -16,7 +16,7 @@ class MainController
   public function __construct($action, $json){
 
     $object = json_decode($json);
-
+    
     $this->education = new Card($object->education_model, "education");
     $this->post_education = new Card($object->post_education_model, "post_education");
     $this->family = new Card($object->family_model, "family");
