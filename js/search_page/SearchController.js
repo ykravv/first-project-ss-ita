@@ -1,7 +1,12 @@
 autoload("js/search_page/searchResult.js");
+//TEST
+/*var obj = new SearchController();
+var array = new Array();//need array
+obj.viewListCards(array);*/
+//--endTEST
+
 function SearchController() {
 	var search = new SearchResult();
-	var cards_array;
 	self_controller = this;
 
 	this.startEasySearch = function () {
@@ -20,29 +25,28 @@ function SearchController() {
 //	fasade_obj.sendSearchRequest(/*params*/, self_controller.callback);
 	}
   
-  //list cards from model
-  this.listCards = function()  {
-    this.cards_array = search.getAllCards;
- 
-  }
+  
   //view list of cards
-  this.viewListCards = function()  {
-    var i,j;        
-    var fragment="";
+  this.viewListCards = function(cards_array)  {
+    var i;        
     
-    var ul = document.getElementsByTagName("ul")[0]; // assuming it exists
-    var docfrag = document.createDocumentFragment();
-       
-    this.cards_array.forEach(function(e){
-                                      var li = document.createElement("li");
-                                      li.textContent = e;
-                                      docfrag.appendChild(li);
-                                    });
-       
-      ul.appendChild(docfrag);
-    
-    /*i=0;
-    for(this.cards_array in object_card)
+    i=0;
+    for(cards_array in object_card)
+    {   
+      for(object_card in key)
+      { 
+        var li = document.createElement("li");
+        li.setAttribute ("id","card_"+i);
+        //text of one card
+        li.innerHTML = object_card[key];          
+        users.appendChild(li);
+      }
+      i++;
+    }
+      /*
+    var i,j;
+    i=0;
+    for(cards_array in object_card)
     {          
       j=0;
       
@@ -55,8 +59,12 @@ function SearchController() {
         j++;
       }  
       i++;
-      
     }*/
-    
   }
+  //list cards from model
+  this.listCards = function()  {
+    var cards_array = search.getAllCards;
+    this.viewListCards(cards_array);
+  }
+  
 }
