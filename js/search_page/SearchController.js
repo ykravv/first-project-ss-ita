@@ -6,7 +6,9 @@ obj.viewListCards(array);*/
 //--endTEST
 
 function SearchController() {
-	var search = new SearchResult();
+	var search = new SearchResult(),
+		search_result;
+		
 	self_controller = this;
 
   var search = new SearchResult();
@@ -27,9 +29,17 @@ function SearchController() {
     console.log(data);
   }
   //
-  this.startExtendSearch = function (select_age, age, sex, army, educationLevel, select_education) {
-    var param_arr = [select_age, age, sex, army, educationLevel, select_education];
-    search.setAllCards(param_arr);
+  this.startExtendSearch = function () {
+    var param_arr = [
+					select_age.value, 			
+					age.value,						
+					select_sex.value, 
+					search_army.value, 
+					select_aducation.value, 
+					select_aducationLevel.value
+					];
+    
+	search_result = search.setFilterParam(param_arr);
   }
   
   
