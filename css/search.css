@@ -3,18 +3,18 @@
 }
 #search_tab #sideRight {
 	float: right;
-	width: 350px;
+	width: 400px;
 	margin-top:40px;
 	position: absolute;
   top:0;
   right:0;
 	background: #ffffff;
 	padding:10px 20px;
-  
 }
 #search_tab #full_search{
   display:none;
 }
+
 #search_tab  #search_fullname{
   width:500px;
   height:45px;
@@ -34,7 +34,7 @@
 	font-family:Verdana;
   padding:10px 50px;
   float:left;
-  
+  height:50px;
   position: relative;
  
 }
@@ -43,6 +43,7 @@
 	font-family:Verdana;
   padding:10px 50px;
   float:left;
+  margin-left:60px;
 
   -moz-border-radius:0 29px 0;
 	-webkit-border-radius:0 29px 0;
@@ -52,7 +53,7 @@
   width:250px;
 }
 #search_tab #select_age{
-  width:140px;
+  width:165px;
 }
 #search_tab #age{
   width:70px;
@@ -61,17 +62,15 @@
   padding:5px;
 }
 #search_tab #select_sex{
-    width:230px;
+    width:250px;
 }
 #search_tab #search_army{
   margin-top:20px;
 }
 #search_tab #select_aducationLevel{
-  width:72px;
+  width:250px;
 }
-#search_tab #select_aducation{
-  width:153px;
-}
+
 #search_tab select{
 	font-size:16px;
   float:left;
