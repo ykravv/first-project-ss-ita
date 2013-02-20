@@ -6,11 +6,6 @@ obj.viewListCards(array);*/
 //--endTEST
 
 function SearchController() {
-<<<<<<< HEAD
-	var search = new SearchResult();
-	self_controller = this;
-=======
->>>>>>> 0e18e256db649affb98c887656837d3a199c7da0
 
   var search = new SearchResult();
   var cards_array;
