@@ -21,11 +21,11 @@ function SearchController() {
     
     //@param {array}
     //@param {method of main_controller}
-    fasade_obj.sendSearchRequest(fullname, self_controller.callback);
+    fasade_obj.sendSearchRequest(fullname, self_controller.callbackSimpleSearch);
   }
 
 
-  this.callback = function(data){
+  this.callbackSimpleSearch = function(data){
     console.log(JSON.parse(data));
   }
   //
