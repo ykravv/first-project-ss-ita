@@ -1,4 +1,6 @@
 <?
+require_once "tempcard.php";
+
   class Facade {
     private $hash_array;
     private $name_table;
@@ -110,9 +112,14 @@
       
         $this->read = $this->db->prepare($query);
         $this->read->execute();
-        return $this->read->fetchAll();
+        $result = array();
+        while ($one = $this->read->fetch(PDO::FETCH_ASSOC)) {
+          $result[] = $one;
+        }
+
+        return $result;
         
-      }
+    }
 
 
     public function GetSubTable($table, $card_id)
@@ -124,9 +131,18 @@
       $query = "SELECT * FROM `".$table."` WHERE card_id = '".$card_id."'";
         $this->read = $this->db->prepare($query);
         $this->read->execute();
-        return $this->read->fetchAll();
+        $result = array();
+        
+        while ($one = $this->read->fetch(PDO::FETCH_ASSOC)) {
+          $result[] = $one;
+        }
+        return $result;
     }
 
-    
-  }
+  
+  
+}
+
+
+
 ?>
