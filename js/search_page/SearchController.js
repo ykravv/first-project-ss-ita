@@ -1,7 +1,7 @@
 autoload("js/search_page/SearchResult.js");
 function SearchController() {
 	var search = new SearchResult();
-	
+	var cards_array;
 	self_controller = this;
 
 	this.startEasySearch = function () {
@@ -22,7 +22,7 @@ function SearchController() {
   
   //list cards from model
   this.listCards = function()  {
-    var cards_array = search.getAllCards;
+    this.cards_array = search.getAllCards;
  
   }
   //view list of cards
@@ -33,7 +33,7 @@ function SearchController() {
     var ul = document.getElementsByTagName("ul")[0]; // assuming it exists
     var docfrag = document.createDocumentFragment();
        
-    cards_array.forEach(function(e){
+    this.cards_array.forEach(function(e){
                                       var li = document.createElement("li");
                                       li.textContent = e;
                                       docfrag.appendChild(li);
@@ -42,7 +42,7 @@ function SearchController() {
       ul.appendChild(docfrag);
     
     /*i=0;
-    for(cards_array in object_card)
+    for(this.cards_array in object_card)
     {          
       j=0;
       
