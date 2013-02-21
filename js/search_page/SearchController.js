@@ -44,20 +44,40 @@ function SearchController() {
 	search_result = search.setFilterParam(param_arr);
 }
   //edit found cards  
-  this.editFoundCard = function(num_foundedCard, id_actualCard){
+  this.editFoundCard = function(num_foundedCard, id_actualCard){  
+    var full_card = search.getOneCard(id_actualCard[num_foundedCard]);
+    mainController.initializationTransModel(full_card);
+    mainController.loadTabFromCard(1);
     
-    alert(id_actualCard[num_foundedCard]);
-    
-     
-  }
+       
+    var array_menu = new Array("general_information","passport_data","education_info","post_education_info","work_and_family","home_place");
+      document.getElementById("preview_page").style.display="none";
+      document.getElementById("search_tab").style.display="none"; 
+      document.getElementById("save").disabled = true;
+      
+      document.getElementById("add_tab").style.display="block";
+      document.getElementById("tab1").style.display = "block";
+      for(var key in array_menu)
+      {
+        if(array_menu[key]==="general_information")
+          document.getElementById(array_menu[key]).className = "activ";
+        else
+           document.getElementById(array_menu[key]).className = "not_activ";
+      }
+      for(var i=2;i<=6;i++)
+        document.getElementById("tab"+i).style.display = "none";
+}
   
   //preview found cards 
-  this.previewFoundCard = function(num_foundedCard, id_actualCard){
+  this.previewFoundCard = function(num_foundedCard, id_actualCard){   
+    var full_card = search.getOneCard(id_actualCard[num_foundedCard]);  
+     mainController.initializationTransModel(full_card);
+     mainController.renderPreview();
     
-    alert(id_actualCard[num_foundedCard]);
-    
-     
-  }
+     document.getElementById("search_tab").style.display="none";    
+     document.getElementById("preview_page").style.display="block";
+     document.getElementById("save").disabled = true;
+}
   //view list of cards
   this.viewListCards = function(hash_array)  {
     var i, card_string, cards_array;           
@@ -71,7 +91,7 @@ function SearchController() {
         var result = template.innerHTML;
         result = result.replace('id="user_i"', 'id = "card_'+i+'"');
        
-        id_actual[i] = cards_array["id"] + " ";
+        id_actual[i] = cards_array["id"];
        for(key in cards_array)
         {
             if(key=="first_name" || key=="last_name" || key=="patronymic" || key=="year_birth")
