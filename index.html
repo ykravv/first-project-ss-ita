@@ -23,7 +23,26 @@
   <script src="js/tabs_add.js"></script>
 	<script src="js/init.js"></script> 
 
-</head>
+  <style type="text/css">
+ 
+#users {
+        position:relative;
+        margin:200px -200px;
+}
+.preview_edit_button {
+        display:inline
+}
+
+.buttons_wraper{
+        position: absolute;
+        top:20px;
+        right:10px;
+        }
+        
+  
+</style>
+  
+  </head>
 
 <body>
 <div id="border1">
@@ -330,19 +349,21 @@
             </div>
           
            <input type="text" id="search_fullname" />
-           <input type="button" id="simple_search" value="Шукати"/>
+           <input type="button" id="simple_search" value="Шукати" />
           
                
           
           
-          <ul id = "users">
+          <script type = "text/html" id = "template">
             <div id="all_users">
-            <li class="users" id="user_i"/>
+            <li class="users" id="user_i" />USER_NAME
               <span class="buttons_wraper" id="buttons_wraper"> 
                   <input name="edit" type="button" class="edit_button" id="edit_button" value="Докладніше">
                   <input name="preview" type="button" class="preview_button" id="preview_button" value="Редагувати">
               </span>
             </div>
+          </script>
+          <ul id = "users">
           </ul>
           
           
