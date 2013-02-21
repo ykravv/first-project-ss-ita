@@ -70,20 +70,19 @@ function SearchController() {
     for(object in hash_array)
     {
       cards_array = hash_array[object];
-      for(object_card in cards_array)
-      {  
+      
         card_string=""; 
         var li = document.createElement("li");
         li.setAttribute ("id","card_"+i);
         li.setAttribute ("class","users");
         
         
-       for(key in cards_array[object_card])
+       for(key in cards_array)
         {
             if(key=="first_name" || key=="last_name" || key=="patronymic" || key=="year_birth")
             {
               //text of one card
-              card_string += cards_array[object_card][key]+" ";          
+              card_string += cards_array[key]+" ";        
             }
         }
         li.innerHTML = card_string+"<br />";
@@ -94,7 +93,7 @@ function SearchController() {
         ul_id.innerHTML += "<br />";
         ul_id.innerHTML += "<br />";
         i++;
-      }
+      }                                     
     }
    }
   //list cards from model
