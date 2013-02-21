@@ -1,10 +1,7 @@
 ﻿autoload("js/search_page/searchResult.js");
-
-function SearchController() {
- 
-  var search = new SearchResult();
-  
+function SearchController() {  
   var id_actual = new Array();
+  var search = new SearchResult();
   self_controller = this;
   
   this.startEasySearch = function () {
@@ -46,8 +43,6 @@ function SearchController() {
     
 	search_result = search.setFilterParam(param_arr);
 }
-
-
   //edit found cards  
   this.editFoundCard = function(num_foundedCard, id_actualCard){
     
@@ -63,7 +58,6 @@ function SearchController() {
     
      
   }
-
   //view list of cards
   this.viewListCards = function(hash_array)  {
     var i, card_string, cards_array;           
@@ -76,9 +70,8 @@ function SearchController() {
         var template = document.getElementById("template");
         var result = template.innerHTML;
         result = result.replace('id="user_i"', 'id = "card_'+i+'"');
-        
+       
         id_actual[i] = cards_array["id"] + " ";
-        
        for(key in cards_array)
         {
             if(key=="first_name" || key=="last_name" || key=="patronymic" || key=="year_birth")
