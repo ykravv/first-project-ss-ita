@@ -13,7 +13,7 @@ class MainController
   private $save_mode;
   private $response;
 
-  public function __construct($json, $save_mode){
+  public function __construct($json){
     $this->save_mode = $save_mode;
     $object = json_decode($json);
 
