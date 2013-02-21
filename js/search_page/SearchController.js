@@ -2,7 +2,7 @@
 
 function SearchController() {
  
-  //var search = new SearchResult();
+  var search = new SearchResult();
   self_controller = this;
 
   this.startEasySearch = function () {
@@ -14,10 +14,9 @@ function SearchController() {
     fasade_obj.sendSearchRequest(fullname, self_controller.callbackSimpleSearch);
   }
 
-
   this.callbackSimpleSearch = function(data){
-   // search.setAllCards(JSON.parse(data)); 
-    console.log(JSON.parse(data));
+    search.setAllCards(JSON.parse(data)); 
+    self_controller.listCards();
   }
 
   //view for every card with its buttons
@@ -26,9 +25,7 @@ function SearchController() {
     span.setAttribute ("id","buttons_wraper"+i);
     span.setAttribute ("class","buttons_wraper");
     ul_id.appendChild(span);
-    var span_id = document.getElementById("buttons_wraper"+i);
-    
-    
+    var span_id = document.getElementById("buttons_wraper"+i);  
     
     var button_edit = document.createElement("input");
     button_edit.setAttribute ("id","edit_button"+i);
@@ -59,8 +56,7 @@ function SearchController() {
 					];
     
 	search_result = search.setFilterParam(param_arr);
-
-  
+}
   //view list of cards
   this.viewListCards = function(hash_array)  {
     var i, card_string, cards_array;   
@@ -75,8 +71,7 @@ function SearchController() {
         var li = document.createElement("li");
         li.setAttribute ("id","card_"+i);
         li.setAttribute ("class","users");
-        
-        
+       
        for(key in cards_array)
         {
             if(key=="first_name" || key=="last_name" || key=="patronymic" || key=="year_birth")
@@ -87,20 +82,17 @@ function SearchController() {
         }
         li.innerHTML = card_string+"<br />";
         ul_id.appendChild(li);
-        
-        this.appendNewItems(i, ul_id);
-        
+        this.appendNewItems(i, ul_id);        
         ul_id.innerHTML += "<br />";
         ul_id.innerHTML += "<br />";
         i++;
       }                                     
     }
-   }
+   
   //list cards from model
   this.listCards = function()  {
-    var cards_array = search.getAllCards;
-    this.viewListCards(cards_array);
+    var cards_array = search.getAllCards();
+    self_controller.viewListCards(cards_array);
   }
-  
-}
+
 }
