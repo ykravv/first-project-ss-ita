@@ -33,12 +33,14 @@ function menu_add(){
 	
   document.getElementById("button_preview").onclick = function preview_script(){
       document.getElementById("add_tab").style.display="none";
+      document.getElementById("search_tab").style.display="none";
       document.getElementById("preview_page").style.display="block";
       document.getElementById("save").disabled = true;
     }
-    document.getElementById("edit").onclick = function (){
+    document.getElementById("edit").onclick = function edit_script(){
       var array_menu = new Array("general_information","passport_data","education_info","post_education_info","work_and_family","home_place");
       document.getElementById("preview_page").style.display="none";
+      document.getElementById("search_tab").style.display="none";
       document.getElementById("save").disabled = true;
       
       document.getElementById("add_tab").style.display="block";
@@ -56,35 +58,35 @@ function menu_add(){
     }
     
    
-          function injectSelect (sel, rowsObject) {
-            var opt, x;
-            sel.innerHTML = "";
-            for (x in rowsObject) {
-                opt = document.createElement("option");
-                opt.value = x;
-                opt.innerHTML = rowsObject[x];
-                sel.appendChild(opt);
-            }
-        }
-        function makeNumbersObject (from, to) {
-            var result = {}, x;
-            if(from > to) { 
-                var z = from;
-                from = to;
-                to = z;
-            }
-            for (x = from; x <= to; x++) {
-                result[x] = x;
-            }
-            return result
-        }
-        injectSelect(document.getElementById("month_birth"), {
-            "cічень":"Січень", "лютий":"Лютий", "березень":"Березень", "квітень":"Квітень", 
-            "травень":"Травень", "червень":"Червень", "липень":"Липень", "серпень":"Серпень", 
-            "вересень":"Вересень", "жовтень":"Жовтень", "листопад":"Листопад", "грудень":"Грудень"
-        }); 
-        injectSelect(document.getElementById("year_birth"), makeNumbersObject(1920, 2012)); 
-        injectSelect(document.getElementById("day_birth"), makeNumbersObject(1, 31));
-        
+    function injectSelect (sel, rowsObject) {
+      var opt, x;
+      sel.innerHTML = "";
+      for (x in rowsObject) {
+          opt = document.createElement("option");
+          opt.value = x;
+          opt.innerHTML = rowsObject[x];
+          sel.appendChild(opt);
+      }
+  }
+  function makeNumbersObject (from, to) {
+      var result = {}, x;
+      if(from > to) { 
+          var z = from;
+          from = to;
+          to = z;
+      }
+      for (x = from; x <= to; x++) {
+          result[x] = x;
+      }
+      return result
+  }
+  injectSelect(document.getElementById("month_birth"), {
+      "cічень":"Січень", "лютий":"Лютий", "березень":"Березень", "квітень":"Квітень", 
+      "травень":"Травень", "червень":"Червень", "липень":"Липень", "серпень":"Серпень", 
+      "вересень":"Вересень", "жовтень":"Жовтень", "листопад":"Листопад", "грудень":"Грудень"
+  }); 
+  injectSelect(document.getElementById("year_birth"), makeNumbersObject(1920, 2012)); 
+  injectSelect(document.getElementById("day_birth"), makeNumbersObject(1, 31));
+  
        
 }
