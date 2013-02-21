@@ -45,25 +45,32 @@ function SearchResult() {
 
       for (z in cards_hash[i]) {
 
-      if ((z == "sex") && (toString(cards_hash[i][z]) !== toString(array_params[2])))
+      if (z == "sex") {
+        if (toString(cards_hash[i][z]) != array_params[2])
         flag_utensils = false;
-      if ((z == "army") && (Boolean(cards_hash[i][z]) !== array_params[3]))
+      }
+      if (z == "army") {
+        if (Number(cards_hash[i][z]) != Number(array_params[3]))
         flag_utensils = false;
-      switch (array_params[0]) {
-        case "1":      //higher
-          if ((z == "year_birth") && (cards_hash[i][z] <= array_params[1]))
-            flag_utensils = false;
-          break;
-        case "2":      //less
-          if ((z == "year_birth") && (cards_hash[i][z] >= array_params[1]))
-            flag_utensils = false;
-          break;
-        case "3":       //equal
-          if ((z == "year_birth") && (cards_hash[i][z] != array_params[1]))
-            flag_utensils = false;
-          break;
-        default:
-          break;
+      }
+
+      if (z == "year_birth") {
+        switch (array_params[0]) {
+          case "1":      //higher
+            if (cards_hash[i][z] <= array_params[1])
+              flag_utensils = false;
+            break;
+          case "2":      //less
+            if (cards_hash[i][z] >= array_params[1])
+              flag_utensils = false;
+            break;
+          case "3":       //equal
+            if (cards_hash[i][z] != array_params[1])
+              flag_utensils = false;
+            break;
+          default:
+            break;
+        }
       }
 
 
