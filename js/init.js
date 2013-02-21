@@ -40,6 +40,7 @@ init = function() {
   extended_search.addEventListener("click", function () {searchTabsObject.searchFull()}, false);
   add_card.addEventListener("click", function () {searchTabsObject.clickAddCard()}, false);
   search_card.addEventListener("click", function () {searchTabsObject.clickSearchCard()}, false);
+	search_filter.addEventListener("click",function () {searchController.startExtendSearch()},false);
 }
 
 window.onload = function() {
