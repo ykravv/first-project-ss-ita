@@ -332,13 +332,20 @@
            <input type="text" id="search_fullname" />
            <input type="button" id="simple_search" value="Шукати"/>
           
-                  <div id='serch_result_wraper'>
-            <ul id = "users">
-              <script id ="template" type="text/html">
-                <li />USER  Family 
-              </script>
-            </ul>
-          </div>
+               
+          
+          
+          <ul id = "users">
+            <div id="all_users">
+            <li class="users" id="user_i"/>
+              <span class="buttons_wraper" id="buttons_wraper"> 
+                  <input name="edit" type="button" class="edit_button" id="edit_button" value="Докладніше">
+                  <input name="preview" type="button" class="preview_button" id="preview_button" value="Редагувати">
+              </span>
+            </div>
+          </ul>
+          
+          
            
           </div><!-- #content-->
            
