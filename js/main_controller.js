@@ -1,6 +1,6 @@
 function MainController() {
 
-    var card = new Card();
+  var card = new Card();
 
   var controller_education = new EducationController(card.getValue("education_model"), 
                                                      card.getValue("post_education_model"));
@@ -18,12 +18,12 @@ function MainController() {
   }
 
 
-
+  //Get data from tabs and saving them to Card model
   this.saveTabToCard = function (current_tab) {
 
-    var hash = controls_hash.value;
+    var hash = controls_hash.value; //get hash with all elements from index.html
     current_tab = current_tab || actually_current_tab;
-    hash = JSON.parse(hash);
+    hash = JSON.parse(hash); //converts string from hidden input to JSON object
     for_errors.innerHTML = card.clearErrorLog();
     for_errors.style.display = "none";
     for (controls in hash) {
@@ -39,7 +39,7 @@ function MainController() {
                     if ((current_tab == 7) || (current_tab != previous_tab)) {
                       for_errors.style.display = "block";
                       for_errors.innerHTML = card.getErrorLog();
-                      for_errors.onclick = function () {for_errors.style.display = "none";}
+                      for_errors.onmouseover = function () {for_errors.style.display = "none";}
                     }
                 }
                 break;
@@ -83,7 +83,7 @@ function MainController() {
 
 
 
-
+  //Get data from Card model and put them to tabs
   this.loadTabFromCard = function (current_tab) {
     var hash = controls_hash.value;
     actually_current_tab = current_tab;
@@ -174,6 +174,8 @@ function MainController() {
   }
   
 }
+
+//function for loading js files
 function autoload(src) {
   var scr = document.createElement("script");
   scr.setAttribute("src",src);
