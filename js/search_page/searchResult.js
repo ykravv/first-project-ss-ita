@@ -44,8 +44,9 @@ function SearchResult() {
       flag_utensils = true;
       for (z in cards_hash[i]) {
 
-      if (((z == "sex") && (cards_hash[i][z] !== array_params[2])) ||
-        (z == "army") && (Boolean(cards_hash[i][z]) !== array_params[3]))
+      if ((z == "sex") && (toString(cards_hash[i][z]) !== toString(array_params[2])))
+        flag_utensils = false;
+      if ((z == "army") && (Boolean(cards_hash[i][z]) !== array_params[3]))
         flag_utensils = false;
       switch (array_params[0]) {
         case "1":      //higher
