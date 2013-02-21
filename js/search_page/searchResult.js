@@ -12,6 +12,16 @@ function SearchResult () {
     return cards_hash;
   }
 
+  this.getOneCard = function(id){
+    var actual_card;
+    for (card in cards_hash) {
+      if (cards_hash[card]["id"] === id){
+        actual_card = cards_hash[card];
+      }
+    }
+    return actual_card;
+  }
+
   this.setFilterParam = function (array_params) {
     var new_cards_hash;  //hash that will be result of extended filter
     var education_hash = ["базова загальна середня",

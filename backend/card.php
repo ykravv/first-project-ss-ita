@@ -39,9 +39,7 @@ class Card
   /**
   * Функция валидации данных
   */
- /**
-  * Функция валидации данных
-  */
+ 
   public function isValid(){
   
 
@@ -65,11 +63,11 @@ class Card
 
     for( $i = 0; $i < count($patterns); $i++){
       if (!preg_match($patterns[$i], $subjects[$i])) {
-        return false; # invalid
+        return false; // invalid
       }
     }
 
-    return true; # valid
+    return true; // valid
   }
 
 

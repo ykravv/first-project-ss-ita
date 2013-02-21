@@ -29,7 +29,7 @@
 	}
 	
 	class Facade
-	{
+	{ 
 		public function toDB($login, $pass) 
 		{
 			$connect = mysql_connect("localhost", "root");
