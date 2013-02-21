@@ -56,8 +56,7 @@ function SearchController() {
         var template = document.getElementById("template");
         var result = template.innerHTML;
         result = result.replace('id="user_i"', 'id = "card_'+i+'"');
-        
-        
+      
        for(key in cards_array)
         {
             if(key=="first_name" || key=="last_name" || key=="patronymic" || key=="year_birth")
