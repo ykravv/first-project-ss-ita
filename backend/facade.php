@@ -1,143 +1,165 @@
 <?
 
 
-  class Facade {
-    private $hash_array;
-    private $name_table;
-    private $create;
-    private $update;
-    private $read;
-    private $db;
-    
-    private $host;
-    private $dbname;
-    private $user;
-    private $password;
-    
-    private $id;
-    public function __construct()
+class Facade {
+  private $hash_array;
+  private $name_table;
+  private $create;
+  private $update;
+  private $read;
+  private $db;
+  
+  private $host;
+  private $dbname;
+  private $user;
+  private $password;
+  
+  private $id;
+  public function __construct()
+  {
+    // $this->host = "10.0.0.5";
+    // $this->dbname = "uh182514_first";
+    // $this->user = "uh182514_first";
+    // $this->password = "password";
+
+    $this->host = "localhost";
+    $this->dbname = "firstproject";
+    $this->user = "root";
+    $this->password = "";
+
+    try
     {
-      // $this->host = "10.0.0.5";
-      // $this->dbname = "uh182514_first";
-      // $this->user = "uh182514_first";
-      // $this->password = "password";
-
-      $this->host = "localhost";
-      $this->dbname = "firstproject";
-      $this->user = "root";
-      $this->password = "";
-
-      try
-      {
-        $this->db = new PDO('mysql:host='.$this->host.';dbname='.$this->dbname,$this->user,$this->password);
-        $this->db->exec("SET NAMES utf8");
-        
-      }
-      catch(PDOException $e)
-      {
-        return false;
-      }        
-      return true;
-    }
-
-
-    public function createCard($hash_array, $name_table, $card_id = '')
-    {
-      $this->hash_array = $hash_array;
-      $this->name_table = $name_table;
+      $this->db = new PDO('mysql:host='.$this->host.';dbname='.$this->dbname,$this->user,$this->password);
+      $this->db->exec("SET NAMES utf8");
       
-      try{  
-          if($this->name_table=="cards")
+    }
+    catch(PDOException $e)
+    {
+      return false;
+    }        
+    return true;
+  }
+
+
+  public function createCard($hash_array, $name_table, $card_id = '')
+  {
+    $this->hash_array = $hash_array;
+    $this->name_table = $name_table;
+    $where_condition = '';
+
+    try{  
+        if($this->name_table=="cards")
+        {
+          $query = "INSERT INTO `".$this->name_table."` SET ";
+
+          /* hack for updating card */
+
+          if (isset($this->hash_array->id)) {
+            $query = "UPDATE `".$this->name_table."` SET ";
+            $where_condition = " WHERE id='" . $this->hash_array->id . "';";
+            $this->id = $this->hash_array->id;
+            unset($this->hash_array->id);
+          }
+
+          /**/            
+          foreach($this->hash_array as $key=>$value )
           {
-            $query = "INSERT INTO `".$this->name_table."` SET ";
+            $query = $query.$key."='".$value."'".",";
+          }  
+          $query = substr($query, 0, strlen($str)-1);
+          $query .= $where_condition;
+         
+         
+          $this->create = $this->db->prepare($query);
+          $this->create->execute();
+          
+          /* FIX card_id for update subcard*/
+          if ($lid = $this->db->lastInsertId()) {
+            $this->id = $lid;
+          }
+          /**/
+          
            
-            foreach($this->hash_array as $key=>$value )
-            {
+        }
+        else
+        {
+          $i=0;
+
+          foreach($this->hash_array as $one)
+          {
+
+            /* hack for updating card */
+
+            if (isset($this->hash_array->id)) {
+              unset($this->hash_array->id);
+            }
+
+            $query = "DELETE FROM `".$name_table."` WHERE card_id='".$card_id."';";
+            $this->db->exec($query);
+
+            /**/    
+
+            $query = "INSERT INTO `".$this->name_table."` SET ";
+            
+            foreach($one as $key=>$value )
+            { 
               $query = $query.$key."='".$value."'".",";
             }  
+            $query = $query."card_id='".$card_id."'".",";
             $query = substr($query, 0, strlen($str)-1);
+           
             
-             
             $this->create = $this->db->prepare($query);
             $this->create->execute();
-            $this->id = $this->db->lastInsertId();
-             
-          }
-          else
-          {
-            $i=0;
-
-            foreach($this->hash_array as $one)
-            {
-               
-              $query = "INSERT INTO `".$this->name_table."` SET ";
-              
-              foreach($one as $key=>$value )
-              { 
-                $query = $query.$key."='".$value."'".",";
-              }  
-              $query = $query."card_id='".$card_id."'".",";
-              $query = substr($query, 0, strlen($str)-1);
-               
-              
-              $this->create = $this->db->prepare($query);
-              $this->create->execute();
-              
-              $i++;
-            }
+            
+            $i++;
           }
         }
-      catch(Exception $e)
-      {
-        return $array = array("status" => "error", "id" => null);
       }
-      
-      //array rezult
+    catch(Exception $e)
+    {
+      return $array = array("status" => "error", "id" => null);
+    }
+    
+    //array rezult
+   
+    $array = array("status" => "ok", "id" => $this->id);
      
-      $array = array("status" => "ok", "id" => $this->id);
-       
-      return $array;
+    return $array;
+    
+  }
+
+
+  public function SearchCards($search_string)
+  {
+         
+    $query = "SELECT * FROM `cards` WHERE last_name LIKE '".$search_string."'";
+    
+      $this->read = $this->db->prepare($query);
+      $this->read->execute();
+      $result = array();
+      while ($one = $this->read->fetch(PDO::FETCH_ASSOC)) {
+        $result[] = $one;
+      }
+
+      return $result;
       
-    }
+  }
 
 
-    public function SearchCards($search_string)
-    {
-      // TODO: 
-      /* SQL to DB. Return array of rows */
-      // Temp code. Поиск карточек по last_name. Возврат массива полученных записей 
-      // через вызов ->fetchAll();
-           
-      $query = "SELECT * FROM `cards` WHERE last_name LIKE '".$search_string."'";
+  public function GetSubTable($table, $card_id)
+  {
+  
+    $query = "SELECT * FROM `".$table."` WHERE card_id = '".$card_id."'";
+      $this->read = $this->db->prepare($query);
+      $this->read->execute();
+      $result = array();
       
-        $this->read = $this->db->prepare($query);
-        $this->read->execute();
-        $result = array();
-        while ($one = $this->read->fetch(PDO::FETCH_ASSOC)) {
-          $result[] = $one;
-        }
-
-        return $result;
-        
-    }
-
-
-    public function GetSubTable($table, $card_id)
-    {
-      // TODO: $table - имя таблицы, 
-      // Card_id - значение для условия ..WHERE card_id = $card_id
-      // Метод для запроса из базы суб-табличек образования, семьи...
-      // Возврат массива полученных записей через вызов ->fetchAll();
-      $query = "SELECT * FROM `".$table."` WHERE card_id = '".$card_id."'";
-        $this->read = $this->db->prepare($query);
-        $this->read->execute();
-        $result = array();
-        
-        while ($one = $this->read->fetch(PDO::FETCH_ASSOC)) {
-          $result[] = $one;
-        }
-        return $result;
-    }
+      while ($one = $this->read->fetch(PDO::FETCH_ASSOC)) {
+        $result[] = $one;
+      }
+      return $result;
+  }
 
   
   

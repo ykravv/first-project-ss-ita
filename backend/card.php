@@ -32,10 +32,10 @@ class Card
 	*/
 	public function save()
   { 
-    
     $fasad_object = new Facade();
     return $fasad_object->createCard($this->card, $this->table, $this->card_id);
 	}
+
   /**
   * Функция валидации данных
   */

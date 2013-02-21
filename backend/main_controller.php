@@ -10,13 +10,13 @@ class MainController
   private $education;
   private $post_education;
   private $family;
-
+  private $save_mode;
   private $response;
 
-  public function __construct($action, $json){
-
+  public function __construct($json, $save_mode){
+    $this->save_mode = $save_mode;
     $object = json_decode($json);
-    
+
     $this->education = new Card($object->education_model, "education");
     $this->post_education = new Card($object->post_education_model, "post_education");
     $this->family = new Card($object->family_model, "family");
@@ -27,25 +27,18 @@ class MainController
 
     $this->card = new Card($object, "cards");
     
-    switch ($action) {
-      case 'save': {
-          $this->createCard();
-        break;
-      }
-    }
-
-    echo $this->response;
+    
   }
 
   public function createCard()
   {
     if ($this->card->isValid()) {
       $this->response = $this->saveCardToDB();
-      } else {
-        # вернуть сообщение об ошибке 
-        $this->response = "incorrect data";
-      }
-
+    } else {
+      # return error message
+      $this->response = "incorrect data";
+    }
+    return $this->response;
   }
 
   public function saveCardToDB() {
@@ -65,10 +58,6 @@ class MainController
     }
     
     return "Ok";
-  }
-
-  public function readCardFromDB() {
-    #$this->card->read();
   }
 
 }

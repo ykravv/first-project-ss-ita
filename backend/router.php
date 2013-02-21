@@ -11,14 +11,16 @@ header('Content-Type: text/html; charset=utf-8');
 
 
 	switch ($action) {
-    case 'save':
-      $controller = new MainController($action, $data); // $data - json string - Card
-      break;
-    
     case 'search':
       $controller = new SearchController($data); // $data - lastname for search
       break;
     
+    default: {
+      $controller = new MainController($data); // $data - json string - Card
+      echo $controller->createCard();
+      break;
+    }
+
   }
 
 
