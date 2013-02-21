@@ -2,12 +2,14 @@
 
 
 function SearchResult() {
-  var cards_hash;
+  var cards_hash;    //array with result of search cards from server
 
+  //Fills array with cards
   this.setAllCards = function (cards_array) {
     cards_hash = cards_array;
   }
 
+  //Return array with all cards
   this.getAllCards = function () {
     return cards_hash;
   }
@@ -22,26 +24,25 @@ function SearchResult() {
     return actual_card;
   }
 
+
+  //Method return cards equal to result of searching
   this.setFilterParam = function (array_params) {
     var new_cards_hash = new Array();
     var education_hash = ["базова загальна середня",
-      "повна загальна середня",
-      "професійно-технічна",
-      "неповна вища",
-      "базова вища",
-      "повна вища"];
+                          "повна загальна середня",
+                          "професійно-технічна",
+                          "неповна вища",
+                          "базова вища",
+                          "повна вища"];
     var j = 0;
     var curr;
 
-   /* for (var k = 0; k < education_hash.length; k++) {
-      if (array_params[5] == education_hash[k])
-        curr = k;
-    }  */
-    /*    var ed = array_params[5];
-    curr = Array.indexOf(education_hash,ed); */
 
     for (i in cards_hash) {
-      flag_utensils = true;
+
+      curr = education_hash.indexOf(array_params[5]);
+      flag_utensils = true;   //if flag is true then current card will be as result of searching
+
       for (z in cards_hash[i]) {
 
       if ((z == "sex") && (toString(cards_hash[i][z]) !== toString(array_params[2])))
@@ -65,7 +66,6 @@ function SearchResult() {
           break;
       }
 
-      curr = education_hash.indexOf(array_params[5]);
 
       if ( z == "education") {
         switch (array_params[4]) {
