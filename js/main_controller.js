@@ -169,7 +169,7 @@ function MainController() {
   //initialization by transmitted model
   //@param {object}
   this.initializationTransModel = function (newCard) {
-    card.setCard();
+    card.setCard(newCard);
     
   }
   

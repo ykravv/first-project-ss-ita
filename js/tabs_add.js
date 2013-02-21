@@ -32,7 +32,7 @@ function menu_add(){
 } 
 	
   document.getElementById("button_preview").onclick = function preview_script(){
-      document.getElementById("border1").style.display="none";
+      document.getElementById("add_tab").style.display="none";
       document.getElementById("preview_page").style.display="block";
       document.getElementById("save").disabled = true;
     }
@@ -41,7 +41,7 @@ function menu_add(){
       document.getElementById("preview_page").style.display="none";
       document.getElementById("save").disabled = true;
       
-      document.getElementById("border1").style.display="block";
+      document.getElementById("add_tab").style.display="block";
       document.getElementById("tab1").style.display = "block";
       for(var key in array_menu)
       {

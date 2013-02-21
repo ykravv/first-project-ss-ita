@@ -32,7 +32,10 @@ init = function() {
   //button_save.addEventListener("click", function(){ mainController.saveTabDataToCard(7) ;} , false);
   save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
   button_save.addEventListener("click", function(){ mainController.saveCardToDB() ;} , false);
-  simple_search.addEventListener("click", function () {searchController.startEasySearch()}, false);
+  simple_search.addEventListener("click", function () {
+                                                users.innerHTML = "";
+                                                searchController.startEasySearch()
+                                                }, false);
   
   extended_search.addEventListener("click", function () {searchTabsObject.searchFull()}, false);
   add_card.addEventListener("click", function () {searchTabsObject.clickAddCard()}, false);
