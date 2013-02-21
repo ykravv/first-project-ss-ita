@@ -13,7 +13,7 @@ function SearchResult() {
   }
 
   this.setFilterParam = function (array_params) {
-    var new_cards_hash;  //hash that will be result of extended filter
+    var new_cards_hash = new Array();
     var education_hash = ["базова загальна середня",
       "повна загальна середня",
       "професійно-технічна",
@@ -22,57 +22,68 @@ function SearchResult() {
       "повна вища"];
     var j = 0;
     var curr;
+
+    for (var k = 0; k < education_hash.length; k++) {
+      if (array_params[5] == education_hash[k])
+        curr = k;
+    }
+    /*    var ed = array_params[5];
+    curr = Array.indexOf(education_hash,ed); */
+
     for (i in cards_hash) {
       flag_utensils = true;
-      if (((i == "sex") && (cards_hash[i] != array_params[3])) ||
-        (i == "army") && (cards_hash[i] != array_params[4]))
+      for (z in cards_hash[i]) {
+
+      if (((z == "sex") && (cards_hash[i][z] !== array_params[2])) ||
+        (z == "army") && (Boolean(cards_hash[i][z]) !== array_params[3]))
         flag_utensils = false;
-      switch (array_params[1]) {
-        case "більше":
-          if ((i == "year_birth") && (cards_hash[i] <= array_params[1]))
+      switch (array_params[0]) {
+        case "1":      //higher
+          if ((z == "year_birth") && (cards_hash[i][z] <= array_params[1]))
             flag_utensils = false;
           break;
-        case "менше":
-          if ((i == "year_birth") && (cards_hash[i] >= array_params[1]))
+        case "2":      //less
+          if ((z == "year_birth") && (cards_hash[i][z] >= array_params[1]))
             flag_utensils = false;
           break;
-        case "рівно":
-          if ((i == "year_birth") && (cards_hash[i] != array_params[1]))
+        case "3":       //equal
+          if ((z == "year_birth") && (cards_hash[i][z] != array_params[1]))
             flag_utensils = false;
           break;
         default:
           break;
       }
-      for (var k = 0; k < education_hash.length; k++) {
-        if (array_params[5] == education_hash[k])
-          curr = k;
-      }
 
-      switch (array_params[5]) {
-        case "нижче":
-          for (var k = curr; k < education_hash.length; k++) {
+//      curr = Array.indexOf(education_hash,array_params[5]);
+
+      switch (array_params[4]) {
+        case "1":   //less
+          for (var k = curr; k <= education_hash.length; k++) {
             if (array_params[5] == education_hash[k])
               flag_utensils = false;
           }
           break;
-        case "вище":
-          for (var k = 0; k < curr; k++) {
+        case "2":  //higher
+          for (var k = 0; k <= curr; k++) {
             if (array_params[5] == education_hash[k])
               flag_utensils = false;
           }
           break;
-        case "рівно":
+        case "3":    //equal
           if (array_params[5] != education_hash[curr])
             flag_utensils = false;
           break;
         default:
           break;
       }
-      if (flag_utensils) {
-        new_cards_hash[j] = cards_hash[i];
-        j++;
-      }
     }
+
+    if (flag_utensils) {
+      new_cards_hash.push(cards_hash[i]);
+    }
+
+    }
+    console.log(new_cards_hash);
     return new_cards_hash;
   }
 
