@@ -1,7 +1,9 @@
 ﻿autoload("js/search_page/searchResult.js");
+
 function SearchController() {  
   var id_actual = new Array();
   var search = new SearchResult();
+
   self_controller = this;
   
   this.startEasySearch = function () {
@@ -24,6 +26,7 @@ function SearchController() {
     edit_button_click.addEventListener("click", function (){
                                                      self_controller.editFoundCard(num_foundCard, id_actual)
                                                    }, false);
+                                             
     var preview_button_click = document.getElementById("preview_button"+num_foundCard);
     preview_button_click.addEventListener("click", function (){
                                                       self_controller.previewFoundCard(num_foundCard, id_actual)
@@ -40,8 +43,9 @@ function SearchController() {
 					select_aducation.value, 
 					select_aducationLevel.value
 					];
-    
+  users.innerHTML = "";  
 	search_result = search.setFilterParam(param_arr);
+  this.viewListCards(search_result);
 }
   //edit found cards  
   this.editFoundCard = function(num_foundedCard, id_actualCard){  
@@ -49,23 +53,7 @@ function SearchController() {
     mainController.initializationTransModel(full_card);
     mainController.loadTabFromCard(1);
     
-       
-    var array_menu = new Array("general_information","passport_data","education_info","post_education_info","work_and_family","home_place");
-      document.getElementById("preview_page").style.display="none";
-      document.getElementById("search_tab").style.display="none"; 
-      document.getElementById("save").disabled = true;
-      
-      document.getElementById("add_tab").style.display="block";
-      document.getElementById("tab1").style.display = "block";
-      for(var key in array_menu)
-      {
-        if(array_menu[key]==="general_information")
-          document.getElementById(array_menu[key]).className = "activ";
-        else
-           document.getElementById(array_menu[key]).className = "not_activ";
-      }
-      for(var i=2;i<=6;i++)
-        document.getElementById("tab"+i).style.display = "none";
+    document.getElementById("edit").click();
 }
   
   //preview found cards 
@@ -74,9 +62,7 @@ function SearchController() {
      mainController.initializationTransModel(full_card);
      mainController.renderPreview();
     
-     document.getElementById("search_tab").style.display="none";    
-     document.getElementById("preview_page").style.display="block";
-     document.getElementById("save").disabled = true;
+     document.getElementById("button_preview").click();
 }
   //view list of cards
   this.viewListCards = function(hash_array)  {
@@ -118,3 +104,4 @@ function SearchController() {
   }
 
 }
+
