@@ -33,10 +33,10 @@ function SearchResult() {
     var j = 0;
     var curr;
 
-    for (var k = 0; k < education_hash.length; k++) {
+   /* for (var k = 0; k < education_hash.length; k++) {
       if (array_params[5] == education_hash[k])
         curr = k;
-    }
+    }  */
     /*    var ed = array_params[5];
     curr = Array.indexOf(education_hash,ed); */
 
@@ -65,27 +65,29 @@ function SearchResult() {
           break;
       }
 
-//      curr = Array.indexOf(education_hash,array_params[5]);
+      curr = education_hash.indexOf(array_params[5]);
 
-      switch (array_params[4]) {
-        case "1":   //less
-          for (var k = curr; k <= education_hash.length; k++) {
-            if (array_params[5] == education_hash[k])
+      if ( z == "education") {
+        switch (array_params[4]) {
+          case "1":   //less
+            for (var k = curr; k <= education_hash.length; k++) {
+              if (cards_hash[i][z] == education_hash[k])
+                flag_utensils = false;
+            }
+            break;
+          case "2":  //higher
+            for (var k = 0; k <= curr; k++) {
+              if (cards_hash[i][z] == education_hash[k])
+                flag_utensils = false;
+            }
+            break;
+          case "3":    //equal
+            if (toString(cards_hash[i][z]) != toString(education_hash[curr]))
               flag_utensils = false;
-          }
-          break;
-        case "2":  //higher
-          for (var k = 0; k <= curr; k++) {
-            if (array_params[5] == education_hash[k])
-              flag_utensils = false;
-          }
-          break;
-        case "3":    //equal
-          if (array_params[5] != education_hash[curr])
-            flag_utensils = false;
-          break;
-        default:
-          break;
+            break;
+          default:
+            break;
+        }
       }
     }
 
