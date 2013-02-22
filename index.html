@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="css/css_add.css" type="text/css"/>
   <link rel="stylesheet" href="css/preview.css" type="text/css"/>
   <link rel="stylesheet" href="css/search.css" type="text/css"/>
+  <link rel="stylesheet" href="css/search_result.css" type="text/css"/>
 	<!--[if lte IE 6]><link rel="stylesheet" href="style_ie.css" type="text/css" media="screen, projection" /><![endif]-->
   <script src="js/education.js"></script>
   <script src="js/education_controller.js"></script>
@@ -23,18 +24,6 @@
   <script src="js/tabs_add.js"></script>
 	<script src="js/init.js"></script> 
 
-  <style type="text/css">
- 
-#users {
-        position:relative;
-        margin:200px -200px;
-}
-.preview_edit_button {
-        display:inline
-}
-  
-</style>
-  
   </head>
 
 <body>
@@ -348,13 +337,11 @@
           
           
           <script type = "text/html" id = "template">
-            <div id="all_users">
             <li class="users" id="user_i" />USER_NAME
               <span class="buttons_wraper" id="buttons_wraper"> 
-                  <input name="edit" type="button" class="edit_button" id="edit_button" value="Ред">
-                  <input name="preview" type="button" class="preview_button" id="preview_button" value="Пер">
+                  <input name="edit" type="button" class="edit_button" id="edit_button" value=" ">
+                  <input name="preview" type="button" class="preview_button" id="preview_button" value=" ">
               </span>
-            </div>
           </script>
           <ul id = "users">
           </ul>

@@ -1,0 +1,71 @@
+ul#users {
+     margin-left: -240px;
+     margin-top: 80px;
+}
+
+li.users {
+     background: linear-gradient(135deg, rgba(226, 226, 226, 0.3) 0%, rgba(219, 219, 219, 0.1) 100%) repeat scroll 0% 0% transparent;
+     border-top: 1px solid #f1f1f1;
+border-bottom: 1px solid #e0e0e0;
+     color: #555;
+     display: block;
+     font-weight: 400;
+     height: 50px;
+     line-height: 50px;
+     padding-left: 10px;
+     position: relative;
+margin-top:10px;
+}
+
+.buttons_wraper {
+     position: absolute;
+     right: 2px;
+     top: -2px;
+}
+
+.edit_button {
+     background: url("../images/edit.png") no-repeat scroll 50% 50% padding-box rgba(220, 220, 220, 0.8);
+     border-radius: 8px 8px 8px 8px;
+     border: 2px solid #FFFFFF;
+     display: inline-block;
+     height: 30px;
+     padding: 15px;
+     vertical-align: middle;
+     width: 30px;
+}
+
+.edit_button:active, .edit_button:hover {
+     background: url("../images/edit_hov.png") no-repeat scroll 50% 50% padding-box rgba(200, 200, 200, 0.8);
+     border-radius: 8px 8px 8px 8px;
+     border: 2px solid rgba(78, 87, 65, 0.3);
+     display: inline-block;
+     height: 30px;
+     padding: 15px;
+     vertical-align: middle;
+     width: 30px;
+}
+
+.preview_button {
+     background: url("../images/view.png") no-repeat scroll 50% 50% padding-box rgba(220, 220, 220, 0.8);
+     border-radius: 8px 8px 8px 8px;
+     border: 2px solid #FFFFFF;
+     display: inline-block;
+     height: 30px;
+     margin-left: 5px;
+     margin-right: 5px;
+     padding: 15px;
+     width: 30px;
+}
+
+.preview_button:active, .preview_button:hover {
+     background: url("../images/view_hov.png") no-repeat scroll 50% 50% padding-box rgba(200, 200, 200, 0.8);
+     border-radius: 8px 8px 8px 8px;
+     border: 2px solid rgba(78, 87, 65, 0.3);
+     display: inline-block;
+     height: 30px;
+     margin-left: 5px;
+     margin-right: 5px;
+     padding: 15px;
+     vertical-align: middle;
+     width: 30px;
+}
