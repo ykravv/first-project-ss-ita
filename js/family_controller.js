@@ -28,6 +28,9 @@ function FamilyController(family_model) {
     
     self_family.renderFamily();
     self_family.clearFields();
+    
+    
+
   }
 
   /* Получает модель Family */
@@ -60,10 +63,24 @@ function FamilyController(family_model) {
     var preview = preview_page.style.display === "block";
     if (preview) {
       family_table_preview.tBodies[0].innerHTML = family_model.toHtml();
-    } else {
+    } else { // render on edit mode
       family_table.tBodies[0].innerHTML = family_model.toHtml();
       self_family.init();
+      /* Bind listeners */
+      var count = family_model.getCount();
+      for (var i = 0; i < count; i++) {
+      document.getElementById("trfamily" + i).ondblclick = function(e){
+        self_family.dropElement(e.target.parentNode.id.replace("trfamily", ""));
+      }  
+    }
     } 
+
+
     
+  }
+
+  this.dropElement = function (offset) {
+    family_model.dropElement(offset);
+    self_family.renderFamily();
   }
 }

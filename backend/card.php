@@ -36,6 +36,15 @@ class Card
     return $fasad_object->createCard($this->card, $this->table, $this->card_id);
 	}
 
+
+  public static function ClearSubTables($card_id)
+  {
+    $facade = new Facade();
+    $facade->ClearSubTables($card_id);
+    unset($facade);
+  }
+
+
   /**
   * Функция валидации данных
   */

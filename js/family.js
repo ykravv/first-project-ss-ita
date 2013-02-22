@@ -17,7 +17,7 @@ function Family(model) {
     var html = "";
     
     model.forEach(function(elem, key) {
-      html += "<tr>";
+      html = html + "<tr id='trfamily"+ key + "'>";
       for (property in elem) {
         html += "<td>" + elem[property] + "</td>";
       }
@@ -26,7 +26,15 @@ function Family(model) {
     });
    
     return html;
+  }
+
+  this.dropElement = function(offset) {
+    model.splice(offset,1);
   } 
+
+  this.getCount = function() {
+    return model.length;
+  }
     
   return this;
 }

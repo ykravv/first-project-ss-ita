@@ -25,7 +25,7 @@ class Facade {
     $this->host = "localhost";
     $this->dbname = "firstproject";
     $this->user = "root";
-    $this->password = "2ndknz4eula$";
+    $this->password = "";
 
     try
     {
@@ -94,8 +94,7 @@ class Facade {
               unset($this->hash_array->id);
             }
 
-            $query = "DELETE FROM `".$name_table."` WHERE card_id='".$card_id."';";
-            $this->db->exec($query);
+            
 
             /**/    
 
@@ -162,7 +161,12 @@ class Facade {
   }
 
   
-  
+  public function ClearSubTables($card_id)
+  {
+    $this->db->exec("DELETE FROM `family` WHERE card_id='".$card_id."';");
+    $this->db->exec("DELETE FROM `education` WHERE card_id='".$card_id."';");
+    $this->db->exec("DELETE FROM `post_education` WHERE card_id='".$card_id."';");
+  }
 }
 
 

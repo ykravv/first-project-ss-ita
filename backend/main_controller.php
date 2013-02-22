@@ -46,6 +46,9 @@ class MainController
     
     if ($result_query["status"] === "ok"){
       
+      Card::ClearSubTables($result_query["id"]);
+
+
       $this->family->SetCardId($result_query["id"]);
       $this->education->SetCardId($result_query["id"]);
       $this->post_education->SetCardId($result_query["id"]);
