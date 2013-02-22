@@ -34,19 +34,25 @@ function SearchResult() {
                           "неповна вища",
                           "базова вища",
                           "повна вища"];
+    var hash_sex = ["","Жіночa","Чоловічa"];
     var j = 0;
-    var curr;
+    var curr,
+      curr_sex,
+      value,
+      a_value;
 
 
     for (i in cards_hash) {
 
       curr = education_hash.indexOf(array_params[5]);
+      curr_sex = hash_sex.indexOf(array_params[2]);
+
       flag_utensils = true;   //if flag is true then current card will be as result of searching
 
       for (z in cards_hash[i]) {
 
       if (z == "sex") {
-        if (toString(cards_hash[i][z]) != array_params[2])
+        if (cards_hash[i][z] != hash_sex[curr_sex])
         flag_utensils = false;
       }
       if (z == "army") {
@@ -89,7 +95,7 @@ function SearchResult() {
             }
             break;
           case "3":    //equal
-            if (toString(cards_hash[i][z]) != toString(education_hash[curr]))
+            if (cards_hash[i][z] != education_hash[curr])
               flag_utensils = false;
             break;
           default:
