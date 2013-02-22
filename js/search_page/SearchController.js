@@ -1,7 +1,7 @@
 ﻿autoload("js/search_page/searchResult.js");
 
 function SearchController() {  
-  var id_actual = new Array();
+  var id_actual;// = new Array();
   var search = new SearchResult();
 
   self_controller = this;
@@ -22,15 +22,17 @@ function SearchController() {
   
   //view for every found card with its buttons
   this.addEventButtons = function(num_foundCard){
-    var edit_button_click = document.getElementById("edit_button"+num_foundCard);
-    edit_button_click.addEventListener("click", function (){
+    //var edit_button_click = document.getElementById("edit_button"+num_foundCard);
+    /*edit_button_click.addEventListener("click", function (){
                                                      self_controller.editFoundCard(num_foundCard, id_actual)
                                                    }, false);
-                                             
-    var preview_button_click = document.getElementById("preview_button"+num_foundCard);
-    preview_button_click.addEventListener("click", function (){
+                                             */
+    document.getElementById("edit_button"+num_foundCard).setAttribute( 'onclick', 'javascript:self_controller.editFoundCard('+ num_foundCard+', '+ id_actual +')');
+    //var preview_button_click = document.getElementById("preview_button"+num_foundCard);
+    /*preview_button_click.addEventListener("click", function (){
                                                       self_controller.previewFoundCard(num_foundCard, id_actual)
-                                                   }, false);
+                                                   }, false);*/
+    document.getElementById("preview_button"+num_foundCard).setAttribute( 'onclick', 'javascript:self_controller.previewFoundCard('+ num_foundCard+', '+ id_actual +')');
   }
     
   
@@ -49,7 +51,7 @@ function SearchController() {
 }
   //edit found cards  
   this.editFoundCard = function(num_foundedCard, id_actualCard){  
-    var full_card = search.getOneCard(id_actualCard[num_foundedCard]);
+    var full_card = search.getOneCard(id_actualCard);
     mainController.initializationTransModel(full_card);
     mainController.loadTabFromCard(1);
     
@@ -58,7 +60,7 @@ function SearchController() {
   
   //preview found cards 
   this.previewFoundCard = function(num_foundedCard, id_actualCard){   
-    var full_card = search.getOneCard(id_actualCard[num_foundedCard]);  
+    var full_card = search.getOneCard(id_actualCard);  
      mainController.initializationTransModel(full_card);
      mainController.renderPreview();
     
@@ -71,27 +73,20 @@ function SearchController() {
     for(object in hash_array)
     {
       cards_array = hash_array[object];
-      
         card_string=""; 
         var template = document.getElementById("template");
         var result = template.innerHTML;
         result = result.replace('id="user_i"', 'id = "card_'+i+'"');
        
-        id_actual[i] = cards_array["id"];
-       for(key in cards_array)
-        {
-            if(key=="first_name" || key=="last_name" || key=="patronymic" || key=="year_birth")
-            {
-              //text of one card
-              card_string += cards_array[key]+" ";        
-            }
-        }
+        id_actual = cards_array["id"];
+        //text of one card
+        card_string += cards_array["last_name"] + " " + cards_array["first_name"] + " " + cards_array["patronymic"] + ": " + cards_array["year_birth"];        
         result = result.replace("USER_NAME", card_string);
-        result = result.replace('id="edit_button"', 'id = "edit_button'+i+'"');
-        result = result.replace('id="preview_button"', 'id = "preview_button'+i+'"');
+        result = result.replace('id="edit_button"', 'id = "edit_button'+i+'" onclick="javascript:self_controller.editFoundCard('+ i+', '+ id_actual +')"');
+        result = result.replace('id="preview_button"', 'id = "preview_button'+i+'"onclick="javascript:self_controller.previewFoundCard('+ i+', '+ id_actual +')"');
 
         users.innerHTML = users.innerHTML  + result + "<br /><br />";   
-        this.addEventButtons(i);
+        //this.addEventButtons(i);
         i++;
       }
       

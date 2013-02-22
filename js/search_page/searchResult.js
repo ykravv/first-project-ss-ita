@@ -1,4 +1,4 @@
-//SearchResult model for storage of finded cards
+﻿//SearchResult model for storage of finded cards
 
 
 function SearchResult() {
@@ -17,7 +17,7 @@ function SearchResult() {
   this.getOneCard = function(id){
     var actual_card;
     for (card in cards_hash) {
-      if (cards_hash[card]["id"] === id){
+      if (cards_hash[card]["id"] == id){
         actual_card = cards_hash[card];
       }
     }

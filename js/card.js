@@ -96,9 +96,9 @@ function validation(key, value, errors, help) {
 		"INN"
 	];
 	var required_patterns = {
-		"first_name":/^[А-Я]{1}[а-я]{1,10}$/,
-		"last_name":/^[А-Я]{1}[а-я]{1,10}$/,
-		"patronymic":/^[А-Я]{1}[а-я]{1,10}$/,
+		"first_name":/^[А-Я]{1}[а-я]{1,20}$/,
+		"last_name":/^[А-Я]{1}[а-я]{1,20}$/,
+		"patronymic":/^[А-Я]{1}[а-я]{1,20}$/,
 		"passport_series":/^[А-Я]{2}$/,
 		"passport_number":/^\d{6}$/,
 		"INN":/^\d{10}$/	
